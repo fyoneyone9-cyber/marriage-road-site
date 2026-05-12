@@ -38,6 +38,16 @@ export const metadata: Metadata = {
     title: 'マレッジロードジャパン | 神奈川・厚木・海老名の結婚相談所',
     description: 'IBJ正規加盟店。会員数82,000人以上。無料相談受付中。',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon_32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon_16x16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.marriage-road.jp' },
 }
