@@ -281,7 +281,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-shrink-0">
               <img
-                src="/ibj-cert.jpg"
+                src="/ibj-cert-cropped.jpg"
                 alt="IBJ正規加盟認定証 マレッジロードジャパン 相談所No.01226"
                 className="rounded-2xl shadow-lg"
                 style={{ width: '260px', height: '260px', objectFit: 'cover', border: `2px solid ${BORDER}` }}
