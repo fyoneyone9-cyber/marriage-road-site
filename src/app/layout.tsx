@@ -64,6 +64,16 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  manifest: '/manifest.json',
+  themeColor: '#b76e79',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'マレッジロードジャパン',
+  },
+  formatDetection: {
+    telephone: true,
+  },
   robots: {
     index: true,
     follow: true,

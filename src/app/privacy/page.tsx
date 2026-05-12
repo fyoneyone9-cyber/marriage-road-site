@@ -1,3 +1,4 @@
+import QuickNav from '@/components/QuickNav'
 import Link from 'next/link'
 
 const PRIMARY = '#c9836f'
@@ -128,6 +129,7 @@ export default function PrivacyPage() {
         </div>
         <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
       </footer>
+      <QuickNav />
     </div>
   )
 }
