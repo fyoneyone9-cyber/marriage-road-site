@@ -193,7 +193,7 @@ export default function Home() {
 
       {/* ── ヒーロー ── */}
       <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, paddingTop: '80px' }}
-        className="min-h-screen flex items-center">
+        className="flex items-center">
         <div className="max-w-5xl mx-auto px-4 py-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-5"
             style={{ background: 'rgba(201,169,110,0.15)', border: `1px solid rgba(201,169,110,0.4)`, color: '#7a6020' }}>
