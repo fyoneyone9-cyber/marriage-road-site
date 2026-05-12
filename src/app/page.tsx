@@ -127,6 +127,7 @@ const NAV_LINKS = [
   ['カウンセラー紹介', '/greeting'],
   ['よくある質問', '/faq'],
   ['実績データ', '/data'],
+  ['商工会議所', '/chamber'],
   ['お問い合わせ', '/m-contact'],
 ]
 
@@ -234,6 +235,24 @@ export default function Home() {
                 {badge}
               </div>
             ))}
+          </div>
+
+          {/* 商工会議所バッジ */}
+          <div className="mt-6 flex justify-center">
+            <a href="/chamber" style={{ textDecoration: 'none' }}>
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl transition-all hover:opacity-90"
+                style={{ background: 'rgba(255,255,255,0.85)', border: `1px solid ${BORDER}`, boxShadow: '0 2px 8px rgba(45,26,26,0.08)' }}>
+                <img
+                  src="/chamber-badge.jpg"
+                  alt="海老名商工会議所 会員之証"
+                  style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '6px' }}
+                />
+                <div className="text-left">
+                  <div className="text-xs font-bold" style={{ color: TEXT }}>海老名商工会議所 公認</div>
+                  <div className="text-xs" style={{ color: MUTED }}>会員No. 4954　EBINA CHAMBER OF COMMERCE &amp; INDUSTRY</div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
