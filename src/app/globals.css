@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #c9836f;
+  --accent: #d4a96a;
+  --base: #fff8f5;
+  --surface: #fff1eb;
+  --text: #3d2c2c;
+  --muted: #8a6a60;
+  --border: #e8d5cc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
