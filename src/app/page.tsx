@@ -163,7 +163,7 @@ export default function Home() {
 
           <h1 style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: TEXT, lineHeight: 1.3 }}
             className="text-3xl md:text-5xl font-bold mb-6">
-            あなたの<span style={{ color: PRIMARY }}>"運命の人"</span>と、<br />ここで出会う。
+            あなたの<span style={{ color: PRIMARY }}>&ldquo;運命の人&rdquo;</span>と、<br />ここで出会う。
           </h1>
 
           <p className="text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style={{ color: MUTED }}>
