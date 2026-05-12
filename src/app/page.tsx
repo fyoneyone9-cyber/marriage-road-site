@@ -272,6 +272,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── IBJ認定証 ── */}
+      <section className="py-16 px-4" style={{ background: 'white' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>OFFICIAL CERTIFICATION</p>
+            <h2 className="text-xl font-semibold" style={{ color: TEXT }}>実績と信頼の証：IBJ正規加盟認定店</h2>
+            <div className="mt-2 w-12 h-0.5 mx-auto" style={{ background: PRIMARY }} />
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0">
+              <img
+                src="/ibj-cert.jpg"
+                alt="IBJ正規加盟認定証 マレッジロードジャパン 相談所No.01226"
+                className="rounded-2xl shadow-lg"
+                style={{ width: '260px', height: '260px', objectFit: 'cover', border: `2px solid ${BORDER}` }}
+              />
+              <p className="text-center text-xs mt-2 font-semibold" style={{ color: PRIMARY }}>相談所NO:01226</p>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold mb-3" style={{ color: TEXT }}>
+                日本結婚相談所連盟（IBJ）正規加盟認定店
+              </h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: MUTED }}>
+                マレッジロードジャパンは、日本最大級の結婚相談所ネットワーク「IBJ（日本結婚相談所連盟）」の正規加盟認定店として、厳格な審査のもとで認定されています。全国82,000人以上の会員と出会える信頼のネットワークです。
+              </p>
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                {[
+                  ['加盟番号', 'No.01226'],
+                  ['会員数', '82,000人以上'],
+                  ['サービス対象', '全国対応（ZOOM可）'],
+                  ['認定機関', '株式会社IBJ'],
+                ].map(([label, val]) => (
+                  <div key={label} className="rounded-lg p-3" style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
+                    <div className="text-xs mb-0.5" style={{ color: MUTED }}>{label}</div>
+                    <div className="text-sm font-bold" style={{ color: TEXT }}>{val}</div>
+                  </div>
+                ))}
+              </div>
+              <a href="/m-contact"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+                style={{ background: PRIMARY, textDecoration: 'none' }}>
+                IBJについて詳しく聞く →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 選ばれる理由 ── */}
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
