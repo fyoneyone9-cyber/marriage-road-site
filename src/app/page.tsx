@@ -1,149 +1,184 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Heart, Users, MapPin, Star, ChevronDown, ChevronUp,
   Mail, Phone, Youtube, CheckCircle, ArrowRight, Menu, X,
-  Shield, Clock, Sparkles,
+  Shield, Clock, Sparkles, Video, CreditCard, MessageCircle,
 } from 'lucide-react'
 
-// ── カラー定数 ──────────────────────────────────────
-const PRIMARY = '#c9836f'   // ローズゴールド
-const ACCENT  = '#d4a96a'   // ゴールド
-const BASE    = '#fff8f5'   // オフホワイト
-const SURFACE = '#fff1eb'   // カード背景
-const TEXT    = '#3d2c2c'   // ダークブラウン
-const MUTED   = '#8a6a60'   // ミュートテキスト
-const BORDER  = '#e8d5cc'   // ボーダー
+const PRIMARY = '#c9836f'
+const ACCENT  = '#d4a96a'
+const BASE    = '#fff8f5'
+const SURFACE = '#fff1eb'
+const TEXT    = '#3d2c2c'
+const MUTED   = '#8a6a60'
+const BORDER  = '#e8d5cc'
 
-// ── データ ───────────────────────────────────────────
 const STATS = [
-  { value: '81,721人+', label: 'IBJ全国会員数', icon: Users },
+  { value: '82,000人+', label: 'IBJ全国会員数', icon: Users },
   { value: '52,018件+', label: '月間お見合い件数', icon: Heart },
-  { value: '神奈川全域', label: '対応エリア', icon: MapPin },
-  { value: '2020年〜', label: 'サービス開始', icon: Star },
+  { value: '年中無休', label: '受付時間 10:00〜23:00', icon: Clock },
+  { value: 'NO.01226', label: 'IBJ相談所番号', icon: Star },
 ]
 
 const REASONS = [
   {
     icon: Shield,
-    title: 'IBJ正規加盟店',
-    desc: '日本最大級の結婚相談所ネットワーク「日本結婚相談所連盟（IBJ）」の正規加盟店。81,000人超の真剣婚活者の中からご紹介します。',
+    title: 'IBJ東証プライム上場の安心感',
+    desc: '日本最大級の結婚相談所ネットワーク「IBJ」正規加盟店（相談所NO.01226）。上級婚活カウンセラー資格取得済み。精神面のサポートまでお任せください。',
   },
   {
-    icon: MapPin,
-    title: '地域密着サポート',
-    desc: '厚木市・海老名市エリアを中心に、地元での出会いと結婚を全力でサポート。地域の事情を熟知したカウンセラーが親身に対応します。',
+    icon: Video,
+    title: 'オンライン＆全国対応',
+    desc: 'ZOOMでの無料説明会を毎日4枠実施中。オンラインで全国対応・神奈川県は対面対応も可能。貴重なお時間を使って足を運ぶ必要はありません。',
   },
   {
-    icon: CheckCircle,
-    title: '真剣な出会いだけ',
-    desc: '入会時に独身証明・身元確認を徹底。遊び目的の方は一切お断り。真剣にご結婚をお考えの方だけが集まる、安心・安全な場を提供します。',
+    icon: Heart,
+    title: '分かりやすい3つのプラン',
+    desc: 'ライト・スタンダード・プレミアムの3プランをご用意。初月月会費無料キャンペーン実施中。サンマリエ・ツヴァイと同じIBJSプラットフォームで高い成婚率を実現。',
   },
 ]
 
 const PLANS = [
   {
     name: 'ライトプラン',
-    enrollment: '33,000円',
-    monthly: '9,900円',
-    features: ['IBJネットワーク検索', 'お見合い申込み', 'メールサポート', '月1回カウンセリング'],
+    target: '全国対応',
+    features: [
+      '初回ヒアリング（オンライン）',
+      '都度相談（LINE・電話・メール）',
+      '会員プロフィール作成',
+      'お見合いセッティング',
+      'お見合い結果の取次',
+      '交際〜成婚までのフォロー',
+    ],
     highlight: false,
+    note: 'ご自身のペースで婚活',
   },
   {
     name: 'スタンダードプラン',
-    enrollment: '55,000円',
-    monthly: '14,850円',
-    features: ['IBJネットワーク検索', 'お見合い申込み', '優先カウンセリング', '月2回面談', 'プロフィール作成サポート'],
+    target: '全国対応',
+    features: [
+      '定期的ヒアリング（オンライン）',
+      '都度相談（LINE・電話・メール）',
+      '会員プロフィール作成',
+      'お見合い相手のご紹介',
+      'お見合いセッティング',
+      'お見合い結果の取次',
+      '交際〜成婚までのフォロー',
+      '成婚後のアフターフォロー',
+    ],
     highlight: true,
+    note: '最も選ばれているプラン',
   },
   {
     name: 'プレミアムプラン',
-    enrollment: '77,000円',
-    monthly: '19,800円',
-    features: ['IBJネットワーク検索', 'お見合い申込み', '専任カウンセラー', '月4回面談', 'プロフィール写真アドバイス', '婚活コーチング'],
+    target: '神奈川県限定',
+    features: [
+      '定期的ヒアリング（対面orオンライン）',
+      '都度相談（LINE・電話・メール）',
+      '会員プロフィール作成',
+      'お見合い相手のご紹介',
+      'お見合いセッティング',
+      'お見合い同行サポート',
+      '対面アドバイス・カウンセリング',
+      '交際〜成婚までの全活動サポート',
+      '成婚後のアフターフォロー',
+    ],
     highlight: false,
+    note: '地域密着のフルサポート',
   },
 ]
 
 const STEPS = [
-  { num: 1, title: '無料相談', desc: 'オンライン・対面どちらでもOK。まずはお気軽にご相談ください。' },
-  { num: 2, title: '入会・登録', desc: '書類確認後、プロフィール作成をサポート。素敵な第一印象を一緒に作ります。' },
-  { num: 3, title: 'お見合い申込み', desc: 'IBJシステムで全国の会員にアプローチ。理想のお相手を探します。' },
-  { num: 4, title: 'お見合い', desc: '厚木・海老名エリアのカフェや当相談所で、緊張しないようサポートします。' },
-  { num: 5, title: '交際・成婚', desc: '真剣交際から成婚へ。プロポーズのサポートまで全力でお手伝いします。' },
+  { num: 1, title: '無料相談（オンライン or 対面）', desc: 'ZOOMでの無料説明会は毎日4枠実施中。まずはお気軽にご相談ください。神奈川県にお住まいの方は対面相談も可能です。' },
+  { num: 2, title: '入会・プロフィール作成', desc: '独身証明書などの書類確認後、魅力的なプロフィールを一緒に作成。第一印象を最大限に高めます。' },
+  { num: 3, title: 'IBJSでお相手を検索・申込み', desc: 'サンマリエ・ツヴァイと同じIBJSプラットフォームで82,000人以上の会員にアプローチ。' },
+  { num: 4, title: 'お見合い', desc: '厚木・海老名エリアのカフェや相談所、またはオンラインでお見合い。緊張しないよう事前準備もサポートします。' },
+  { num: 5, title: '交際・成婚', desc: '真剣交際から成婚まで、カウンセラーが全力でサポート。成婚後のアフターフォローも充実しています。' },
 ]
 
 const FAQS = [
   {
     q: '入会に必要な書類は何ですか？',
-    a: '独身証明書・身分証明書（運転免許証等）が必要です。男性の方は収入証明書（源泉徴収票等）もご準備ください。',
+    a: '独身証明書・身分証明書（運転免許証等）が必要です。男性の方は収入証明書（源泉徴収票等）もご準備ください。Web面談でのご入会も可能です。',
   },
   {
-    q: 'お見合いはどこで行いますか？',
-    a: '厚木市・海老名市エリアのカフェや、当相談所の相談室にて行います。初めての方も安心できる落ち着いた場所をご用意します。',
+    q: 'オンラインでの相談・入会はできますか？',
+    a: 'はい、Zoomを使ったオンラインでの無料説明会・入会面談・お見合いに対応しています。全国からお申込みいただけます。毎日4枠実施中です。',
   },
   {
-    q: 'オンラインでの相談・お見合いは可能ですか？',
-    a: 'はい、ZoomやLINEビデオ通話での無料相談・お見合いも受け付けています。遠方の方やお忙しい方もお気軽にご利用ください。',
+    q: 'マッチングアプリと何が違いますか？',
+    a: '全会員が身元確認済みで、真剣に結婚を考えている方だけが在籍しています。IBJSはサンマリエ・ツヴァイと同じプラットフォームで、マッチングアプリより成婚率が高いのが特徴です。',
   },
   {
-    q: '成婚できなかった場合はどうなりますか？',
-    a: '成婚退会まで全力でサポートし続けます。活動中のご不安やお悩みもカウンセラーにいつでもご相談いただけます。',
+    q: '料金の支払い方法を教えてください。',
+    a: '銀行振り込み・メルペイ・d払い・PayPayに対応しています。初月月会費無料キャンペーンも実施中です。詳細は無料相談にてご案内します。',
   },
   {
-    q: '男性・女性の年齢層を教えてください。',
-    a: 'IBJネットワーク全体で20代〜60代まで幅広くご登録いただいています。ご希望の年齢層に合わせてご紹介します。',
+    q: '厚木・海老名以外でも利用できますか？',
+    a: 'ライトプラン・スタンダードプランは全国対応です。プレミアムプランは神奈川県限定となりますが、オンラインでは全国どこからでもご利用いただけます。',
   },
 ]
 
-// ── コンポーネント ────────────────────────────────────
+const PAYMENT_METHODS = ['銀行振り込み', 'メルペイ', 'd払い', 'PayPay']
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <div style={{ background: BASE, color: TEXT, fontFamily: 'var(--font-noto-sans-jp), sans-serif' }}>
 
       {/* ── ヘッダー ── */}
-      <header style={{ background: 'rgba(255,248,245,0.95)', borderBottom: `1px solid ${BORDER}`, backdropFilter: 'blur(8px)' }}
-        className="fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <header style={{
+        background: scrolled ? 'rgba(255,248,245,0.97)' : 'rgba(255,248,245,0.95)',
+        borderBottom: `1px solid ${BORDER}`,
+        backdropFilter: 'blur(8px)',
+        boxShadow: scrolled ? '0 2px 12px rgba(61,44,44,0.08)' : 'none',
+        transition: 'all 0.3s ease',
+      }} className="fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div>
-            <span style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: PRIMARY, fontWeight: 700, fontSize: '1.1rem' }}>
+            <div style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>
               マレッジロードジャパン
-            </span>
-            <span className="ml-2 text-xs" style={{ color: MUTED }}>Marriage Road Japan</span>
+            </div>
+            <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
           </div>
-
-          {/* デスクトップナビ */}
-          <nav className="hidden md:flex items-center gap-6 text-sm" style={{ color: MUTED }}>
-            {['特徴', '料金', '流れ', 'FAQ', 'お問い合わせ'].map((item, i) => (
-              <a key={i} href={`#${['features','pricing','steps','faq','contact'][i]}`}
-                className="hover:opacity-70 transition-opacity">{item}</a>
+          <nav className="hidden md:flex items-center gap-5 text-sm" style={{ color: MUTED }}>
+            {[['特徴', 'features'], ['プラン', 'pricing'], ['流れ', 'steps'], ['FAQ', 'faq'], ['お問い合わせ', 'contact']].map(([label, id]) => (
+              <a key={id} href={`#${id}`} className="hover:opacity-70 transition-opacity">{label}</a>
             ))}
           </nav>
-
           <div className="flex items-center gap-3">
-            <a href="#contact" className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:opacity-90"
+            <a href="tel:050-1807-3163" className="hidden md:flex items-center gap-1.5 text-sm font-medium" style={{ color: PRIMARY }}>
+              <Phone size={14} /> 050-1807-3163
+            </a>
+            <a href="#contact" className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }}>
-              無料相談を予約する <ArrowRight size={14} />
+              無料相談 <ArrowRight size={14} />
             </a>
             <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: PRIMARY }}>
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
-
-        {/* モバイルメニュー */}
         {menuOpen && (
           <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
-            {['特徴', '料金', '流れ', 'FAQ', 'お問い合わせ'].map((item, i) => (
-              <a key={i} href={`#${['features','pricing','steps','faq','contact'][i]}`}
-                onClick={() => setMenuOpen(false)}
-                className="block py-2 text-sm" style={{ color: MUTED }}>{item}</a>
+            {[['特徴', 'features'], ['プラン', 'pricing'], ['流れ', 'steps'], ['FAQ', 'faq'], ['お問い合わせ', 'contact']].map(([label, id]) => (
+              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED }}>{label}</a>
             ))}
+            <a href="tel:050-1807-3163" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 py-2 text-sm font-medium" style={{ color: PRIMARY }}>
+              <Phone size={14} /> 050-1807-3163
+            </a>
             <a href="#contact" onClick={() => setMenuOpen(false)}
-              className="block text-center py-3 rounded-full text-sm font-medium text-white mt-2"
+              className="block text-center py-3 rounded-full text-sm font-semibold text-white"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }}>
               無料相談を予約する →
             </a>
@@ -152,43 +187,54 @@ export default function Home() {
       </header>
 
       {/* ── ヒーロー ── */}
-      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #fff8f0 50%, #fdf5e8 100%)`, paddingTop: '100px' }}
+      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #fff8f0 50%, #fdf5e8 100%)`, paddingTop: '80px' }}
         className="min-h-screen flex items-center">
-        <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-8"
+        <div className="max-w-4xl mx-auto px-4 py-16 text-center">
+          {/* キャンペーンバッジ */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-5"
+            style={{ background: 'rgba(212,169,106,0.15)', border: `1px solid rgba(212,169,106,0.4)`, color: '#9a6e2e' }}>
+            🎉 初月月会費無料キャンペーン実施中
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-6 ml-2"
             style={{ background: 'rgba(201,131,111,0.12)', border: `1px solid rgba(201,131,111,0.3)`, color: PRIMARY }}>
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: PRIMARY }} />
-            IBJ正規加盟店 · 神奈川・厚木・海老名
+            IBJ正規加盟店 No.01226 · 神奈川・海老名
           </div>
 
           <h1 style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: TEXT, lineHeight: 1.3 }}
-            className="text-3xl md:text-5xl font-bold mb-6">
-            あなたの<span style={{ color: PRIMARY }}>&ldquo;運命の人&rdquo;</span>と、<br />ここで出会う。
+            className="text-3xl md:text-5xl font-bold mb-4">
+            厚木・海老名で<span style={{ color: PRIMARY }}>本気の婚活</span>なら<br />
+            マレッジロードジャパン
           </h1>
 
-          <p className="text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style={{ color: MUTED }}>
-            神奈川・厚木・海老名エリアの結婚相談所。<br />
-            IBJ加盟<strong style={{ color: TEXT }}>81,721人</strong>の中から、真剣に結婚を考えるあなたへ。
+          <p className="text-base md:text-lg mb-3 leading-relaxed max-w-2xl mx-auto" style={{ color: MUTED }}>
+            IBJ加盟<strong style={{ color: TEXT }}>82,000人以上</strong>の真剣婚活者と出会える結婚相談所。<br />
+            オンライン全国対応 · Zoom無料説明会は毎日4枠実施中
+          </p>
+
+          <p className="text-sm mb-8" style={{ color: MUTED }}>
+            <MapPin size={13} className="inline mr-1" />
+            〒243-0424 神奈川県海老名市社家6-5-2-301（JR相模線社家駅 徒歩1分）
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact"
+            <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-base transition-all hover:opacity-90 hover:scale-105"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})`, boxShadow: `0 8px 24px rgba(201,131,111,0.35)` }}>
-              <Heart size={18} /> 無料相談を予約する
+              <Video size={18} /> Zoom無料説明会を予約する
             </a>
-            <a href="https://www.marriage-road.jp" target="_blank" rel="noopener noreferrer"
+            <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all hover:opacity-80"
-              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white' }}>
-              <Users size={18} /> IBJ会員データを見る
+              style={{ border: `2px solid #06C755`, color: '#06C755', background: 'white' }}>
+              <MessageCircle size={18} /> LINEで相談する
             </a>
           </div>
 
-          {/* 信頼バッジ */}
-          <div className="mt-14 flex flex-wrap justify-center gap-6">
-            {['IBJ正規加盟店', '身元確認済み会員のみ', '無料相談受付中'].map((badge, i) => (
+          <div className="mt-10 flex flex-wrap justify-center gap-5">
+            {['IBJ正規加盟店', '身元確認済み会員のみ', '初月月会費無料', 'Zoom対応・全国OK'].map((badge, i) => (
               <div key={i} className="flex items-center gap-2 text-sm" style={{ color: MUTED }}>
-                <CheckCircle size={16} style={{ color: ACCENT }} />
+                <CheckCircle size={15} style={{ color: ACCENT }} />
                 {badge}
               </div>
             ))}
@@ -196,39 +242,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 数字セクション ── */}
-      <section style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }} className="py-16">
+      {/* ── 実績数字 ── */}
+      <section style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }} className="py-14">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {STATS.map(({ value, label, icon: Icon }, i) => (
               <div key={i} className="text-center">
-                <Icon size={28} className="mx-auto mb-3 opacity-80" style={{ color: 'white' }} />
+                <Icon size={26} className="mx-auto mb-2 opacity-80" style={{ color: 'white' }} />
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1"
                   style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>{value}</div>
-                <div className="text-sm text-white/80">{label}</div>
+                <div className="text-xs text-white/80 leading-tight">{label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 選ばれる3つの理由 ── */}
+      {/* ── 選ばれる理由 ── */}
       <section id="features" className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-sm font-medium mb-3" style={{ color: PRIMARY }}>Why Choose Us</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-              className="text-2xl md:text-3xl font-bold">選ばれる3つの理由</h2>
+          <div className="text-center mb-12">
+            <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Why Choose Us</p>
+            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+              選ばれる3つの理由
+            </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {REASONS.map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="rounded-2xl p-8 text-center hover:shadow-lg transition-shadow"
+              <div key={i} className="rounded-2xl p-7 hover:shadow-lg transition-shadow"
                 style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                   style={{ background: `rgba(201,131,111,0.12)` }}>
-                  <Icon size={26} style={{ color: PRIMARY }} />
+                  <Icon size={24} style={{ color: PRIMARY }} />
                 </div>
-                <h3 className="font-bold text-lg mb-3" style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>{title}</h3>
+                <div className="text-xs font-bold mb-1" style={{ color: ACCENT }}>0{i + 1}</div>
+                <h3 className="font-bold text-base mb-3 leading-snug"
+                  style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: MUTED }}>{desc}</p>
               </div>
             ))}
@@ -236,18 +285,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 料金プラン ── */}
-      <section id="pricing" className="py-20 px-4" style={{ background: SURFACE }}>
+      {/* ── カウンセラー紹介 ── */}
+      <section style={{ background: SURFACE }} className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Counselor</p>
+          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold mb-8">
+            代表カウンセラー
+          </h2>
+          <div className="rounded-2xl p-8 text-left" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+            <div className="flex items-start gap-6">
+              <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xl font-bold"
+                style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }}>
+                Y
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-1" style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>
+                  Yoneyama（代表）
+                </h3>
+                <p className="text-xs mb-3 font-medium" style={{ color: ACCENT }}>IBJ上級婚活カウンセラー資格取得</p>
+                <p className="text-sm leading-relaxed" style={{ color: MUTED }}>
+                  全国からのお問い合わせありがとうございます。人生最大の決断とも言える結婚。あなたの理想のパートナーを見つけて結ばれるお手伝いを、私の経験とスキルを活かしてサポートします。仕事と恋愛に趣味に、毎日が充実した生活を過ごしていただきたいと思っています。ぜひ私を頼ってください♪
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── プラン ── */}
+      <section id="pricing" className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-sm font-medium mb-3" style={{ color: PRIMARY }}>Pricing</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-              className="text-2xl md:text-3xl font-bold">料金プラン</h2>
-            <p className="mt-3 text-sm" style={{ color: MUTED }}>※表示は参考価格です。詳細は無料相談にてご案内します。</p>
+          <div className="text-center mb-12">
+            <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Plans</p>
+            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+              プラン・料金
+            </h2>
+            <p className="mt-2 text-sm" style={{ color: MUTED }}>詳細な料金は無料相談にてご案内します。初月月会費無料キャンペーン実施中！</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {PLANS.map(({ name, enrollment, monthly, features, highlight }, i) => (
-              <div key={i} className="rounded-2xl p-8 flex flex-col relative"
+            {PLANS.map(({ name, target, features, highlight, note }, i) => (
+              <div key={i} className="rounded-2xl p-7 flex flex-col relative"
                 style={{
                   background: highlight ? `linear-gradient(160deg, ${PRIMARY}, ${ACCENT})` : 'white',
                   border: highlight ? 'none' : `1px solid ${BORDER}`,
@@ -255,25 +332,26 @@ export default function Home() {
                 }}>
                 {highlight && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-white text-xs font-bold px-4 py-1 rounded-full" style={{ color: PRIMARY }}>
+                    <span className="bg-white text-xs font-bold px-4 py-1 rounded-full shadow" style={{ color: PRIMARY }}>
                       人気No.1
                     </span>
                   </div>
                 )}
-                <h3 className="text-lg font-bold mb-1" style={{ color: highlight ? 'white' : TEXT }}>{name}</h3>
-                <div className="mb-1">
-                  <span className="text-xs" style={{ color: highlight ? 'rgba(255,255,255,0.8)' : MUTED }}>入会金 </span>
-                  <span className="text-xl font-bold" style={{ color: highlight ? 'white' : TEXT }}>{enrollment}</span>
+                <div className="mb-4">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full"
+                    style={{ background: highlight ? 'rgba(255,255,255,0.2)' : `rgba(201,131,111,0.1)`, color: highlight ? 'white' : PRIMARY }}>
+                    {target}
+                  </span>
                 </div>
-                <div className="mb-6">
-                  <span className="text-xs" style={{ color: highlight ? 'rgba(255,255,255,0.8)' : MUTED }}>月会費 </span>
-                  <span className="text-xl font-bold" style={{ color: highlight ? 'white' : TEXT }}>{monthly}</span>
-                </div>
+                <h3 className="text-lg font-bold mb-1" style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: highlight ? 'white' : TEXT }}>
+                  {name}
+                </h3>
+                <p className="text-xs mb-5" style={{ color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>{note}</p>
                 <ul className="space-y-2 flex-1 mb-6">
                   {features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm"
+                    <li key={j} className="flex items-start gap-2 text-sm"
                       style={{ color: highlight ? 'rgba(255,255,255,0.9)' : MUTED }}>
-                      <CheckCircle size={14} style={{ color: highlight ? 'white' : ACCENT, flexShrink: 0 }} />
+                      <CheckCircle size={14} style={{ color: highlight ? 'white' : ACCENT, flexShrink: 0, marginTop: 2 }} />
                       {f}
                     </li>
                   ))}
@@ -284,33 +362,46 @@ export default function Home() {
                     background: highlight ? 'white' : `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})`,
                     color: highlight ? PRIMARY : 'white',
                   }}>
-                  無料相談を予約する →
+                  無料相談で詳細を聞く →
                 </a>
               </div>
             ))}
+          </div>
+          {/* 支払い方法 */}
+          <div className="mt-8 text-center">
+            <p className="text-xs mb-3" style={{ color: MUTED }}>対応支払い方法</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {PAYMENT_METHODS.map((m, i) => (
+                <span key={i} className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full"
+                  style={{ background: SURFACE, border: `1px solid ${BORDER}`, color: MUTED }}>
+                  <CreditCard size={11} style={{ color: PRIMARY }} /> {m}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 婚活の流れ ── */}
-      <section id="steps" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-sm font-medium mb-3" style={{ color: PRIMARY }}>How it Works</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-              className="text-2xl md:text-3xl font-bold">婚活の流れ</h2>
+      <section id="steps" style={{ background: SURFACE }} className="py-20 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>How it Works</p>
+            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+              ご相談から成婚までの流れ
+            </h2>
           </div>
           <div className="space-y-4">
             {STEPS.map(({ num, title, desc }, i) => (
-              <div key={i} className="flex gap-5 rounded-2xl p-6"
-                style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm"
+              <div key={i} className="flex gap-4 rounded-2xl p-5"
+                style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm"
                   style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})` }}>
                   {num}
                 </div>
                 <div>
-                  <h3 className="font-bold mb-1">{title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: MUTED }}>{desc}</p>
+                  <h3 className="font-bold text-sm mb-1">{title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: MUTED }}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -319,12 +410,13 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 px-4" style={{ background: SURFACE }}>
+      <section id="faq" className="py-20 px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-sm font-medium mb-3" style={{ color: PRIMARY }}>FAQ</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-              className="text-2xl md:text-3xl font-bold">よくある質問</h2>
+          <div className="text-center mb-12">
+            <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>FAQ</p>
+            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+              よくある質問
+            </h2>
           </div>
           <div className="space-y-3">
             {FAQS.map(({ q, a }, i) => (
@@ -338,8 +430,7 @@ export default function Home() {
                     : <ChevronDown size={18} style={{ color: PRIMARY, flexShrink: 0 }} />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 pt-3 text-sm leading-relaxed"
-                    style={{ background: BASE, color: MUTED }}>
+                  <div className="px-5 pb-5 pt-3 text-sm leading-relaxed" style={{ background: BASE, color: MUTED }}>
                     {a}
                   </div>
                 )}
@@ -350,21 +441,22 @@ export default function Home() {
       </section>
 
       {/* ── YouTube ── */}
-      <section className="py-20 px-4">
+      <section style={{ background: SURFACE }} className="py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
-            style={{ background: 'rgba(201,131,111,0.12)' }}>
-            <Youtube size={28} style={{ color: PRIMARY }} />
+            style={{ background: 'rgba(255,0,0,0.08)' }}>
+            <Youtube size={28} style={{ color: '#ff0000' }} />
           </div>
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-            className="text-2xl font-bold mb-4">YouTubeチャンネル</h2>
+          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl font-bold mb-3">
+            婚活ノウハウを動画で発信中
+          </h2>
           <p className="text-sm leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: MUTED }}>
-            婚活のリアルな情報・アドバイスを動画で発信中。<br />
-            チャンネル登録してお役立ち情報をチェックしてください。
+            婚活のリアルな情報・成婚事例・アドバイスをYouTubeで公開しています。<br />
+            チャンネル登録して最新情報をチェック！
           </p>
           <a href="https://www.youtube.com/@marriage_road" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm transition-all hover:opacity-80"
-            style={{ background: '#ff0000', color: 'white', boxShadow: '0 6px 20px rgba(255,0,0,0.2)' }}>
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-sm transition-all hover:opacity-90 hover:scale-105"
+            style={{ background: '#ff0000', boxShadow: '0 6px 20px rgba(255,0,0,0.25)' }}>
             <Youtube size={18} /> マレッジロードジャパン チャンネルを見る →
           </a>
         </div>
@@ -373,56 +465,85 @@ export default function Home() {
       {/* ── お問い合わせ ── */}
       <section id="contact" style={{ background: `linear-gradient(160deg, #fde8df 0%, #fdf5e8 100%)` }} className="py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <Sparkles size={32} className="mx-auto mb-4" style={{ color: ACCENT }} />
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}
-            className="text-2xl md:text-3xl font-bold mb-4">まずは無料相談から</h2>
-          <p className="text-sm leading-relaxed mb-10" style={{ color: MUTED }}>
-            費用や活動内容について、何でもお気軽にご相談ください。<br />
-            オンライン（Zoom / LINE）でも対面でも対応しております。
+          <Sparkles size={30} className="mx-auto mb-4" style={{ color: ACCENT }} />
+          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold mb-3">
+            まずは無料相談から
+          </h2>
+          <p className="text-sm leading-relaxed mb-2" style={{ color: MUTED }}>
+            費用・活動内容・IBJSシステムについて、何でもお気軽にご相談ください。
+          </p>
+          <p className="text-xs mb-10" style={{ color: MUTED }}>
+            <Clock size={11} className="inline mr-1" />
+            受付時間：10:00〜23:00（年中無休）
           </p>
 
           <div className="flex flex-col gap-4 max-w-sm mx-auto">
-            <a href="mailto:info@marriage-road.jp"
+            <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-4 rounded-full text-white font-semibold transition-all hover:opacity-90 hover:scale-105"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})`, boxShadow: `0 8px 24px rgba(201,131,111,0.3)` }}>
-              <Mail size={18} /> メールで相談する
+              <Video size={18} /> Zoom無料説明会を予約する
             </a>
-            <a href="tel:080-3207-8422"
-              className="flex items-center justify-center gap-3 py-4 rounded-full font-semibold transition-all hover:opacity-80"
-              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white' }}>
-              <Phone size={18} /> 080-3207-8422 に電話する
-            </a>
-            <a href="https://line.me/R/ti/p/@marriage-road" target="_blank" rel="noopener noreferrer"
+            <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-4 rounded-full text-white font-semibold transition-all hover:opacity-90"
               style={{ background: '#06C755' }}>
-              <span className="font-bold text-lg leading-none">L</span> LINEで相談する
+              <MessageCircle size={18} /> LINEで友だち追加して相談
+            </a>
+            <a href="tel:050-1807-3163"
+              className="flex items-center justify-center gap-3 py-4 rounded-full font-semibold transition-all hover:opacity-80"
+              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white' }}>
+              <Phone size={18} /> 050-1807-3163 に電話する
+            </a>
+            <a href="mailto:info@marriage-road.jp"
+              className="flex items-center justify-center gap-3 py-3 rounded-full text-sm transition-all hover:opacity-70"
+              style={{ color: MUTED }}>
+              <Mail size={15} /> info@marriage-road.jp
             </a>
           </div>
+        </div>
+      </section>
 
-          <p className="mt-8 text-xs" style={{ color: MUTED }}>
-            <Clock size={12} className="inline mr-1" />
-            受付時間：10:00〜20:00（土日祝も対応可）
-          </p>
+      {/* ── アクセス ── */}
+      <section className="py-16 px-4" style={{ background: SURFACE }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-xl font-bold mb-6">
+            アクセス
+          </h2>
+          <div className="rounded-2xl p-6 text-left space-y-2" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+            <div className="flex items-start gap-3">
+              <MapPin size={16} style={{ color: PRIMARY, flexShrink: 0, marginTop: 2 }} />
+              <div>
+                <p className="text-sm font-medium">〒243-0424 神奈川県海老名市社家6-5-2-301</p>
+                <p className="text-xs mt-0.5" style={{ color: MUTED }}>JR相模線 社家駅 徒歩1分 · 駐車場あり</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Clock size={16} style={{ color: PRIMARY, flexShrink: 0 }} />
+              <p className="text-sm">受付時間：10:00〜23:00（年中無休）</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <Phone size={16} style={{ color: PRIMARY, flexShrink: 0 }} />
+              <a href="tel:050-1807-3163" className="text-sm font-medium hover:opacity-70" style={{ color: PRIMARY }}>050-1807-3163</a>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── フッター ── */}
       <footer className="py-10 px-4 text-center text-xs" style={{ background: '#3d2c2c', color: 'rgba(255,255,255,0.6)' }}>
-        <div className="mb-3">
-          <span className="font-semibold text-sm text-white"
-            style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>
+        <div className="mb-2">
+          <span className="font-semibold text-sm text-white" style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>
             マレッジロードジャパン
           </span>
           <span className="ml-2 opacity-60">Marriage Road Japan</span>
         </div>
-        <p className="mb-2">
-          神奈川県海老名市 ·{' '}
-          <a href="mailto:info@marriage-road.jp" className="underline hover:opacity-80">info@marriage-road.jp</a>
+        <p className="mb-1">〒243-0424 神奈川県海老名市社家6-5-2-301</p>
+        <p className="mb-1">
+          <a href="tel:050-1807-3163" className="hover:opacity-80">050-1807-3163</a>
+          {' · '}
+          <a href="mailto:info@marriage-road.jp" className="hover:opacity-80">info@marriage-road.jp</a>
         </p>
-        <p className="mb-4">
-          日本結婚相談所連盟（IBJ）正規加盟店
-        </p>
-        <div className="flex justify-center gap-6 mb-4">
+        <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 相談所No.01226</p>
+        <div className="flex justify-center gap-5 mb-4">
           <a href="/privacy" className="hover:opacity-80">プライバシーポリシー</a>
           <a href="/terms" className="hover:opacity-80">利用規約</a>
           <a href="#contact" className="hover:opacity-80">お問い合わせ</a>
