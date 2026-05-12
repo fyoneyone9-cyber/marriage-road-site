@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Noto_Serif_JP, Noto_Sans_JP } from 'next/font/google'
+import { Inter, Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
 
-const notoSerifJP = Noto_Serif_JP({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-noto-serif-jp',
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -19,7 +19,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: 'マレッジロードジャパン | 神奈川・厚木・海老名の結婚相談所【IBJ加盟】',
   description:
-    '神奈川県海老名市・厚木市の結婚相談所「マレッジロードジャパン」。日本結婚相談所連盟（IBJ）正規加盟店。会員数81,721人以上のネットワークで、真剣な出会いをサポートします。無料相談受付中。',
+    '神奈川県海老名市・厚木市の結婚相談所「マレッジロードジャパン」。日本結婚相談所連盟（IBJ）正規加盟店。会員数82,000人以上のネットワークで、真剣な出会いをサポートします。無料相談受付中。',
   keywords: [
     '結婚相談所', '海老名市', '厚木市', '神奈川', '婚活',
     'IBJ', '日本結婚相談所連盟', 'マレッジロードジャパン', 'Marriage Road Japan',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'マレッジロードジャパン | 神奈川・厚木・海老名の結婚相談所',
-    description: 'IBJ正規加盟店。会員数81,721人以上のネットワークで真剣な出会いをサポートします。',
+    description: 'IBJ正規加盟店。会員数82,000人以上のネットワークで真剣な出会いをサポートします。',
     url: 'https://www.marriage-road.jp',
     siteName: 'マレッジロードジャパン',
     locale: 'ja_JP',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'マレッジロードジャパン | 神奈川・厚木・海老名の結婚相談所',
-    description: 'IBJ正規加盟店。会員数81,721人以上。無料相談受付中。',
+    description: 'IBJ正規加盟店。会員数82,000人以上。無料相談受付中。',
   },
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://www.marriage-road.jp' },
@@ -49,11 +49,13 @@ const jsonLd = {
   alternateName: 'Marriage Road Japan',
   url: 'https://www.marriage-road.jp',
   email: 'info@marriage-road.jp',
-  telephone: '080-3207-8422',
+  telephone: '050-1807-3163',
   address: {
     '@type': 'PostalAddress',
+    postalCode: '243-0424',
     addressRegion: '神奈川県',
     addressLocality: '海老名市',
+    streetAddress: '泉6-5-2-301',
     addressCountry: 'JP',
   },
   areaServed: [
@@ -75,7 +77,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${notoSerifJP.variable} ${notoSansJP.variable} font-sans bg-[#fff8f5] text-[#3d2c2c] antialiased`}>
+      <body
+        className={`${inter.variable} ${notoSansJP.variable} font-sans bg-[#fff8f5] text-[#3d2c2c] antialiased`}
+        style={{ fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}
+      >
         {children}
       </body>
     </html>

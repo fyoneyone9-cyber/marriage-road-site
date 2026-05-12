@@ -16,26 +16,26 @@ const BORDER  = '#e8d5cc'
 
 const STATS = [
   { value: '82,000人+', label: 'IBJ全国会員数', icon: Users },
-  { value: '52,018件+', label: '月間お見合い件数', icon: Heart },
+  { value: '52,018組+', label: '成婚カップル数', icon: Heart },
   { value: '年中無休', label: '受付時間 10:00〜23:00', icon: Clock },
-  { value: 'NO.01226', label: 'IBJ相談所番号', icon: Star },
+  { value: 'NO.01226', label: 'IBJ登録番号', icon: Star },
 ]
 
 const REASONS = [
   {
     icon: Shield,
-    title: 'IBJ東証プライム上場の安心感',
-    desc: '日本最大級の結婚相談所ネットワーク「IBJ」正規加盟店（相談所NO.01226）。上級婚活カウンセラー資格取得済み。精神面のサポートまでお任せください。',
+    title: 'IBJプライバシーの安全性',
+    desc: '日本最大級の結婚相談所ネットワーク「IBJ」正規加盟店（登録番号No.01226）。上級仲人カウンセラー資格取得済み。細やかなサポートまでお任せください。',
   },
   {
     icon: Video,
-    title: 'オンライン＆全国対応',
-    desc: 'ZOOMでの無料説明会を毎日4枠実施中。オンラインで全国対応・神奈川県は対面対応も可能。貴重なお時間を使って足を運ぶ必要はありません。',
+    title: 'オンライン完全対応',
+    desc: 'ZOOMでの無料相談は毎週4枠実施。オンラインで全国対応・神奈川県は対面対応も可能。貴重なお時間を使わず遠方でも必要はありません。',
   },
   {
     icon: Heart,
-    title: '分かりやすい3つのプラン',
-    desc: 'ライト・スタンダード・プレミアムの3プランをご用意。初月月会費無料キャンペーン実施中。サンマリエ・ツヴァイと同じIBJSプラットフォームで高い成婚率を実現。',
+    title: '選びやすい3つのプラン',
+    desc: 'ライト・スタンダード・プレミアムの3プランを用意。初月月会費無料キャンペーン実施中。サンマリエ・ツヴァイと同じIBJSプラットフォームで最適なお相手を探せます。',
   },
 ]
 
@@ -44,83 +44,81 @@ const PLANS = [
     name: 'ライトプラン',
     target: '全国対応',
     features: [
-      '初回ヒアリング（オンライン）',
-      '都度相談（LINE・電話・メール）',
-      '会員プロフィール作成',
-      'お見合いセッティング',
-      'お見合い結果の取次',
-      '交際〜成婚までのフォロー',
+      '無料相談・ヒアリング（オンライン）',
+      '随時連絡（LINE・電話・メール）',
+      '婚活プロフィール作成',
+      '活動サポートミーティング',
+      '活動〜成婚までのフォロー',
     ],
     highlight: false,
-    note: 'ご自身のペースで婚活',
+    note: '自分のペースで活動',
   },
   {
     name: 'スタンダードプラン',
     target: '全国対応',
     features: [
-      '定期的ヒアリング（オンライン）',
-      '都度相談（LINE・電話・メール）',
-      '会員プロフィール作成',
-      'お見合い相手のご紹介',
-      'お見合いセッティング',
-      'お見合い結果の取次',
-      '交際〜成婚までのフォロー',
+      '無料相談・ヒアリング（オンライン）',
+      '随時連絡（LINE・電話・メール）',
+      '婚活プロフィール作成',
+      '毎月お相手のご紹介',
+      '活動サポートミーティング',
+      '活動〜成婚までのフォロー',
       '成婚後のアフターフォロー',
     ],
     highlight: true,
-    note: '最も選ばれているプラン',
+    note: '一番選ばれているプラン',
   },
   {
     name: 'プレミアムプラン',
     target: '神奈川県限定',
     features: [
-      '定期的ヒアリング（対面orオンライン）',
-      '都度相談（LINE・電話・メール）',
-      '会員プロフィール作成',
-      'お見合い相手のご紹介',
-      'お見合いセッティング',
-      'お見合い同行サポート',
+      '無料相談・ヒアリング（対面orオンライン）',
+      '随時連絡（LINE・電話・メール）',
+      '婚活プロフィール作成',
+      '毎月お相手のご紹介',
+      '活動サポートミーティング',
+      '活動全般サポート',
       '対面アドバイス・カウンセリング',
-      '交際〜成婚までの全活動サポート',
+      '活動〜成婚まで全力サポート',
       '成婚後のアフターフォロー',
     ],
     highlight: false,
-    note: '地域密着のフルサポート',
+    note: '神奈川県のフルサポート',
   },
 ]
 
 const STEPS = [
-  { num: 1, title: '無料相談（オンライン or 対面）', desc: 'ZOOMでの無料説明会は毎日4枠実施中。まずはお気軽にご相談ください。神奈川県にお住まいの方は対面相談も可能です。' },
-  { num: 2, title: '入会・プロフィール作成', desc: '独身証明書などの書類確認後、魅力的なプロフィールを一緒に作成。第一印象を最大限に高めます。' },
-  { num: 3, title: 'IBJSでお相手を検索・申込み', desc: 'サンマリエ・ツヴァイと同じIBJSプラットフォームで82,000人以上の会員にアプローチ。' },
-  { num: 4, title: 'お見合い', desc: '厚木・海老名エリアのカフェや相談所、またはオンラインでお見合い。緊張しないよう事前準備もサポートします。' },
-  { num: 5, title: '交際・成婚', desc: '真剣交際から成婚まで、カウンセラーが全力でサポート。成婚後のアフターフォローも充実しています。' },
+  { num: 1, title: '無料相談（オンライン or 対面）', desc: 'ZOOMでの無料相談は毎週4枠実施。まずはお気軽にご相談ください。神奈川県にお住まいの方は対面相談も可能です。' },
+  { num: 2, title: '登録・プロフィール作成', desc: '身分証明書などの書類確認後、魅力的なプロフィールを一緒に作成。審査を経て最適に仕上げます。' },
+  { num: 3, title: 'IBJSでのお相手検索・お見合い', desc: 'サンマリエ・ツヴァイと同じIBJSプラットフォームで82,000人以上の会員にアプローチ。' },
+  { num: 4, title: 'デート', desc: '近郊エリアのカフェや結婚式場、またはオンラインでデートを重ねます。緊張しないよう事前しっかりサポートします。' },
+  { num: 5, title: '婚約・成婚', desc: 'ご成婚まで、カウンセラーが全力でサポート。成婚後のアフターフォローも充実しています。' },
 ]
 
 const FAQS = [
   {
-    q: '入会に必要な書類は何ですか？',
-    a: '独身証明書・身分証明書（運転免許証等）が必要です。男性の方は収入証明書（源泉徴収票等）もご準備ください。Web面談でのご入会も可能です。',
+    q: '活動に必要な書類は何ですか？',
+    a: '身分証明書・卒業証明書（大卒以上の場合）が必要です。男性の方は収入証明書（源泉徴収票等）もお願いしています。Web上での書類提出も可能です。',
   },
   {
-    q: 'オンラインでの相談・入会はできますか？',
-    a: 'はい、Zoomを使ったオンラインでの無料説明会・入会面談・お見合いに対応しています。全国からお申込みいただけます。毎日4枠実施中です。',
+    q: 'オンラインでの相談・活動はできますか？',
+    a: 'はい、Zoomを使ったオンラインでの無料相談・活動全般に対応しています。全国どこからでもお気軽にご相談いただけます。無料相談は毎週4枠実施しています。',
   },
   {
     q: 'マッチングアプリと何が違いますか？',
-    a: '全会員が身元確認済みで、真剣に結婚を考えている方だけが在籍しています。IBJSはサンマリエ・ツヴァイと同じプラットフォームで、マッチングアプリより成婚率が高いのが特徴です。',
+    a: '全会員が登録審査済みで、真剣に結婚を考えた方のみが参加しています。IBJSはサンマリエ・ツヴァイと同じプラットフォームで、マッチングアプリよりも成婚率が高いサービスです。',
   },
   {
     q: '料金の支払い方法を教えてください。',
-    a: '銀行振り込み・メルペイ・d払い・PayPayに対応しています。初月月会費無料キャンペーンも実施中です。詳細は無料相談にてご案内します。',
+    a: '銀行振込・楽天ペイ・d払い・PayPayに対応しています。初月月会費無料キャンペーンも実施中です。詳細は無料相談にてご案内します。',
   },
   {
-    q: '厚木・海老名以外でも利用できますか？',
+    q: '神奈川県以外でも利用できますか？',
     a: 'ライトプラン・スタンダードプランは全国対応です。プレミアムプランは神奈川県限定となりますが、オンラインでは全国どこからでもご利用いただけます。',
   },
 ]
 
-const PAYMENT_METHODS = ['銀行振り込み', 'メルペイ', 'd払い', 'PayPay']
+const PAYMENT_METHODS = ['銀行振込', '楽天ペイ', 'd払い', 'PayPay']
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -134,7 +132,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div style={{ background: BASE, color: TEXT, fontFamily: 'var(--font-noto-sans-jp), sans-serif' }}>
+    <div style={{ background: BASE, color: TEXT, fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
 
       {/* ── ヘッダー ── */}
       <header style={{
@@ -146,7 +144,7 @@ export default function Home() {
       }} className="fixed top-0 left-0 right-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div>
-            <div style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>
+            <div style={{ color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>
               マレッジロードジャパン
             </div>
             <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
@@ -202,7 +200,7 @@ export default function Home() {
             IBJ正規加盟店 No.01226 · 神奈川・海老名
           </div>
 
-          <h1 style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: TEXT, lineHeight: 1.3 }}
+          <h1 style={{ color: TEXT, lineHeight: 1.3 }}
             className="text-3xl md:text-5xl font-bold mb-4">
             厚木・海老名で<span style={{ color: PRIMARY }}>本気の婚活</span>なら<br />
             マレッジロードジャパン
@@ -210,19 +208,19 @@ export default function Home() {
 
           <p className="text-base md:text-lg mb-3 leading-relaxed max-w-2xl mx-auto" style={{ color: MUTED }}>
             IBJ加盟<strong style={{ color: TEXT }}>82,000人以上</strong>の真剣婚活者と出会える結婚相談所。<br />
-            オンライン全国対応 · Zoom無料説明会は毎日4枠実施中
+            オンライン全国対応 · ZOOM無料相談は毎週4枠実施
           </p>
 
           <p className="text-sm mb-8" style={{ color: MUTED }}>
             <MapPin size={13} className="inline mr-1" />
-            〒243-0424 神奈川県海老名市社家6-5-2-301（JR相模線社家駅 徒歩1分）
+            〒243-0424 神奈川県海老名市泉6-5-2-301
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-base transition-all hover:opacity-90 hover:scale-105"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})`, boxShadow: `0 8px 24px rgba(201,131,111,0.35)` }}>
-              <Video size={18} /> Zoom無料説明会を予約する
+              <Video size={18} /> ZOOM無料相談を予約する
             </a>
             <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base transition-all hover:opacity-80"
@@ -232,7 +230,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-5">
-            {['IBJ正規加盟店', '身元確認済み会員のみ', '初月月会費無料', 'Zoom対応・全国OK'].map((badge, i) => (
+            {['IBJ正規加盟店', '登録審査済み会員のみ', '初月月会費無料', 'ZOOM対応・全国OK'].map((badge, i) => (
               <div key={i} className="flex items-center gap-2 text-sm" style={{ color: MUTED }}>
                 <CheckCircle size={15} style={{ color: ACCENT }} />
                 {badge}
@@ -249,8 +247,7 @@ export default function Home() {
             {STATS.map(({ value, label, icon: Icon }, i) => (
               <div key={i} className="text-center">
                 <Icon size={26} className="mx-auto mb-2 opacity-80" style={{ color: 'white' }} />
-                <div className="text-2xl md:text-3xl font-bold text-white mb-1"
-                  style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>{value}</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">{value}</div>
                 <div className="text-xs text-white/80 leading-tight">{label}</div>
               </div>
             ))}
@@ -263,7 +260,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Why Choose Us</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl font-bold">
               選ばれる3つの理由
             </h2>
           </div>
@@ -276,8 +273,7 @@ export default function Home() {
                   <Icon size={24} style={{ color: PRIMARY }} />
                 </div>
                 <div className="text-xs font-bold mb-1" style={{ color: ACCENT }}>0{i + 1}</div>
-                <h3 className="font-bold text-base mb-3 leading-snug"
-                  style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>{title}</h3>
+                <h3 className="font-bold text-base mb-3 leading-snug">{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: MUTED }}>{desc}</p>
               </div>
             ))}
@@ -289,7 +285,7 @@ export default function Home() {
       <section style={{ background: SURFACE }} className="py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Counselor</p>
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">
             代表カウンセラー
           </h2>
           <div className="rounded-2xl p-8 text-left" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
@@ -299,10 +295,10 @@ export default function Home() {
                 Y
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-1" style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>
-                  Yoneyama（代表）
+                <h3 className="font-bold text-lg mb-1">
+                  米山文貴（代表）
                 </h3>
-                <p className="text-xs mb-3 font-medium" style={{ color: ACCENT }}>IBJ上級婚活カウンセラー資格取得</p>
+                <p className="text-xs mb-3 font-medium" style={{ color: ACCENT }}>IBJ上級仲人カウンセラー資格取得</p>
                 <p className="text-sm leading-relaxed" style={{ color: MUTED }}>
                   全国からのお問い合わせありがとうございます。人生最大の決断とも言える結婚。あなたの理想のパートナーを見つけて結ばれるお手伝いを、私の経験とスキルを活かしてサポートします。仕事と恋愛に趣味に、毎日が充実した生活を過ごしていただきたいと思っています。ぜひ私を頼ってください♪
                 </p>
@@ -317,7 +313,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>Plans</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl font-bold">
               プラン・料金
             </h2>
             <p className="mt-2 text-sm" style={{ color: MUTED }}>詳細な料金は無料相談にてご案内します。初月月会費無料キャンペーン実施中！</p>
@@ -343,7 +339,7 @@ export default function Home() {
                     {target}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold mb-1" style={{ fontFamily: 'var(--font-noto-serif-jp), serif', color: highlight ? 'white' : TEXT }}>
+                <h3 className="text-lg font-bold mb-1" style={{ color: highlight ? 'white' : TEXT }}>
                   {name}
                 </h3>
                 <p className="text-xs mb-5" style={{ color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>{note}</p>
@@ -387,7 +383,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>How it Works</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl font-bold">
               ご相談から成婚までの流れ
             </h2>
           </div>
@@ -414,7 +410,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-sm font-medium mb-2" style={{ color: PRIMARY }}>FAQ</p>
-            <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl font-bold">
               よくある質問
             </h2>
           </div>
@@ -447,7 +443,7 @@ export default function Home() {
             style={{ background: 'rgba(255,0,0,0.08)' }}>
             <Youtube size={28} style={{ color: '#ff0000' }} />
           </div>
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl font-bold mb-3">
+          <h2 className="text-2xl font-bold mb-3">
             婚活ノウハウを動画で発信中
           </h2>
           <p className="text-sm leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: MUTED }}>
@@ -466,7 +462,7 @@ export default function Home() {
       <section id="contact" style={{ background: `linear-gradient(160deg, #fde8df 0%, #fdf5e8 100%)` }} className="py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
           <Sparkles size={30} className="mx-auto mb-4" style={{ color: ACCENT }} />
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-2xl md:text-3xl font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             まずは無料相談から
           </h2>
           <p className="text-sm leading-relaxed mb-2" style={{ color: MUTED }}>
@@ -481,7 +477,7 @@ export default function Home() {
             <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-4 rounded-full text-white font-semibold transition-all hover:opacity-90 hover:scale-105"
               style={{ background: `linear-gradient(135deg, ${PRIMARY}, ${ACCENT})`, boxShadow: `0 8px 24px rgba(201,131,111,0.3)` }}>
-              <Video size={18} /> Zoom無料説明会を予約する
+              <Video size={18} /> ZOOM無料相談を予約する
             </a>
             <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 py-4 rounded-full text-white font-semibold transition-all hover:opacity-90"
@@ -505,15 +501,15 @@ export default function Home() {
       {/* ── アクセス ── */}
       <section className="py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }} className="text-xl font-bold mb-6">
+          <h2 className="text-xl font-bold mb-6">
             アクセス
           </h2>
           <div className="rounded-2xl p-6 text-left space-y-2" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
             <div className="flex items-start gap-3">
               <MapPin size={16} style={{ color: PRIMARY, flexShrink: 0, marginTop: 2 }} />
               <div>
-                <p className="text-sm font-medium">〒243-0424 神奈川県海老名市社家6-5-2-301</p>
-                <p className="text-xs mt-0.5" style={{ color: MUTED }}>JR相模線 社家駅 徒歩1分 · 駐車場あり</p>
+                <p className="text-sm font-medium">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+                <p className="text-xs mt-0.5" style={{ color: MUTED }}>駐車場あり</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -531,21 +527,22 @@ export default function Home() {
       {/* ── フッター ── */}
       <footer className="py-10 px-4 text-center text-xs" style={{ background: '#3d2c2c', color: 'rgba(255,255,255,0.6)' }}>
         <div className="mb-2">
-          <span className="font-semibold text-sm text-white" style={{ fontFamily: 'var(--font-noto-serif-jp), serif' }}>
+          <span className="font-semibold text-sm text-white">
             マレッジロードジャパン
           </span>
           <span className="ml-2 opacity-60">Marriage Road Japan</span>
         </div>
-        <p className="mb-1">〒243-0424 神奈川県海老名市社家6-5-2-301</p>
+        <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
         <p className="mb-1">
           <a href="tel:050-1807-3163" className="hover:opacity-80">050-1807-3163</a>
           {' · '}
           <a href="mailto:info@marriage-road.jp" className="hover:opacity-80">info@marriage-road.jp</a>
         </p>
-        <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 相談所No.01226</p>
+        <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
         <div className="flex justify-center gap-5 mb-4">
           <a href="/privacy" className="hover:opacity-80">プライバシーポリシー</a>
           <a href="/terms" className="hover:opacity-80">利用規約</a>
+          <a href="/tokusho" className="hover:opacity-80">特定商取引法</a>
           <a href="#contact" className="hover:opacity-80">お問い合わせ</a>
         </div>
         <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
