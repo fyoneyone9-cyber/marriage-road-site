@@ -16,8 +16,7 @@ const NAV_LINKS = [
   ['ご入会の流れ', '/flow'],
   ['カウンセラー紹介', '/greeting'],
   ['よくある質問', '/faq'],
-  ['実績データ', '/data'],
-  ['お問い合わせ', '/m-contact'],
+  ['商工会議所', '/chamber'],
 ]
 
 const features = [
@@ -54,12 +53,12 @@ function SiteHeader() {
       boxShadow: scrolled ? '0 2px 12px rgba(45,32,32,0.08)' : 'none',
       transition: 'box-shadow 0.3s ease',
     }} className="fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" style={{ textDecoration: 'none' }}>
           <div style={{ color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>マレッジロードジャパン</div>
           <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
         </a>
-        <nav className="hidden md:flex items-center gap-5 text-sm">
+        <nav className="hidden md:flex items-center gap-4 text-xs">
           {NAV_LINKS.map(([label, href]) => (
             <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
           ))}
