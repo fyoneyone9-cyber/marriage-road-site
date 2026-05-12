@@ -98,7 +98,51 @@ function SiteHeader() {
 
 function SiteFooter() {
   return (
-    <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
+    
+      {/* ── 口コミ ── */}
+      <section className="py-16 px-4" style={{ background: '#fff2ee' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-medium mb-1" style={{ color: '#b76e79' }}>Reviews</p>
+            <h2 className="text-xl font-semibold">プランを選んだ方の声</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: '30代女性・会社員',
+                plan: 'ライトプラン利用',
+                text: 'まず費用を抑えて試してみたくてライトプランから。自分のペースで動けるのが良くて、途中で迷ったときもすぐ相談に乗ってもらえました。自分には合っていました。',
+                stars: 5,
+              },
+              {
+                name: '30代男性・エンジニア',
+                plan: 'スタンダードプラン利用',
+                text: '毎月ご紹介いただけるのが良かった。自分では探せない方と出会えて、結果的に6ヶ月で成婚できました。料金も他の相談所と比べて明瞭で安心して始めました。',
+                stars: 5,
+              },
+              {
+                name: '40代女性・医療従事者',
+                plan: 'プレミアムプラン利用',
+                text: '対面でカウンセリングしていただけるのが決め手でした。些細な悩みも話しやすくて、活動中ずっと安心感がありました。神奈川在住の方には特におすすめです。',
+                stars: 5,
+              },
+            ].map((r, i) => (
+              <div key={i} className="rounded-xl p-6 bg-white" style={{ border: `1px solid ${'#e8d5d0'}` }}>
+                <div className="flex gap-0.5 mb-1">
+                  {[...Array(r.stars)].map((_, j) => (
+                    <span key={j} style={{ color: '#c9a96e' }}>★</span>
+                  ))}
+                </div>
+                <div className="text-xs font-medium mb-3" style={{ color: '#b76e79' }}>{r.plan}</div>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#2d2020' }}>「{r.text}」</p>
+                <div className="text-xs font-semibold" style={{ color: '#8a6a6a' }}>{r.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
       <div className="mb-2">
         <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
         <span className="ml-2 opacity-60">Marriage Road Japan</span>

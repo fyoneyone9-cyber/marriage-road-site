@@ -74,7 +74,47 @@ function SiteHeader() {
 
 function SiteFooter() {
   return (
-    <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
+    
+      {/* ── 口コミ ── */}
+      <section className="py-16 px-4" style={{ background: '#fff2ee' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-medium mb-1" style={{ color: '#b76e79' }}>Reviews</p>
+            <h2 className="text-xl font-semibold">カウンセラーへの感謝の声</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: '30代女性',
+                text: '話しやすくて、婚活の悩みを正直に打ち明けられました。弱音を吐いても否定せず、一緒に考えてくれる姿勢がずっと心強かったです。',
+                stars: 5,
+              },
+              {
+                name: '30代男性',
+                text: 'プロフィール写真のアドバイスが的確で、修正後にお見合いの申し込み数が3倍になりました。細かいところまで見てもらえて本当に助かりました。',
+                stars: 5,
+              },
+              {
+                name: '40代男性',
+                text: '焦らせず、自分のペースを尊重してくれたのが一番良かったです。「この人がいるから大丈夫」と思えるカウンセラーに出会えたことが成婚につながったと思います。',
+                stars: 5,
+              },
+            ].map((r, i) => (
+              <div key={i} className="rounded-xl p-6 bg-white" style={{ border: `1px solid ${'#e8d5d0'}` }}>
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(r.stars)].map((_, j) => (
+                    <span key={j} style={{ color: '#c9a96e' }}>★</span>
+                  ))}
+                </div>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#2d2020' }}>「{r.text}」</p>
+                <div className="text-xs font-semibold" style={{ color: '#8a6a6a' }}>{r.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
       <div className="mb-2">
         <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
         <span className="ml-2 opacity-60">Marriage Road Japan</span>

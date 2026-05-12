@@ -370,6 +370,53 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* ── 口コミ ── */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-medium mb-1" style={{ color: '#b76e79' }}>Reviews</p>
+            <h2 className="text-xl font-semibold">ご成婚者の声</h2>
+            <p className="text-xs mt-1" style={{ color: '#8a6a6a' }}>実際にマレッジロードジャパンでご成婚された方々からのコメントです</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: '30代男性・会社員',
+                area: '神奈川県在住',
+                text: 'マッチングアプリで2年間うまくいかず、半信半疑で相談しました。カウンセラーにプロフィールを一緒に見直してもらってから、お見合いの数が一気に増えて。入会から5ヶ月で成婚できました。',
+                stars: 5,
+              },
+              {
+                name: '30代女性・看護師',
+                area: '東京都在住（オンライン利用）',
+                text: '仕事が不規則でなかなか活動できるか不安でしたが、オンラインで全部完結できたのが本当に助かりました。夜遅くでも相談に乗っていただけて、無理なく続けられました。',
+                stars: 5,
+              },
+              {
+                name: '40代男性・自営業',
+                area: '神奈川県在住',
+                text: '年齢的に諦めかけていましたが、IBJのネットワークで同じ価値観の方と出会えました。焦らせず自分のペースを尊重してくださったのが一番良かったです。',
+                stars: 5,
+              },
+            ].map((r, i) => (
+              <div key={i} className="rounded-xl p-6" style={{ background: '#fff2ee', border: `1px solid ${'#e8d5d0'}` }}>
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(r.stars)].map((_, j) => (
+                    <span key={j} style={{ color: '#c9a96e' }}>★</span>
+                  ))}
+                </div>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#2d2020' }}>「{r.text}」</p>
+                <div>
+                  <div className="text-xs font-semibold" style={{ color: '#2d2020' }}>{r.name}</div>
+                  <div className="text-xs" style={{ color: '#8a6a6a' }}>{r.area}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-5xl mx-auto">

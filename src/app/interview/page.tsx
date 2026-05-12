@@ -1,0 +1,223 @@
+'use client'
+import { useState, useEffect } from 'react'
+import { Menu, X, Phone, ArrowRight, Heart } from 'lucide-react'
+
+const PRIMARY = '#b76e79'
+const ACCENT  = '#c9a96e'
+const BASE    = '#faf7f5'
+const SURFACE = '#fff2ee'
+const TEXT    = '#2d2020'
+const MUTED   = '#8a6a6a'
+const BORDER  = '#e8d5d0'
+
+const QA = [
+  {
+    q: '結婚相談所を開業しようと思ったきっかけは何ですか？',
+    a: '身近な友人が婚活で苦労しているのを見ていたんです。マッチングアプリで出会っても、真剣度がバラバラで疲弊していく姿を何人も見てきました。「ちゃんと結婚を考えている人だけが集まる場所があれば」と思ったのが最初のきっかけです。',
+  },
+  {
+    q: 'なぜIBJ（日本結婚相談所連盟）に加盟したんですか？',
+    a: '規模と信頼性です。82,000人以上の会員がいて、全員が入会審査済み。サンマリエやツヴァイと同じプラットフォームを使えるというのは、個人の相談所としては大きな強みです。お客様に「本物の出会い」を提供したいなら、ここしかないと思いました。',
+  },
+  {
+    q: '神奈川・海老名という場所を選んだ理由は？',
+    a: '地元だからですね（笑）。でも実は、海老名・厚木・大和エリアって意外と結婚相談所が少ないんですよ。東京や横浜に出るほどでもないけど、地元でちゃんと相談できる場所が欲しいという方が多い。だからこそ需要があると思いました。',
+  },
+  {
+    q: 'オンライン対応にこだわっているのはなぜですか？',
+    a: '婚活って、忙しい人ほど必要としていると思うんです。仕事が終わって夜にZOOMで30分相談できる、それだけで全然違う。交通費も時間もかからない。オンラインで全国対応にしたことで、遠方の方からもご相談いただけるようになりました。',
+  },
+  {
+    q: '実際に成婚された方を見てどう感じましたか？',
+    a: '正直、毎回ジーンとします。最初にご相談いただいたときの不安そうな顔と、成婚報告のときの表情がまったく違うんです。「あの一歩を踏み出してよかった」と言ってもらえる瞬間が、この仕事を続ける一番の理由ですね。',
+  },
+  {
+    q: '婚活で一番大事なことって何だと思いますか？',
+    a: '「自分を知ること」だと思います。どんな相手を求めているかより、自分がどんな人間で、何を大切にしているかを整理することが先。それができると、プロフィールも変わるし、お見合いでの話し方も変わる。自然と相手に伝わるものが変わってくるんです。',
+  },
+  {
+    q: 'マッチングアプリと何が違うのか、正直に教えてください。',
+    a: '一言で言うと「覚悟の違い」です。相談所に登録する人は、お金と時間をかけて来ている。それだけで、真剣度がまるで違う。アプリは気軽に始められる分、気軽にやめられる。相談所は、ちゃんと結婚したい人だけが集まる場所です。',
+  },
+  {
+    q: '開業して一番しんどかったことは？',
+    a: '最初のお客様を迎えるまでの期間ですね（笑）。「本当に来てくれるのか」という不安は正直ありました。でも一人目のお客様が「ここに相談してよかった」と言ってくださって、それで吹っ切れました。今は一人ひとりに全力で向き合うだけだと思っています。',
+  },
+  {
+    q: 'どんな人に来てほしいですか？',
+    a: '「そろそろ本気で考えないといけないけど、どこから始めればいいかわからない」という方に来てほしいですね。完璧に準備できていなくていい。まず話を聞きに来てください。一緒に考えます。',
+  },
+  {
+    q: 'これから婚活を始める人へ一言。',
+    a: '「始めるのに遅すぎることはない」。これだけです。迷っている時間が一番もったいない。最初の無料相談は完全にノーリスク。気が向いたらいつでも来てください。お待ちしています。',
+  },
+]
+
+export default function InterviewPage() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div style={{ background: BASE, color: TEXT, fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
+
+      {/* ヘッダー */}
+      <header style={{
+        background: scrolled ? 'rgba(250,247,245,0.97)' : 'rgba(250,247,245,0.95)',
+        borderBottom: `1px solid ${BORDER}`,
+        backdropFilter: 'blur(8px)',
+        boxShadow: scrolled ? '0 2px 12px rgba(45,26,26,0.08)' : 'none',
+        transition: 'all 0.3s ease',
+      }} className="fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+          <a href="/">
+            <div style={{ color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>マレッジロードジャパン</div>
+            <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
+          </a>
+          <nav className="hidden md:flex items-center gap-5 text-sm" style={{ color: MUTED }}>
+            <a href="/feature" className="hover:opacity-70 transition-opacity">特徴・強み</a>
+            <a href="/plan" className="hover:opacity-70 transition-opacity">プラン</a>
+            <a href="/flow" className="hover:opacity-70 transition-opacity">ご入会の流れ</a>
+            <a href="/greeting" className="hover:opacity-70 transition-opacity">カウンセラー紹介</a>
+            <a href="/interview" className="hover:opacity-70 transition-opacity font-medium" style={{ color: PRIMARY }}>対談</a>
+            <a href="/faq" className="hover:opacity-70 transition-opacity">よくある質問</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <a href="/m-contact" className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: PRIMARY }}>
+              無料相談 <ArrowRight size={14} />
+            </a>
+            <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: PRIMARY }}>
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
+            {[
+              ['特徴・強み', '/feature'], ['プラン', '/plan'], ['ご入会の流れ', '/flow'],
+              ['カウンセラー紹介', '/greeting'], ['対談', '/interview'], ['よくある質問', '/faq'],
+              ['実績データ', '/data'], ['お問い合わせ', '/m-contact'],
+            ].map(([label, href]) => (
+              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED }}>{label}</a>
+            ))}
+            <a href="/m-contact" onClick={() => setMenuOpen(false)}
+              className="block text-center py-3 rounded-full text-sm font-semibold text-white"
+              style={{ background: PRIMARY }}>
+              無料相談を予約する →
+            </a>
+          </div>
+        )}
+      </header>
+
+      {/* ヒーロー */}
+      <section className="pt-32 pb-12 px-4" style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, ${BASE} 100%)` }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-4"
+            style={{ background: `${PRIMARY}18`, color: PRIMARY, border: `1px solid ${PRIMARY}30` }}>
+            <Heart size={12} /> カウンセラーインタビュー
+          </div>
+          <h1 className="text-3xl font-bold tracking-tight mb-4" style={{ color: TEXT }}>
+            なぜ私は<br />結婚相談所を始めたのか
+          </h1>
+          <p className="text-sm leading-relaxed" style={{ color: MUTED }}>
+            マレッジロードジャパン代表カウンセラーへの10の質問。<br />
+            開業のきっかけから、婚活への想い、成婚者との出会いまで——本音でお答えします。
+          </p>
+        </div>
+      </section>
+
+      {/* 対談本文 */}
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto space-y-8">
+          {QA.map((item, i) => (
+            <div key={i}>
+              {/* 質問 */}
+              <div className="flex gap-3 mb-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                  style={{ background: MUTED }}>
+                  Q
+                </div>
+                <div className="flex-1 rounded-xl rounded-tl-none px-4 py-3 text-sm font-medium leading-relaxed"
+                  style={{ background: '#f0e8e4', color: TEXT }}>
+                  {item.q}
+                </div>
+              </div>
+              {/* 回答 */}
+              <div className="flex gap-3 justify-end">
+                <div className="flex-1 rounded-xl rounded-tr-none px-4 py-3 text-sm leading-relaxed"
+                  style={{ background: SURFACE, color: TEXT, border: `1px solid ${BORDER}` }}>
+                  {item.a}
+                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                  style={{ background: PRIMARY }}>
+                  A
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4">
+        <div className="max-w-2xl mx-auto text-center rounded-2xl p-10"
+          style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
+          <Heart size={28} className="mx-auto mb-4" style={{ color: PRIMARY }} />
+          <h2 className="text-xl font-bold mb-3" style={{ color: TEXT }}>まずは無料相談から</h2>
+          <p className="text-sm leading-relaxed mb-6" style={{ color: MUTED }}>
+            話を聞くだけでも大丈夫です。<br />
+            一歩踏み出すきっかけを、一緒に見つけましょう。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/m-contact"
+              className="px-6 py-3 rounded-full text-sm font-semibold text-white text-center hover:opacity-90 transition-opacity"
+              style={{ background: PRIMARY }}>
+              男性の方はこちら →
+            </a>
+            <a href="/w-contact"
+              className="px-6 py-3 rounded-full text-sm font-semibold text-center hover:opacity-80 transition-opacity"
+              style={{ background: BASE, border: `1.5px solid ${PRIMARY}`, color: PRIMARY }}>
+              女性の方はこちら →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* フッター */}
+      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
+        <div className="mb-2">
+          <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
+          <span className="ml-2 opacity-60">Marriage Road Japan</span>
+        </div>
+        <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+        <p className="mb-1">
+          <a href="tel:050-1807-3163" className="hover:opacity-80">050-1807-3163</a>
+          {' · '}
+          <a href="mailto:info@marriage-road.jp" className="hover:opacity-80">info@marriage-road.jp</a>
+        </p>
+        <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
+          <a href="/feature" className="hover:opacity-80">特徴・強み</a>
+          <a href="/plan" className="hover:opacity-80">プラン</a>
+          <a href="/flow" className="hover:opacity-80">ご入会の流れ</a>
+          <a href="/greeting" className="hover:opacity-80">カウンセラー紹介</a>
+          <a href="/interview" className="hover:opacity-80">対談</a>
+          <a href="/faq" className="hover:opacity-80">よくある質問</a>
+          <a href="/data" className="hover:opacity-80">実績データ</a>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
+          <a href="/privacy" className="hover:opacity-80">プライバシーポリシー</a>
+          <a href="/terms" className="hover:opacity-80">利用規約</a>
+          <a href="/tokusho" className="hover:opacity-80">特定商取引法</a>
+        </div>
+        <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
+      </footer>
+    </div>
+  )
+}
