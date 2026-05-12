@@ -192,19 +192,19 @@ export default function Home() {
       </header>
 
       {/* ── ヒーロー ── */}
-      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, paddingTop: '80px' }}
+      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, paddingTop: '72px', minHeight: '85vh' }}
         className="flex items-center">
-        <div className="max-w-5xl mx-auto px-4 py-16 text-center">
+        <div className="max-w-5xl mx-auto px-4 py-12 text-center w-full">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-5"
             style={{ background: 'rgba(201,169,110,0.15)', border: `1px solid rgba(201,169,110,0.4)`, color: '#7a6020' }}>
             🎉 初月月会費無料キャンペーン実施中
           </div>
 
-          <h1 style={{ color: TEXT, lineHeight: 1.3 }} className="text-3xl font-bold tracking-tight mb-4">
+          <h1 style={{ color: TEXT, lineHeight: 1.2 }} className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
             真剣な出会いを、丁寧に。
           </h1>
 
-          <p className="text-sm leading-relaxed mb-2 max-w-2xl mx-auto" style={{ color: MUTED }}>
+          <p className="text-base leading-relaxed mb-2 max-w-2xl mx-auto" style={{ color: MUTED }}>
             IBJ加盟<strong style={{ color: TEXT }}>82,000人以上</strong>の真剣婚活者と出会える結婚相談所。<br />
             オンライン全国対応 · ZOOM無料相談は毎週4枠実施
           </p>
