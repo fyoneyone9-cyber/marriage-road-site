@@ -208,6 +208,71 @@ export default function GreetingPage() {
           </blockquote>
         </div>
 
+        {/* 資格・認定証 */}
+        <div className="mb-10">
+          <p className="text-xs font-medium tracking-wider mb-1 text-center" style={{ color: PRIMARY }}>QUALIFICATIONS</p>
+          <h2 className="text-xl font-bold text-center mb-2">保有資格・認定証</h2>
+          <p className="text-sm text-center mb-6" style={{ color: MUTED }}>お客様に安心してご相談いただけるよう、婚活・心理・コンプライアンス等の資格を取得しています。</p>
+          <div className="grid md:grid-cols-2 gap-5">
+            {[
+              {
+                img: '/cert-mental-counselor.jpg',
+                title: 'JADP認定 メンタル心理カウンセラー®資格',
+                org: '一般財団法人 日本能力開発推進協会',
+                date: '2021年6月3日',
+                desc: '心理カウンセリングの専門知識を習得。会員の心理的サポートに活かしています。',
+              },
+              {
+                img: '/cert-senior-counselor.jpg',
+                title: '上級心理カウンセラー資格',
+                org: '一般財団法人 日本能力開発推進協会',
+                date: '2021年6月17日',
+                desc: '上級レベルの心理カウンセリング資格。深い傾聴と的確なアドバイスを提供します。',
+              },
+              {
+                img: '/cert-registered-seller.jpg',
+                title: '登録販売者 試験合格',
+                org: '神奈川県知事',
+                date: '令和4年10月',
+                desc: '医薬品の品質・有効性・安全性に関する専門知識の証明。',
+              },
+              {
+                img: '/cert-compliance.jpg',
+                title: '結婚相談業コンプライアンス基礎研修 修了',
+                org: '日本ライフデザインカウンセラー協会（JLCA）',
+                date: '令和6年6月20日 / 修了証番号：第240155号',
+                desc: '結婚相談業における法令遵守・倫理・個人情報保護の専門研修を修了。',
+              },
+            ].map((cert, i) => (
+              <div key={i} className="rounded-xl overflow-hidden" style={{ border: `1px solid ${BORDER}`, background: 'white' }}>
+                <div style={{ position: 'relative', paddingTop: '62%', overflow: 'hidden' }}>
+                  <img
+                    src={cert.img}
+                    alt={cert.title}
+                    style={{
+                      position: 'absolute', top: 0, left: 0,
+                      width: '100%', height: '100%',
+                      objectFit: 'cover', objectPosition: 'center',
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0,
+                    background: 'linear-gradient(to top, rgba(45,26,26,0.7), transparent)',
+                    padding: '16px 12px 10px',
+                  }}>
+                    <span className="text-xs font-semibold text-white">{cert.title}</span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>{cert.org}</p>
+                  <p className="text-xs mb-2" style={{ color: MUTED }}>{cert.date}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: MUTED }}>{cert.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center">
           <a href="/m-contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"

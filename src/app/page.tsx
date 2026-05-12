@@ -293,6 +293,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="text-center mt-8">
+            <a href="/feature" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-90"
+              style={{ background: PRIMARY, color: 'white', textDecoration: 'none' }}>
+              特徴・強みをもっと詳しく →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -361,6 +367,12 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <div className="text-center mt-8">
+            <a href="/plan" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-80"
+              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white', textDecoration: 'none' }}>
+              プラン詳細ページを見る →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -385,6 +397,12 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/flow" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-90"
+              style={{ background: PRIMARY, color: 'white', textDecoration: 'none' }}>
+              ご入会の流れを詳しく見る →
+            </a>
           </div>
         </div>
       </section>
@@ -436,6 +454,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── ページナビゲーション ── */}
+      <section className="py-16 px-4" style={{ background: '#fdf5f0' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>EXPLORE</p>
+            <h2 className="text-xl font-semibold" style={{ color: TEXT }}>詳しく知りたい方へ</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { href: '/feature',  icon: '✨', title: '特徴・強み',       desc: 'IBJネットワーク・オンライン対応など' },
+              { href: '/plan',     icon: '💰', title: 'プラン・料金',     desc: 'ライト〜プレミアム。まず無料相談を' },
+              { href: '/flow',     icon: '📋', title: 'ご入会の流れ',     desc: '相談から成婚までの5ステップ' },
+              { href: '/greeting', icon: '👤', title: 'カウンセラー紹介', desc: '資格・経歴・婚活への想い' },
+              { href: '/data',     icon: '📊', title: '実績データ',       desc: '成婚実績・会員数など' },
+              { href: '/chamber',  icon: '🏛️', title: '商工会議所',       desc: '海老名商工会議所 会員No.4954' },
+            ].map(({ href, icon, title, desc }) => (
+              <a key={href} href={href} style={{ textDecoration: 'none' }}>
+                <div className="rounded-xl p-5 h-full transition-all hover:shadow-md hover:-translate-y-0.5"
+                  style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+                  <div className="text-2xl mb-2">{icon}</div>
+                  <div className="text-sm font-semibold mb-1" style={{ color: TEXT }}>{title}</div>
+                  <div className="text-xs leading-relaxed" style={{ color: MUTED }}>{desc}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-5xl mx-auto">
@@ -461,6 +508,12 @@ export default function Home() {
                 )}
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="/faq" className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-80"
+              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white', textDecoration: 'none' }}>
+              よくある質問をもっと見る →
+            </a>
           </div>
         </div>
       </section>
