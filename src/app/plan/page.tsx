@@ -98,7 +98,7 @@ function SiteHeader() {
 
 function SiteFooter() {
   return (
-    
+    <>
       {/* ── 口コミ ── */}
       <section className="py-16 px-4" style={{ background: '#fff2ee' }}>
         <div className="max-w-5xl mx-auto">
@@ -169,6 +169,7 @@ function SiteFooter() {
       </div>
       <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
     </footer>
+    </>
   )
 }
 
