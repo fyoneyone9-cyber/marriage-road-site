@@ -347,22 +347,22 @@ export default function Home() {
       </section>
 
       {/* ── IBJ認定証 ── */}
-      <section className="py-12 md:py-16 px-4" style={{ background: 'white' }}>
+      <section className="py-16 md:py-24 px-6" style={{ background: SURFACE }}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>OFFICIAL CERTIFICATION</p>
-            <h2 className="text-xl font-semibold" style={{ color: TEXT }}>実績と信頼の証：IBJ正規加盟認定店</h2>
-            <div className="mt-2 w-12 h-0.5 mx-auto" style={{ background: PRIMARY }} />
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium mb-2 tracking-widest uppercase" style={{ color: PRIMARY }}>Official Certification</p>
+            <h2 className="text-2xl font-semibold" style={{ color: TEXT }}>実績と信頼の証：IBJ正規加盟認定店</h2>
+            <div className="mt-3 w-12 h-0.5 mx-auto" style={{ background: PRIMARY }} />
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-start gap-12">
+            <div className="flex-shrink-0 mx-auto md:mx-0">
               <img
                 src="/ibj-cert-cropped.jpg"
                 alt="IBJ正規加盟認定証 マレッジロードジャパン 相談所No.01226"
-                className="rounded-2xl shadow-lg"
-                style={{ width: "min(260px, 80vw)", height: "min(260px, 80vw)", objectFit: "cover", border: `2px solid ${BORDER}` }}
+                className="rounded-2xl shadow-xl"
+                style={{ width: "min(280px, 85vw)", height: "auto", objectFit: "contain", border: `1px solid ${BORDER}` }}
               />
-              <p className="text-center text-xs mt-2 font-semibold" style={{ color: PRIMARY }}>相談所NO:01226</p>
+              <p className="text-center text-xs mt-3 font-semibold" style={{ color: PRIMARY }}>相談所 No.01226</p>
             </div>
             <div className="flex-1">
               <h3 className="text-lg font-bold mb-3" style={{ color: TEXT }}>
