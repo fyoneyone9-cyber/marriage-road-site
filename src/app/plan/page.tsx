@@ -1,67 +1,29 @@
 'use client'
+import { useState, useEffect } from 'react'
+import { Menu, X, ArrowRight, CheckCircle } from 'lucide-react'
 
-const PRIMARY = '#c9836f'
-const ACCENT = '#d4a96a'
-const BASE = '#fff8f5'
-const SURFACE = '#fff1eb'
-const TEXT = '#3d2c2c'
-const MUTED = '#8a6a60'
-const BORDER = '#e8d5cc'
+const PRIMARY = '#b76e79'
+const ACCENT  = '#c9a96e'
+const BASE    = '#faf7f5'
+const SURFACE = '#fff2ee'
+const TEXT    = '#2d2020'
+const MUTED   = '#8a6a6a'
+const BORDER  = '#e8d5d0'
 
-const navLinks = [
-  { label: 'トップ', href: '/' },
-  { label: '初めての方へ', href: '/readme' },
-  { label: '選ばれる理由', href: '/feature' },
-  { label: 'プラン', href: '/plan' },
-  { label: 'カウンセラー', href: '/greeting' },
-  { label: '流れ', href: '/flow' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'お問合せ', href: '/16760950606960' },
+const NAV_LINKS = [
+  ['特徴・強み', '/feature'],
+  ['プラン', '/plan'],
+  ['ご入会の流れ', '/flow'],
+  ['カウンセラー紹介', '/greeting'],
+  ['よくある質問', '/faq'],
+  ['実績データ', '/data'],
+  ['お問い合わせ', '/m-contact'],
 ]
-
-function Header() {
-  return (
-    <header style={{ background: '#fff', borderBottom: `1px solid ${BORDER}`, position: 'sticky', top: 0, zIndex: 50 }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto', padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
-        <a href="/" style={{ fontFamily: "'Inter', 'Noto Sans JP', sans-serif", fontWeight: 700, fontSize: '18px', color: PRIMARY, textDecoration: 'none' }}>
-          マレッジロードジャパン
-        </a>
-        <nav style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {navLinks.map(l => (
-            <a key={l.href} href={l.href} style={{ fontFamily: "'Inter', 'Noto Sans JP', sans-serif", fontSize: '13px', color: TEXT, textDecoration: 'none' }}>{l.label}</a>
-          ))}
-        </nav>
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  return (
-    <footer style={{ background: TEXT, color: '#fff', padding: '40px 16px', marginTop: '80px', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto' }}>
-        <div style={{ fontWeight: 700, fontSize: '18px', color: PRIMARY, marginBottom: '16px' }}>マレッジロードジャパン</div>
-        <div style={{ fontSize: '14px', color: '#ccc', lineHeight: '2' }}>
-          <div>〒243-0424 神奈川県海老名市社家6-5-2-301</div>
-          <div>TEL: 050-1807-3163</div>
-          <div>MAIL: info@marriage-road.jp</div>
-        </div>
-        <div style={{ marginTop: '24px', display: 'flex', gap: '16px', fontSize: '13px' }}>
-          <a href="/privacy" style={{ color: '#aaa', textDecoration: 'none' }}>プライバシーポリシー</a>
-          <a href="/terms" style={{ color: '#aaa', textDecoration: 'none' }}>利用規約</a>
-          <a href="/tokusho" style={{ color: '#aaa', textDecoration: 'none' }}>特定商取引法</a>
-        </div>
-        <div style={{ marginTop: '16px', fontSize: '12px', color: '#888' }}>© 2024 マレッジロードジャパン All rights reserved.</div>
-      </div>
-    </footer>
-  )
-}
 
 const plans = [
   {
     name: 'ライトプラン',
     popular: false,
-    color: MUTED,
     monthlyFee: '8,000円/月',
     omiai: '1,000円/回（10件まで/月）',
     seikon: '200,000円',
@@ -69,7 +31,6 @@ const plans = [
   {
     name: 'スタンダードプラン',
     popular: true,
-    color: PRIMARY,
     monthlyFee: '9,800円/月',
     omiai: '無料（100件まで/月）',
     seikon: '200,000円',
@@ -77,109 +38,194 @@ const plans = [
   {
     name: 'プレミアムプラン',
     popular: false,
-    color: ACCENT,
     monthlyFee: '18,000円/月',
     omiai: '無料（200件まで/月）',
     seikon: '200,000円',
   },
 ]
 
+function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <header style={{
+      background: 'rgba(250,247,245,0.97)',
+      borderBottom: `1px solid ${BORDER}`,
+      backdropFilter: 'blur(8px)',
+      boxShadow: scrolled ? '0 2px 12px rgba(45,32,32,0.08)' : 'none',
+      transition: 'box-shadow 0.3s ease',
+    }} className="fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" style={{ textDecoration: 'none' }}>
+          <div style={{ color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>マレッジロードジャパン</div>
+          <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
+        </a>
+        <nav className="hidden md:flex items-center gap-5 text-sm">
+          {NAV_LINKS.map(([label, href]) => (
+            <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <a href="/m-contact" className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+            style={{ background: PRIMARY, textDecoration: 'none' }}>
+            無料相談 <ArrowRight size={14} />
+          </a>
+          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: PRIMARY, background: 'none', border: 'none', cursor: 'pointer' }}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+      {menuOpen && (
+        <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
+          {NAV_LINKS.map(([label, href]) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+          ))}
+          <a href="/m-contact" onClick={() => setMenuOpen(false)}
+            className="block text-center py-3 rounded-full text-sm font-semibold text-white"
+            style={{ background: PRIMARY, textDecoration: 'none' }}>
+            無料相談を予約する →
+          </a>
+        </div>
+      )}
+    </header>
+  )
+}
+
+function SiteFooter() {
+  return (
+    <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
+      <div className="mb-2">
+        <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
+        <span className="ml-2 opacity-60">Marriage Road Japan</span>
+      </div>
+      <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+      <p className="mb-1">
+        <a href="tel:050-1807-3163" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>050-1807-3163</a>
+        {' · '}
+        <a href="mailto:info@marriage-road.jp" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>info@marriage-road.jp</a>
+      </p>
+      <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
+        <a href="/feature" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特徴・強み</a>
+        <a href="/plan" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プラン</a>
+        <a href="/flow" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>ご入会の流れ</a>
+        <a href="/greeting" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>カウンセラー紹介</a>
+        <a href="/faq" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>よくある質問</a>
+        <a href="/data" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>実績データ</a>
+      </div>
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
+        <a href="/privacy" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プライバシーポリシー</a>
+        <a href="/terms" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>利用規約</a>
+        <a href="/tokusho" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特定商取引法</a>
+      </div>
+      <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
+    </footer>
+  )
+}
+
 export default function PlanPage() {
   return (
     <div style={{ background: BASE, minHeight: '100vh', fontFamily: "'Inter', 'Noto Sans JP', sans-serif", color: TEXT }}>
-      <Header />
+      <SiteHeader />
 
-      {/* Hero */}
-      <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, padding: '64px 16px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '768px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: PRIMARY, color: '#fff', padding: '4px 16px', borderRadius: '9999px', fontSize: '13px', marginBottom: '16px' }}>プラン・料金</div>
-          <h1 style={{ fontSize: '32px', fontWeight: 800, color: TEXT, marginBottom: '16px' }}>料金プラン</h1>
-          <p style={{ fontSize: '16px', color: MUTED }}>あなたのライフスタイルに合ったプランをお選びください。</p>
+      {/* ページタイトル */}
+      <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, paddingTop: '80px' }} className="py-16 px-4 text-center">
+        <div className="max-w-5xl mx-auto">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+            style={{ background: PRIMARY, color: '#fff' }}>プラン・料金</div>
+          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>料金プラン</h1>
+          <p className="text-sm leading-relaxed" style={{ color: MUTED }}>あなたのライフスタイルに合ったプランをお選びください。</p>
         </div>
       </section>
 
-      <div style={{ maxWidth: '896px', margin: '0 auto', padding: '48px 16px' }}>
+      <div className="max-w-5xl mx-auto px-4 py-16">
 
         {/* 全プラン共通費用 */}
-        <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: '12px', padding: '24px', marginBottom: '48px' }}>
-          <h2 style={{ fontSize: '18px', fontWeight: 700, color: TEXT, marginBottom: '16px' }}>全プラン共通（契約時のみ）</h2>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15px' }}>
-            <tbody>
-              <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                <td style={{ padding: '12px 8px', color: MUTED, width: '50%' }}>入会金</td>
-                <td style={{ padding: '12px 8px', fontWeight: 700, color: TEXT }}>28,000円</td>
-              </tr>
-              <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                <td style={{ padding: '12px 8px', color: MUTED }}>IBJSシステム登録料</td>
-                <td style={{ padding: '12px 8px', fontWeight: 700, color: TEXT }}>9,800円</td>
-              </tr>
-              <tr>
-                <td style={{ padding: '12px 8px', color: MUTED }}>支払い方法</td>
-                <td style={{ padding: '12px 8px', color: TEXT }}>銀行振り込み・メルペイ・d払い</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="rounded-xl p-6 mb-10" style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
+          <h2 className="text-xl font-semibold mb-4" style={{ color: TEXT }}>全プラン共通（契約時のみ）</h2>
+          <div className="space-y-3">
+            {[
+              ['入会金', '28,000円'],
+              ['IBJSシステム登録料', '9,800円'],
+              ['支払い方法', '銀行振り込み・メルペイ・d払い'],
+            ].map(([label, val]) => (
+              <div key={label} className="flex items-center justify-between py-2 text-sm" style={{ borderBottom: `1px solid ${BORDER}` }}>
+                <span style={{ color: MUTED }}>{label}</span>
+                <span className="font-semibold" style={{ color: TEXT }}>{val}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* プランカード */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginBottom: '48px' }}>
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           {plans.map((plan) => (
-            <div key={plan.name} style={{
-              background: '#fff',
-              border: `2px solid ${plan.popular ? PRIMARY : BORDER}`,
-              borderRadius: '16px',
-              overflow: 'hidden',
-              boxShadow: plan.popular ? `0 4px 20px rgba(201,131,111,0.2)` : '0 2px 8px rgba(0,0,0,0.05)',
-              position: 'relative'
-            }}>
+            <div key={plan.name} className="rounded-xl overflow-hidden"
+              style={{
+                background: plan.popular ? PRIMARY : 'white',
+                border: plan.popular ? `2px solid ${PRIMARY}` : `1px solid ${BORDER}`,
+                boxShadow: plan.popular ? `0 8px 24px rgba(183,110,121,0.25)` : 'none',
+              }}>
               {plan.popular && (
-                <div style={{ background: PRIMARY, color: '#fff', textAlign: 'center', padding: '6px', fontSize: '13px', fontWeight: 700 }}>
+                <div className="text-center py-2 text-xs font-bold" style={{ background: 'rgba(0,0,0,0.15)', color: 'white' }}>
                   ⭐ 人気No.1
                 </div>
               )}
-              <div style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: plan.color, marginBottom: '8px' }}>{plan.name}</h3>
-                <div style={{ display: 'inline-block', background: '#e8f5e9', color: '#2e7d32', padding: '4px 12px', borderRadius: '9999px', fontSize: '12px', fontWeight: 700, marginBottom: '16px' }}>
+              <div className="p-6">
+                <div className="inline-block mb-3 px-2 py-0.5 rounded-full text-xs font-semibold"
+                  style={{ background: 'rgba(255,255,255,0.2)', color: plan.popular ? 'white' : PRIMARY }}>
                   初月無料
                 </div>
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
-                  <tbody>
-                    <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                      <td style={{ padding: '10px 0', color: MUTED }}>IBJ月会費</td>
-                      <td style={{ padding: '10px 0', fontWeight: 700, color: TEXT, textAlign: 'right' }}>{plan.monthlyFee}</td>
-                    </tr>
-                    <tr style={{ borderBottom: `1px solid ${BORDER}` }}>
-                      <td style={{ padding: '10px 0', color: MUTED }}>お見合セッティング</td>
-                      <td style={{ padding: '10px 0', fontWeight: 700, color: TEXT, textAlign: 'right' }}>{plan.omiai}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ padding: '10px 0', color: MUTED }}>ご成婚料</td>
-                      <td style={{ padding: '10px 0', fontWeight: 700, color: TEXT, textAlign: 'right' }}>{plan.seikon}<br /><span style={{ fontSize: '12px', color: MUTED, fontWeight: 400 }}>（成婚時のみ）</span></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <h3 className="text-xl font-semibold mb-4" style={{ color: plan.popular ? 'white' : TEXT }}>{plan.name}</h3>
+                <div className="space-y-3">
+                  {[
+                    ['IBJ月会費', plan.monthlyFee],
+                    ['お見合セッティング', plan.omiai],
+                    ['ご成婚料', plan.seikon],
+                  ].map(([label, val]) => (
+                    <div key={label} className="flex items-start justify-between text-sm" style={{ borderBottom: `1px solid ${plan.popular ? 'rgba(255,255,255,0.2)' : BORDER}`, paddingBottom: '8px' }}>
+                      <span style={{ color: plan.popular ? 'rgba(255,255,255,0.7)' : MUTED }}>{label}</span>
+                      <span className="font-semibold text-right ml-2" style={{ color: plan.popular ? 'white' : TEXT }}>{val}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="/m-contact"
+                  className="block text-center mt-5 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-90"
+                  style={{
+                    background: plan.popular ? 'white' : PRIMARY,
+                    color: plan.popular ? PRIMARY : 'white',
+                    textDecoration: 'none',
+                  }}>
+                  無料相談で詳細を聞く →
+                </a>
               </div>
             </div>
           ))}
         </div>
 
         {/* 注記 */}
-        <div style={{ background: '#fff', border: `1px solid ${BORDER}`, borderRadius: '8px', padding: '16px', marginBottom: '48px', fontSize: '13px', color: MUTED }}>
+        <div className="rounded-xl p-6 mb-8 text-xs" style={{ background: 'white', border: `1px solid ${BORDER}`, color: MUTED }}>
           <p>※ 記載の料金はすべて税込です。</p>
           <p>※ ご成婚料は成婚退会時のみ発生します。</p>
           <p>※ クーリングオフ制度（契約後8日以内）が適用されます。</p>
         </div>
 
         {/* CTA */}
-        <div style={{ textAlign: 'center' }}>
-          <p style={{ color: MUTED, marginBottom: '16px' }}>プランのご相談は無料相談にて承ります</p>
-          <a href="/16760950606960" style={{ background: PRIMARY, color: '#fff', padding: '14px 40px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 700, fontSize: '16px', display: 'inline-block' }}>
-            無料相談を予約する
+        <div className="text-center">
+          <p className="text-sm mb-4" style={{ color: MUTED }}>プランのご相談は無料相談にて承ります</p>
+          <a href="/m-contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+            style={{ background: PRIMARY, textDecoration: 'none' }}>
+            無料相談を予約する →
           </a>
         </div>
-
       </div>
-      <Footer />
+
+      <SiteFooter />
     </div>
   )
 }

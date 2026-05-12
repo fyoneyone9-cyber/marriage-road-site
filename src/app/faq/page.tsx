@@ -1,63 +1,24 @@
 'use client'
+import { useState, useEffect } from 'react'
+import { Menu, X, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react'
 
-import { useState } from 'react'
+const PRIMARY = '#b76e79'
+const ACCENT  = '#c9a96e'
+const BASE    = '#faf7f5'
+const SURFACE = '#fff2ee'
+const TEXT    = '#2d2020'
+const MUTED   = '#8a6a6a'
+const BORDER  = '#e8d5d0'
 
-const PRIMARY = '#c9836f'
-const ACCENT = '#d4a96a'
-const BASE = '#fff8f5'
-const SURFACE = '#fff1eb'
-const TEXT = '#3d2c2c'
-const MUTED = '#8a6a60'
-const BORDER = '#e8d5cc'
-
-const navLinks = [
-  { label: 'トップ', href: '/' },
-  { label: '初めての方へ', href: '/readme' },
-  { label: '選ばれる理由', href: '/feature' },
-  { label: 'プラン', href: '/plan' },
-  { label: 'カウンセラー', href: '/greeting' },
-  { label: '流れ', href: '/flow' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'お問合せ', href: '/16760950606960' },
+const NAV_LINKS = [
+  ['特徴・強み', '/feature'],
+  ['プラン', '/plan'],
+  ['ご入会の流れ', '/flow'],
+  ['カウンセラー紹介', '/greeting'],
+  ['よくある質問', '/faq'],
+  ['実績データ', '/data'],
+  ['お問い合わせ', '/m-contact'],
 ]
-
-function Header() {
-  return (
-    <header style={{ background: '#fff', borderBottom: `1px solid ${BORDER}`, position: 'sticky', top: 0, zIndex: 50 }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto', padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
-        <a href="/" style={{ fontFamily: "'Inter', 'Noto Sans JP', sans-serif", fontWeight: 700, fontSize: '18px', color: PRIMARY, textDecoration: 'none' }}>
-          マレッジロードジャパン
-        </a>
-        <nav style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          {navLinks.map(l => (
-            <a key={l.href} href={l.href} style={{ fontFamily: "'Inter', 'Noto Sans JP', sans-serif", fontSize: '13px', color: TEXT, textDecoration: 'none' }}>{l.label}</a>
-          ))}
-        </nav>
-      </div>
-    </header>
-  )
-}
-
-function Footer() {
-  return (
-    <footer style={{ background: TEXT, color: '#fff', padding: '40px 16px', marginTop: '80px', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto' }}>
-        <div style={{ fontWeight: 700, fontSize: '18px', color: PRIMARY, marginBottom: '16px' }}>マレッジロードジャパン</div>
-        <div style={{ fontSize: '14px', color: '#ccc', lineHeight: '2' }}>
-          <div>〒243-0424 神奈川県海老名市社家6-5-2-301</div>
-          <div>TEL: 050-1807-3163</div>
-          <div>MAIL: info@marriage-road.jp</div>
-        </div>
-        <div style={{ marginTop: '24px', display: 'flex', gap: '16px', fontSize: '13px' }}>
-          <a href="/privacy" style={{ color: '#aaa', textDecoration: 'none' }}>プライバシーポリシー</a>
-          <a href="/terms" style={{ color: '#aaa', textDecoration: 'none' }}>利用規約</a>
-          <a href="/tokusho" style={{ color: '#aaa', textDecoration: 'none' }}>特定商取引法</a>
-        </div>
-        <div style={{ marginTop: '16px', fontSize: '12px', color: '#888' }}>© 2024 マレッジロードジャパン All rights reserved.</div>
-      </div>
-    </footer>
-  )
-}
 
 const faqs = [
   {
@@ -101,34 +62,25 @@ const faqs = [
 function AccordionItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{ border: `1px solid ${BORDER}`, borderRadius: '8px', overflow: 'hidden', marginBottom: '12px' }}>
+    <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${BORDER}` }}>
       <button
         onClick={() => setOpen(!open)}
-        style={{
-          width: '100%',
-          background: open ? SURFACE : '#fff',
-          border: 'none',
-          padding: '18px 20px',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '12px',
-          textAlign: 'left',
-          fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
-        }}
+        className="w-full flex items-center justify-between p-6 text-left hover:opacity-80 transition-opacity"
+        style={{ background: open ? SURFACE : 'white', border: 'none', cursor: 'pointer', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}
       >
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flex: 1 }}>
-          <span style={{ background: PRIMARY, color: '#fff', fontWeight: 700, fontSize: '13px', padding: '2px 8px', borderRadius: '4px', flexShrink: 0 }}>Q</span>
-          <span style={{ fontSize: '15px', fontWeight: 600, color: TEXT }}>{q}</span>
+        <div className="flex gap-3 items-start flex-1">
+          <span className="px-2 py-0.5 rounded text-xs font-bold flex-shrink-0" style={{ background: PRIMARY, color: 'white' }}>Q</span>
+          <span className="text-sm font-semibold" style={{ color: TEXT }}>{q}</span>
         </div>
-        <span style={{ color: PRIMARY, fontSize: '20px', flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▼</span>
+        {open
+          ? <ChevronUp size={16} style={{ color: PRIMARY, flexShrink: 0 }} />
+          : <ChevronDown size={16} style={{ color: PRIMARY, flexShrink: 0 }} />}
       </button>
       {open && (
-        <div style={{ background: '#fff', padding: '16px 20px', borderTop: `1px solid ${BORDER}` }}>
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-            <span style={{ background: ACCENT, color: '#fff', fontWeight: 700, fontSize: '13px', padding: '2px 8px', borderRadius: '4px', flexShrink: 0 }}>A</span>
-            <p style={{ fontSize: '15px', color: MUTED, lineHeight: 1.8, margin: 0 }}>{a}</p>
+        <div className="px-6 pb-6 pt-3" style={{ background: BASE }}>
+          <div className="flex gap-3 items-start">
+            <span className="px-2 py-0.5 rounded text-xs font-bold flex-shrink-0" style={{ background: ACCENT, color: 'white' }}>A</span>
+            <p className="text-sm leading-relaxed" style={{ color: MUTED, margin: 0 }}>{a}</p>
           </div>
         </div>
       )}
@@ -136,43 +88,130 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
   )
 }
 
+function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <header style={{
+      background: 'rgba(250,247,245,0.97)',
+      borderBottom: `1px solid ${BORDER}`,
+      backdropFilter: 'blur(8px)',
+      boxShadow: scrolled ? '0 2px 12px rgba(45,32,32,0.08)' : 'none',
+      transition: 'box-shadow 0.3s ease',
+    }} className="fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" style={{ textDecoration: 'none' }}>
+          <div style={{ color: PRIMARY, fontWeight: 700, fontSize: '1rem', lineHeight: 1.2 }}>マレッジロードジャパン</div>
+          <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
+        </a>
+        <nav className="hidden md:flex items-center gap-5 text-sm">
+          {NAV_LINKS.map(([label, href]) => (
+            <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <a href="/m-contact" className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+            style={{ background: PRIMARY, textDecoration: 'none' }}>
+            無料相談 <ArrowRight size={14} />
+          </a>
+          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)} style={{ color: PRIMARY, background: 'none', border: 'none', cursor: 'pointer' }}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+      {menuOpen && (
+        <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
+          {NAV_LINKS.map(([label, href]) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+          ))}
+          <a href="/m-contact" onClick={() => setMenuOpen(false)}
+            className="block text-center py-3 rounded-full text-sm font-semibold text-white"
+            style={{ background: PRIMARY, textDecoration: 'none' }}>
+            無料相談を予約する →
+          </a>
+        </div>
+      )}
+    </header>
+  )
+}
+
+function SiteFooter() {
+  return (
+    <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
+      <div className="mb-2">
+        <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
+        <span className="ml-2 opacity-60">Marriage Road Japan</span>
+      </div>
+      <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+      <p className="mb-1">
+        <a href="tel:050-1807-3163" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>050-1807-3163</a>
+        {' · '}
+        <a href="mailto:info@marriage-road.jp" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>info@marriage-road.jp</a>
+      </p>
+      <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
+        <a href="/feature" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特徴・強み</a>
+        <a href="/plan" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プラン</a>
+        <a href="/flow" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>ご入会の流れ</a>
+        <a href="/greeting" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>カウンセラー紹介</a>
+        <a href="/faq" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>よくある質問</a>
+        <a href="/data" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>実績データ</a>
+      </div>
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
+        <a href="/privacy" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プライバシーポリシー</a>
+        <a href="/terms" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>利用規約</a>
+        <a href="/tokusho" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特定商取引法</a>
+      </div>
+      <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
+    </footer>
+  )
+}
+
 export default function FaqPage() {
   return (
     <div style={{ background: BASE, minHeight: '100vh', fontFamily: "'Inter', 'Noto Sans JP', sans-serif", color: TEXT }}>
-      <Header />
+      <SiteHeader />
 
-      {/* Hero */}
-      <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, padding: '64px 16px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '768px', margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: PRIMARY, color: '#fff', padding: '4px 16px', borderRadius: '9999px', fontSize: '13px', marginBottom: '16px' }}>よくある質問</div>
-          <h1 style={{ fontSize: '32px', fontWeight: 800, color: TEXT, marginBottom: '16px' }}>よくある質問</h1>
-          <p style={{ fontSize: '16px', color: MUTED }}>お気軽にご質問ください。</p>
+      {/* ページタイトル */}
+      <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, paddingTop: '80px' }} className="py-16 px-4 text-center">
+        <div className="max-w-5xl mx-auto">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+            style={{ background: PRIMARY, color: '#fff' }}>よくある質問</div>
+          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>よくある質問</h1>
+          <p className="text-sm leading-relaxed" style={{ color: MUTED }}>お気軽にご質問ください。</p>
         </div>
       </section>
 
-      <div style={{ maxWidth: '768px', margin: '0 auto', padding: '48px 16px' }}>
-
-        <div style={{ marginBottom: '48px' }}>
+      <div className="max-w-5xl mx-auto px-4 py-16">
+        <div className="max-w-2xl mx-auto space-y-3 mb-10">
           {faqs.map((faq, i) => (
             <AccordionItem key={i} q={faq.q} a={faq.a} />
           ))}
         </div>
 
         {/* その他の質問 */}
-        <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: '12px', padding: '24px', textAlign: 'center', marginBottom: '48px' }}>
-          <p style={{ fontSize: '15px', color: MUTED, marginBottom: '16px' }}>その他、ご不明な点はお気軽にお問い合わせください。</p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="tel:050-1807-3163" style={{ background: PRIMARY, color: '#fff', padding: '10px 24px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 700, fontSize: '15px' }}>
+        <div className="max-w-2xl mx-auto rounded-xl p-6 text-center mb-8"
+          style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
+          <p className="text-sm mb-4" style={{ color: MUTED }}>その他、ご不明な点はお気軽にお問い合わせください。</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="tel:050-1807-3163" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: PRIMARY, textDecoration: 'none' }}>
               📞 050-1807-3163
             </a>
-            <a href="/16760950606960" style={{ background: '#fff', color: PRIMARY, border: `2px solid ${PRIMARY}`, padding: '10px 24px', borderRadius: '9999px', textDecoration: 'none', fontWeight: 700, fontSize: '15px' }}>
+            <a href="/m-contact" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-80"
+              style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white', textDecoration: 'none' }}>
               メールで問い合わせ
             </a>
           </div>
         </div>
-
       </div>
-      <Footer />
+
+      <SiteFooter />
     </div>
   )
 }
