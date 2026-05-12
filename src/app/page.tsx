@@ -150,9 +150,15 @@ export default function Home() {
             <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
           </div>
           <nav className="hidden md:flex items-center gap-5 text-sm" style={{ color: MUTED }}>
-            {[['特徴', 'features'], ['プラン', 'pricing'], ['流れ', 'steps'], ['FAQ', 'faq'], ['お問い合わせ', 'contact']].map(([label, id]) => (
-              <a key={id} href={`#${id}`} className="hover:opacity-70 transition-opacity">{label}</a>
-            ))}
+            <>
+              <a href="/feature" className="hover:opacity-70 transition-opacity">特徴・強み</a>
+              <a href="/plan" className="hover:opacity-70 transition-opacity">プラン</a>
+              <a href="/flow" className="hover:opacity-70 transition-opacity">ご入会の流れ</a>
+              <a href="/greeting" className="hover:opacity-70 transition-opacity">カウンセラー紹介</a>
+              <a href="/faq" className="hover:opacity-70 transition-opacity">よくある質問</a>
+              <a href="/data" className="hover:opacity-70 transition-opacity">実績データ</a>
+              <a href="#contact" className="hover:opacity-70 transition-opacity">お問い合わせ</a>
+            </>
           </nav>
           <div className="flex items-center gap-3">
             <a href="tel:050-1807-3163" className="hidden md:flex items-center gap-1.5 text-sm font-medium" style={{ color: PRIMARY }}>
@@ -169,9 +175,19 @@ export default function Home() {
         </div>
         {menuOpen && (
           <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
-            {[['特徴', 'features'], ['プラン', 'pricing'], ['流れ', 'steps'], ['FAQ', 'faq'], ['お問い合わせ', 'contact']].map(([label, id]) => (
-              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED }}>{label}</a>
-            ))}
+            <>
+              {[
+                ['特徴・強み', '/feature'],
+                ['プラン', '/plan'],
+                ['ご入会の流れ', '/flow'],
+                ['カウンセラー紹介', '/greeting'],
+                ['よくある質問', '/faq'],
+                ['実績データ', '/data'],
+                ['お問い合わせ', '#contact'],
+              ].map(([label, href]) => (
+                <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED }}>{label}</a>
+              ))}
+            </>
             <a href="tel:050-1807-3163" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 py-2 text-sm font-medium" style={{ color: PRIMARY }}>
               <Phone size={14} /> 050-1807-3163
             </a>
@@ -539,7 +555,15 @@ export default function Home() {
           <a href="mailto:info@marriage-road.jp" className="hover:opacity-80">info@marriage-road.jp</a>
         </p>
         <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
-        <div className="flex justify-center gap-5 mb-4">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
+          <a href="/feature" className="hover:opacity-80">特徴・強み</a>
+          <a href="/plan" className="hover:opacity-80">プラン</a>
+          <a href="/flow" className="hover:opacity-80">ご入会の流れ</a>
+          <a href="/greeting" className="hover:opacity-80">カウンセラー紹介</a>
+          <a href="/faq" className="hover:opacity-80">よくある質問</a>
+          <a href="/data" className="hover:opacity-80">実績データ</a>
+        </div>
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
           <a href="/privacy" className="hover:opacity-80">プライバシーポリシー</a>
           <a href="/terms" className="hover:opacity-80">利用規約</a>
           <a href="/tokusho" className="hover:opacity-80">特定商取引法</a>
