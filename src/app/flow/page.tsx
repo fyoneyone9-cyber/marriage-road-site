@@ -228,7 +228,7 @@ export default function FlowPage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: PRIMARY, color: '#fff' }}>ご登録・結婚までの流れ</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>入会からご成婚までの流れ</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>入会からご成婚までの流れ</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>6ステップでご成婚へ。すべてのステップをカウンセラーがサポートします。</p>
         </div>
       </section>

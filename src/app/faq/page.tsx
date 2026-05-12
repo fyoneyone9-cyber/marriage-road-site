@@ -64,7 +64,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
     <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${BORDER}` }}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-left hover:opacity-80 transition-opacity"
+        className="w-full flex items-center justify-between px-4 py-4 md:p-6 text-left hover:opacity-80 transition-opacity"
         style={{ background: open ? SURFACE : 'white', border: 'none', cursor: 'pointer', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}
       >
         <div className="flex gap-3 items-start flex-1">
@@ -76,7 +76,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
           : <ChevronDown size={16} style={{ color: PRIMARY, flexShrink: 0 }} />}
       </button>
       {open && (
-        <div className="px-6 pb-6 pt-3" style={{ background: BASE }}>
+        <div className="px-4 md:px-6 pb-4 md:pb-6 pt-3" style={{ background: BASE }}>
           <div className="flex gap-3 items-start">
             <span className="px-2 py-0.5 rounded text-xs font-bold flex-shrink-0" style={{ background: ACCENT, color: 'white' }}>A</span>
             <p className="text-sm leading-relaxed" style={{ color: MUTED, margin: 0 }}>{a}</p>
@@ -257,7 +257,7 @@ export default function FaqPage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: PRIMARY, color: '#fff' }}>よくある質問</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>よくある質問</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>よくある質問</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>お気軽にご質問ください。</p>
         </div>
       </section>

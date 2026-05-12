@@ -146,7 +146,7 @@ function QuickNav() {
   ]
   return (
     <div style={{
-      position: 'fixed', bottom: '24px', right: '16px', zIndex: 9999,
+      position: 'fixed', bottom: '20px', right: '12px', zIndex: 9999,
       display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px',
     }}>
       {open && (
@@ -267,15 +267,15 @@ export default function Home() {
       </header>
 
       {/* ── ヒーロー ── */}
-      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, paddingTop: '72px', minHeight: '85vh' }}
+      <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, paddingTop: '72px', minHeight: "auto" }}
         className="flex items-center">
-        <div className="max-w-5xl mx-auto px-4 py-12 text-center w-full">
+        <div className="max-w-5xl mx-auto px-5 py-10 text-center w-full">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-5"
             style={{ background: 'rgba(201,169,110,0.15)', border: `1px solid rgba(201,169,110,0.4)`, color: '#7a6020' }}>
             🎉 初月月会費無料キャンペーン実施中
           </div>
 
-          <h1 style={{ color: TEXT, lineHeight: 1.2 }} className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+          <h1 style={{ color: TEXT, lineHeight: 1.2 }} className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight mb-4">
             真剣な出会いを、丁寧に。
           </h1>
 
@@ -302,7 +302,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-5">
+          <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2">
             {['IBJ正規加盟店', '登録審査済み会員のみ', '初月月会費無料', 'ZOOM対応・全国OK'].map((badge, i) => (
               <div key={i} className="flex items-center gap-2 text-xs" style={{ color: MUTED }}>
                 <CheckCircle size={13} style={{ color: ACCENT }} />
@@ -334,7 +334,7 @@ export default function Home() {
       {/* ── 実績数字 ── */}
       <section className="py-16" style={{ background: PRIMARY }}>
         <div className="max-w-5xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {STATS.map(({ value, label, icon: Icon }, i) => (
               <div key={i} className="text-center">
                 <Icon size={24} className="mx-auto mb-2 opacity-80" style={{ color: 'white' }} />
@@ -347,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* ── IBJ認定証 ── */}
-      <section className="py-16 px-4" style={{ background: 'white' }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: 'white' }}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>OFFICIAL CERTIFICATION</p>
@@ -360,7 +360,7 @@ export default function Home() {
                 src="/ibj-cert-cropped.jpg"
                 alt="IBJ正規加盟認定証 マレッジロードジャパン 相談所No.01226"
                 className="rounded-2xl shadow-lg"
-                style={{ width: '260px', height: '260px', objectFit: 'cover', border: `2px solid ${BORDER}` }}
+                style={{ width: "min(260px, 80vw)", height: "min(260px, 80vw)", objectFit: "cover", border: `2px solid ${BORDER}` }}
               />
               <p className="text-center text-xs mt-2 font-semibold" style={{ color: PRIMARY }}>相談所NO:01226</p>
             </div>
@@ -395,7 +395,7 @@ export default function Home() {
       </section>
 
       {/* ── 選ばれる理由 ── */}
-      <section className="py-16 px-4">
+      <section className="py-12 md:py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>Why Choose Us</p>
@@ -425,7 +425,7 @@ export default function Home() {
       </section>
 
       {/* ── プラン ── */}
-      <section className="py-16 px-4" style={{ background: SURFACE }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>Plans</p>
@@ -499,7 +499,7 @@ export default function Home() {
       </section>
 
       {/* ── 入会の流れ ── */}
-      <section className="py-16 px-4">
+      <section className="py-12 md:py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>How it Works</p>
@@ -531,7 +531,7 @@ export default function Home() {
 
 
       {/* ── 口コミ ── */}
-      <section className="py-16 px-4">
+      <section className="py-12 md:py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: '#b76e79' }}>Reviews</p>
@@ -577,13 +577,13 @@ export default function Home() {
       </section>
 
       {/* ── ページナビゲーション ── */}
-      <section className="py-16 px-4" style={{ background: '#fdf5f0' }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: '#fdf5f0' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>EXPLORE</p>
             <h2 className="text-xl font-semibold" style={{ color: TEXT }}>詳しく知りたい方へ</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               { href: '/feature',  icon: '✨', title: '特徴・強み',       desc: 'IBJネットワーク・オンライン対応など' },
               { href: '/plan',     icon: '💰', title: 'プラン・料金',     desc: 'ライト〜プレミアム。まず無料相談を' },
@@ -597,7 +597,7 @@ export default function Home() {
                   style={{ background: 'white', border: `1px solid ${BORDER}` }}>
                   <div className="text-2xl mb-2">{icon}</div>
                   <div className="text-sm font-semibold mb-1" style={{ color: TEXT }}>{title}</div>
-                  <div className="text-xs leading-relaxed" style={{ color: MUTED }}>{desc}</div>
+                  <div className="text-xs leading-relaxed hidden sm:block" style={{ color: MUTED }}>{desc}</div>
                 </div>
               </a>
             ))}
@@ -606,7 +606,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 px-4" style={{ background: SURFACE }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>FAQ</p>
@@ -641,7 +641,7 @@ export default function Home() {
       </section>
 
       {/* ── お問い合わせCTA ── */}
-      <section className="py-16 px-4" style={{ background: `linear-gradient(160deg, #fde8df 0%, #fdf5e8 100%)` }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: `linear-gradient(160deg, #fde8df 0%, #fdf5e8 100%)` }}>
         <div className="max-w-5xl mx-auto text-center">
           <Sparkles size={28} className="mx-auto mb-4" style={{ color: ACCENT }} />
           <h2 className="text-3xl font-bold tracking-tight mb-2">まずは無料相談から</h2>

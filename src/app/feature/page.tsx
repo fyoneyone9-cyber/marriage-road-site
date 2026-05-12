@@ -207,7 +207,7 @@ export default function FeaturePage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: PRIMARY, color: '#fff' }}>選ばれる理由</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>
             マレッジロードジャパンが選ばれる3つの理由
           </h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>安心・実績・全国対応で、あなたのご成婚を全力サポートします。</p>

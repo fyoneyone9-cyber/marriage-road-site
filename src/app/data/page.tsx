@@ -220,7 +220,7 @@ export default function DataPage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: PRIMARY, color: '#fff' }}>会員データ</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>IBJ会員データ</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>IBJ会員データ</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>日本マーケティングリサーチ機構調べ・業界No.1</p>
         </div>
       </section>
@@ -237,7 +237,7 @@ export default function DataPage() {
             <div key={card.label} className="rounded-xl p-6 text-center"
               style={{ background: 'white', border: `1px solid ${BORDER}` }}>
               <div className="text-xs mb-2" style={{ color: MUTED }}>{card.label}</div>
-              <div className="text-3xl font-bold mb-1" style={{ color: PRIMARY }}>{card.value}</div>
+              <div className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: PRIMARY }}>{card.value}</div>
               <div className="text-xs" style={{ color: MUTED }}>{card.sub}</div>
             </div>
           ))}
@@ -321,7 +321,7 @@ export default function DataPage() {
         {/* 学歴 */}
         <div className="rounded-xl p-6 text-center" style={{ background: SURFACE, border: `1px solid ${BORDER}` }}>
           <h2 className="text-xl font-semibold mb-3" style={{ color: TEXT }}>学歴</h2>
-          <div className="text-3xl font-bold mb-2" style={{ color: PRIMARY }}>70%以上</div>
+          <div className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: PRIMARY }}>70%以上</div>
           <p className="text-sm" style={{ color: MUTED }}>短大・四大・大学院卒の会員が全体の70%以上を占めます。</p>
         </div>
       </div>

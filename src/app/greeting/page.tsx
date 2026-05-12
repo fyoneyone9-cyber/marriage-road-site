@@ -75,7 +75,7 @@ function SiteFooter() {
   return (
     <>
       {/* ── 口コミ ── */}
-      <section className="py-16 px-4" style={{ background: '#fff2ee' }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: '#fff2ee' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: '#b76e79' }}>Reviews</p>
@@ -230,7 +230,7 @@ export default function GreetingPage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: PRIMARY, color: '#fff' }}>カウンセラー紹介</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>メインカウンセラー紹介</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>メインカウンセラー紹介</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>婚活をお考えの皆さまへ</p>
         </div>
       </section>

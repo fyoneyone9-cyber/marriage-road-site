@@ -150,7 +150,7 @@ function SiteFooter() {
   return (
     <>
       {/* 口コミ */}
-      <section className="py-16 px-4" style={{ background: SURFACE }}>
+      <section className="py-12 md:py-16 px-4" style={{ background: SURFACE }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>Reviews</p>
@@ -288,7 +288,7 @@ export default function PlanPage() {
       <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, paddingTop: '80px' }} className="py-14 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4" style={{ background: PRIMARY, color: '#fff' }}>プラン・料金</span>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>プランのご案内</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>プランのご案内</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>
             ライフスタイルに合わせた3つのプランをご用意。<br />
             全プランで<strong style={{ color: TEXT }}>初月月会費無料</strong>キャンペーン実施中。

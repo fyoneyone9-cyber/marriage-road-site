@@ -238,7 +238,7 @@ export default function WContactPage() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
             style={{ background: '#ec4899', color: '#fff' }}>女性向け</div>
-          <h1 className="text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>女性無料相談</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3" style={{ color: TEXT }}>女性無料相談</h1>
           <p className="text-sm leading-relaxed" style={{ color: MUTED }}>まずはお気軽にご相談ください。</p>
         </div>
       </section>
