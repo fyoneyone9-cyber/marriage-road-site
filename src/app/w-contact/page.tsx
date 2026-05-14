@@ -242,6 +242,17 @@ export default function WContactPage() {
       <div className="max-w-5xl mx-auto px-4 py-16">
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
 
+          {/* TimeRex 予約バナー */}
+          <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-between gap-4 rounded-xl p-5 mb-5 transition-all hover:opacity-90"
+            style={{ background: PRIMARY, textDecoration: 'none', boxShadow: '0 4px 16px rgba(183,110,121,0.35)' }}>
+            <div>
+              <p className="text-white font-bold text-sm mb-0.5">📅 無料説明会をオンライン予約</p>
+              <p className="text-white/80 text-xs">日程を選ぶだけ。Zoom・対面どちらも対応。</p>
+            </div>
+            <span className="text-white text-lg flex-shrink-0">→</span>
+          </a>
+
           {/* 送信完了画面 */}
           {submitted ? (
             <div className="rounded-2xl p-10 text-center" style={{ background: 'white', border: `1px solid ${BORDER}` }}>

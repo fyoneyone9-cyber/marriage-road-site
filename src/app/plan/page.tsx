@@ -369,16 +369,28 @@ export default function PlanPage() {
                       ))}
                     </div>
 
-                    <a href="/m-contact"
-                      className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-90"
-                      style={{
-                        background: plan.popular ? PRIMARY : 'white',
-                        color: plan.popular ? 'white' : PRIMARY,
-                        border: `2px solid ${PRIMARY}`,
-                        textDecoration: 'none',
-                      }}>
-                      {plan.name}の詳細を聞く →
-                    </a>
+                    <div className="flex flex-wrap gap-3">
+                      <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-90"
+                        style={{
+                          background: plan.popular ? PRIMARY : 'white',
+                          color: plan.popular ? 'white' : PRIMARY,
+                          border: `2px solid ${PRIMARY}`,
+                          textDecoration: 'none',
+                        }}>
+                        📅 無料説明会を予約
+                      </a>
+                      <a href={`/plan${i + 1}`}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-80"
+                        style={{
+                          background: 'transparent',
+                          color: MUTED,
+                          border: `1px solid ${BORDER}`,
+                          textDecoration: 'none',
+                        }}>
+                        詳細を見る →
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -399,13 +411,15 @@ export default function PlanPage() {
           <p className="text-sm mb-2" style={{ color: MUTED }}>無料相談でプランを一緒に決めましょう。</p>
           <p className="text-xs mb-6" style={{ color: MUTED }}>受付時間：10:00〜23:00（年中無休）</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/m-contact" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: PRIMARY, textDecoration: 'none' }}>
-              👨 男性の方はこちら →
+            <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: PRIMARY, textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,110,121,0.35)' }}>
+              📅 無料説明会を予約する
             </a>
-            <a href="/w-contact" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: '#c9a96e', textDecoration: 'none' }}>
-              👩 女性の方はこちら →
+            <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: '#06C755', textDecoration: 'none' }}>
+              💬 LINEで相談する
             </a>
           </div>
           <p className="mt-4">

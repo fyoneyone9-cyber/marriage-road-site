@@ -116,18 +116,22 @@ export default function Footer() {
             {/* CTA ボタン */}
             <div className="flex gap-3 mt-2">
               <a
-                href="/w-contact"
+                href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full text-xs font-semibold text-white transition-all hover:scale-105"
                 style={{ background: PRIMARY }}
               >
-                女性 無料相談
+                📅 無料説明会を予約
               </a>
               <a
-                href="/m-contact"
+                href="https://lin.ee/UxgdZ7F"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full text-xs font-semibold transition-all hover:scale-105"
                 style={{ background: `${ACCENT}33`, border: `1px solid ${ACCENT}88`, color: ACCENT }}
               >
-                男性 無料相談
+                💬 LINE相談
               </a>
             </div>
           </div>

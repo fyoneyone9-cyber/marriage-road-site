@@ -232,17 +232,19 @@ export default function FlowPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <p className="text-sm mb-4" style={{ color: MUTED }}>まずは無料相談からスタート！</p>
+        <div className="text-center py-10 rounded-2xl" style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)` }}>
+          <p className="text-base font-bold mb-1" style={{ color: TEXT }}>まずは無料説明会へ</p>
+          <p className="text-sm mb-6" style={{ color: MUTED }}>日程を選んで、その場でご予約いただけます。Zoom・対面どちらも対応。</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="/m-contact" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: PRIMARY, textDecoration: 'none' }}>
-              📅 Zoom無料相談予約
+            <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: PRIMARY, textDecoration: 'none', boxShadow: '0 4px 14px rgba(183,110,121,0.4)' }}>
+              📅 無料説明会を予約する
             </a>
             <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
               style={{ background: '#06C755', textDecoration: 'none' }}>
-              💬 LINE相談
+              💬 LINEで相談する
             </a>
           </div>
         </div>
