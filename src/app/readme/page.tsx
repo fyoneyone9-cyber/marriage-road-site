@@ -37,11 +37,7 @@ function Header() {
   )
 }
 
-function Footer() {
-  return (
-    <Footer />
-  )
-}
+
 
 export default function ReadmePage() {
   return (

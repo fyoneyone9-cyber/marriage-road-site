@@ -39,11 +39,7 @@ function Header() {
   )
 }
 
-function Footer() {
-  return (
-    <Footer />
-  )
-}
+
 
 const inputStyle = {
   width: '100%',
