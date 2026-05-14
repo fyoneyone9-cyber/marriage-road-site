@@ -234,9 +234,13 @@ export default function Home() {
             </div>
             <div className="text-xs" style={{ color: MUTED }}>結婚相談所 · IBJ正規加盟店</div>
           </a>
-          <nav className="hidden md:flex items-center gap-4 text-xs" style={{ color: MUTED }}>
+          <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map(([label, href]) => (
-              <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+              <a key={href} href={href}
+                className="px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-[#f5e8e8]"
+                style={{ color: '#5a3a3a', textDecoration: 'none' }}>
+                {label}
+              </a>
             ))}
           </nav>
           <div className="flex items-center gap-3">
@@ -250,18 +254,33 @@ export default function Home() {
           </div>
         </div>
         {menuOpen && (
-          <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-4 space-y-3">
+          <div style={{ background: BASE, borderTop: `1px solid ${BORDER}` }} className="md:hidden px-4 py-5 space-y-1">
+            <p className="text-xs font-bold mb-3 px-2" style={{ color: PRIMARY }}>メニュー</p>
             {NAV_LINKS.map(([label, href]) => (
-              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="block py-2 text-sm" style={{ color: MUTED, textDecoration: 'none' }}>{label}</a>
+              <a key={href} href={href} onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 py-3 px-3 rounded-xl text-sm font-medium transition-all hover:bg-[#f5e8e8]"
+                style={{ color: '#5a3a3a', textDecoration: 'none' }}>
+                <ArrowRight size={14} style={{ color: PRIMARY }} />
+                {label}
+              </a>
             ))}
-            <a href="tel:050-1807-3163" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 py-2 text-sm font-medium" style={{ color: PRIMARY, textDecoration: 'none' }}>
-              <Phone size={14} /> 050-1807-3163
-            </a>
-            <a href="/m-contact" onClick={() => setMenuOpen(false)}
-              className="block text-center py-3 rounded-full text-sm font-semibold text-white"
-              style={{ background: PRIMARY, textDecoration: 'none' }}>
-              無料相談を予約する →
-            </a>
+            <div className="pt-2 space-y-2">
+              <a href="tel:050-1807-3163" onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 py-3 px-3 rounded-xl text-sm font-medium"
+                style={{ color: PRIMARY, textDecoration: 'none', background: 'rgba(183,110,121,0.08)' }}>
+                <Phone size={14} /> 050-1807-3163
+              </a>
+              <a href="/m-contact" onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold text-white"
+                style={{ background: PRIMARY, textDecoration: 'none' }}>
+                <ArrowRight size={14} /> 男性の無料相談を予約する
+              </a>
+              <a href="/w-contact" onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold"
+                style={{ background: 'white', border: `2px solid ${PRIMARY}`, color: PRIMARY, textDecoration: 'none' }}>
+                <ArrowRight size={14} /> 女性の無料相談を予約する
+              </a>
+            </div>
           </div>
         )}
       </header>
@@ -327,6 +346,30 @@ export default function Home() {
                 </div>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ページ導線カード ── */}
+      <section className="py-8 px-4" style={{ background: '#fff8f5', borderBottom: '1px solid #e8d5d0' }}>
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-xs font-semibold mb-4 tracking-widest uppercase" style={{ color: '#b76e79' }}>MENU</p>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {[
+              { icon: '✨', label: '特徴・強み', href: '/feature' },
+              { icon: '💰', label: 'プラン・料金', href: '/plan' },
+              { icon: '📋', label: '入会の流れ', href: '/flow' },
+              { icon: '👤', label: 'カウンセラー', href: '/greeting' },
+              { icon: '❓', label: 'よくある質問', href: '/faq' },
+              { icon: '📞', label: '無料相談', href: '/m-contact' },
+            ].map(({ icon, label, href }) => (
+              <a key={href} href={href}
+                className="flex flex-col items-center gap-1.5 py-4 px-2 rounded-xl transition-all hover:scale-105 hover:shadow-md"
+                style={{ background: 'white', border: '1px solid #e8d5d0', textDecoration: 'none' }}>
+                <span className="text-2xl">{icon}</span>
+                <span className="text-xs font-semibold text-center leading-tight" style={{ color: '#5a3a3a' }}>{label}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
