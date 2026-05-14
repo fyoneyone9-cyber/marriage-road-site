@@ -190,18 +190,39 @@ export default function WContactPage() {
     date1: '', date2: '', date3: '', question: '',
   })
   const [agreed, setAgreed] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!agreed) {
       alert('プライバシーポリシーへの同意が必要です。')
       return
     }
-    alert('送信しました。担当者よりご連絡いたします。')
+    setSubmitting(true)
+    setSubmitError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gender: 'female', ...form }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setSubmitted(true)
+      } else {
+        setSubmitError(data.error || '送信に失敗しました。お電話にてお問い合わせください。')
+      }
+    } catch {
+      setSubmitError('ネットワークエラーが発生しました。お電話にてお問い合わせください。')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -220,6 +241,23 @@ export default function WContactPage() {
 
       <div className="max-w-5xl mx-auto px-4 py-16">
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+
+          {/* 送信完了画面 */}
+          {submitted ? (
+            <div className="rounded-2xl p-10 text-center" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+              <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
+              <h2 className="text-xl font-bold mb-3" style={{ color: PRIMARY }}>送信完了しました</h2>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: MUTED }}>
+                お申し込みありがとうございます。<br />
+                担当者より 1〜2営業日以内にご連絡いたします。
+              </p>
+              <a href="/" className="inline-block px-6 py-3 rounded-full text-sm font-semibold text-white"
+                style={{ background: PRIMARY, textDecoration: 'none' }}>
+                トップページへ戻る
+              </a>
+            </div>
+          ) : (
+          <>
 
           {/* 電話 */}
           <div className="rounded-xl p-6 mb-8 text-center" style={{ background: 'white', border: `1px solid ${BORDER}` }}>
@@ -289,14 +327,23 @@ export default function WContactPage() {
               </label>
             </div>
 
+            {submitError && (
+              <div className="rounded-lg p-4 text-sm" style={{ background: '#fff0f0', border: '1px solid #ffcccc', color: '#cc0000' }}>
+                {submitError}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: '#ec4899', border: 'none', cursor: 'pointer', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}
+              disabled={submitting}
+              className="w-full px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60"
+              style={{ background: '#ec4899', border: 'none', cursor: submitting ? 'not-allowed' : 'pointer', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}
             >
-              無料相談する
+              {submitting ? '送信中...' : '無料相談する'}
             </button>
           </form>
+          </>
+          )}
         </div>
       </div>
 
