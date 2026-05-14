@@ -43,6 +43,8 @@ const PLANS = [
   {
     name: 'ライトプラン',
     target: '全国対応',
+    monthlyFee: '8,000円',
+    omiai: 'お見合い10件まで 1,000円/回',
     features: [
       '無料相談・ヒアリング（オンライン）',
       '随時連絡（LINE・電話・メール）',
@@ -56,6 +58,8 @@ const PLANS = [
   {
     name: 'スタンダードプラン',
     target: '全国対応',
+    monthlyFee: '9,800円',
+    omiai: 'お見合い100件まで無料',
     features: [
       '無料相談・ヒアリング（オンライン）',
       '随時連絡（LINE・電話・メール）',
@@ -71,6 +75,8 @@ const PLANS = [
   {
     name: 'プレミアムプラン',
     target: '神奈川県限定',
+    monthlyFee: '18,000円',
+    omiai: 'お見合い200件まで無料',
     features: [
       '無料相談・ヒアリング（対面orオンライン）',
       '随時連絡（LINE・電話・メール）',
@@ -477,7 +483,7 @@ export default function Home() {
             <p className="mt-1 text-xs" style={{ color: MUTED }}>詳細な料金は無料相談にてご案内します。初月月会費無料キャンペーン実施中！</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {PLANS.map(({ name, target, features, highlight, note }, i) => (
+            {PLANS.map(({ name, target, monthlyFee, omiai, features, highlight, note }, i) => (
               <div key={i} className="rounded-xl p-6 flex flex-col relative"
                 style={{
                   background: highlight ? PRIMARY : 'white',
@@ -500,7 +506,20 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-1" style={{ color: highlight ? 'white' : TEXT }}>
                   {name}
                 </h3>
-                <p className="text-xs mb-4" style={{ color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>{note}</p>
+                <p className="text-xs mb-3" style={{ color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>{note}</p>
+                {/* 料金表示 */}
+                <div className="mb-4 p-3 rounded-xl" style={{ background: highlight ? 'rgba(255,255,255,0.15)' : 'rgba(183,110,121,0.07)' }}>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-2xl font-black" style={{ color: highlight ? 'white' : PRIMARY }}>{monthlyFee}</span>
+                    <span className="text-xs" style={{ color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>/月（初月無料）</span>
+                  </div>
+                  <div className="text-xs" style={{ color: highlight ? 'rgba(255,255,255,0.8)' : MUTED }}>{omiai}</div>
+                  <div className="mt-2 pt-2 text-xs space-y-0.5" style={{ borderTop: highlight ? '1px solid rgba(255,255,255,0.2)' : `1px solid ${BORDER}`, color: highlight ? 'rgba(255,255,255,0.7)' : MUTED }}>
+                    <div>入会金 28,000円（初回のみ）</div>
+                    <div>IBJSシステム登録料 9,800円（初回のみ）</div>
+                    <div>ご成婚料 200,000円（成婚時のみ）</div>
+                  </div>
+                </div>
                 <ul className="space-y-2 flex-1 mb-5">
                   {features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm"
@@ -646,6 +665,32 @@ export default function Home() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── アクセス・Googleマップ ── */}
+      <section className="py-12 md:py-16 px-4" style={{ background: BASE }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-xs font-medium mb-1 tracking-widest uppercase" style={{ color: PRIMARY }}>Access</p>
+            <h2 className="text-xl font-semibold" style={{ color: TEXT }}>アクセス</h2>
+          </div>
+          <div className="rounded-2xl overflow-hidden mb-4" style={{ border: `1px solid ${BORDER}`, boxShadow: '0 4px 16px rgba(45,26,26,0.08)' }}>
+            <iframe
+              src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%B5%B7%E8%80%81%E5%90%8D%E5%B8%82%E6%B3%896-5-2-301&output=embed"
+              width="100%"
+              height="280"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              title="マレッジロードジャパン 地図"
+            />
+          </div>
+          <div className="text-center text-sm" style={{ color: MUTED }}>
+            <p className="font-medium mb-1" style={{ color: TEXT }}>〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+            <p className="text-xs">JR相模線・小田急小田原線・相鉄本線「海老名駅」徒歩約15分 ／ JR相模線「社家駅」徒歩1分</p>
+            <p className="text-xs mt-1">駐車場あり ／ ZOOM全国対応</p>
           </div>
         </div>
       </section>
