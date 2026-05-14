@@ -1,4 +1,5 @@
-﻿import QuickNav from '@/components/QuickNav'
+﻿import Footer from '@/components/Footer'
+import QuickNav from '@/components/QuickNav'
 import Link from 'next/link'
 
 const PRIMARY = '#c9836f'
