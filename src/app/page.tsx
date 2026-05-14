@@ -140,6 +140,7 @@ function QuickNav() {
     { label: 'カウンセラー', icon: '👤', href: '/greeting' },
     { label: 'よくある質問', icon: '❓', href: '/faq' },
     { label: '実績データ', icon: '📊', href: '/data' },
+    { label: 'ブログ',    icon: '📝', href: '/blog' },
     { label: '商工会議所', icon: '🏛️', href: '/chamber' },
     { label: '男性相談',  icon: '👨', href: '/m-contact' },
     { label: '女性相談',  icon: '👩', href: '/w-contact' },
@@ -633,6 +634,7 @@ export default function Home() {
               { href: '/flow',     icon: '📋', title: 'ご入会の流れ',     desc: '相談から成婚までの5ステップ' },
               { href: '/greeting', icon: '👤', title: 'カウンセラー紹介', desc: '資格・経歴・婚活への想い' },
               { href: '/data',     icon: '📊', title: '実績データ',       desc: '成婚実績・会員数など' },
+              { href: '/blog',     icon: '📝', title: '婚活ブログ',       desc: '婚活コラム50本以上。役立つ情報満載' },
               { href: '/chamber',  icon: '🏛️', title: '商工会議所',       desc: '海老名商工会議所 会員No.4954' },
             ].map(({ href, icon, title, desc }) => (
               <a key={href} href={href} style={{ textDecoration: 'none' }}>

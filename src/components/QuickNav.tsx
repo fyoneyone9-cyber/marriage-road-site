@@ -11,6 +11,7 @@ export default function QuickNav() {
     { label: 'カウンセラー', icon: '👤', href: '/greeting' },
     { label: 'よくある質問', icon: '❓', href: '/faq' },
     { label: '実績データ',   icon: '📊', href: '/data' },
+    { label: 'ブログ',       icon: '📝', href: '/blog' },
     { label: '商工会議所',   icon: '🏛️', href: '/chamber' },
     { label: '男性相談',     icon: '👨', href: '/m-contact' },
     { label: '女性相談',     icon: '👩', href: '/w-contact' },
