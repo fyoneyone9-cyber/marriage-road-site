@@ -5,6 +5,7 @@ import {
   Mail, Phone, Youtube, CheckCircle, ArrowRight, Menu, X,
   Shield, Video, CreditCard, MessageCircle, Sparkles, MapPin,
 } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
@@ -765,114 +766,8 @@ export default function Home() {
       </section>
 
       {/* ── フッター ── */}
-      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-12 px-4 text-xs">
-        <div className="max-w-5xl mx-auto">
+      <Footer />
 
-          {/* ロゴ・基本情報 */}
-          <div className="text-center mb-8">
-            <div className="mb-2">
-              <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
-              <span className="ml-2 opacity-60">Marriage Road Japan</span>
-            </div>
-            <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
-            <p className="mb-1">
-              <a href="tel:050-1807-3163" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>050-1807-3163</a>
-              {' · '}
-              <a href="mailto:info@marriage-road.jp" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>info@marriage-road.jp</a>
-            </p>
-            <p className="opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
-          </div>
-
-          {/* リンク4カラム */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 border-t border-white/10 pt-8">
-
-            <div>
-              <p className="text-white font-semibold mb-3">サービス案内</p>
-              <ul className="space-y-2">
-                {[
-                  ['特徴・強み', '/feature'],
-                  ['プラン・料金', '/plan'],
-                  ['ご入会の流れ', '/flow'],
-                  ['カウンセラー紹介', '/greeting'],
-                  ['よくある質問', '/faq'],
-                  ['実績データ', '/data'],
-                  ['成婚者インタビュー', '/interview'],
-                  ['成婚事例', '/case'],
-                ].map(([label, href]) => (
-                  <li key={href}><a href={href} className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-white font-semibold mb-3">婚活情報</p>
-              <ul className="space-y-2">
-                {[
-                  ['IBJについて', '/ibj'],
-                  ['IBJ正規加盟店認定証', '/16763909961240'],
-                  ['マッチングアプリとの違い', '/16770013730359'],
-                  ['AIマッチング機能', '/16765078654055'],
-                  ['なぜ今利用者が増えている？', '/16774296731302'],
-                  ['なぜWeb面接が必要か', '/16774301352630'],
-                  ['独身証明書とは？', '/16774362542623'],
-                  ['婚活へのこだわり', '/16767377701305'],
-                ].map(([label, href]) => (
-                  <li key={href}><a href={href} className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-white font-semibold mb-3">データ・実績</p>
-              <ul className="space-y-2">
-                {[
-                  ['男性会員データ', '/16770016031373'],
-                  ['女性会員データ', '/16770016529040'],
-                  ['ご成婚白書2025', '/16770442332695'],
-                  ['活動実績2024年', '/16770811329988'],
-                  ['ご成婚の定義', '/16771848793719'],
-                  ['成婚後のフォロー', '/16771361261377'],
-                  ['SDGsへの取り組み', '/16776585117840'],
-                  ['アクセス', '/access'],
-                ].map(([label, href]) => (
-                  <li key={href}><a href={href} className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-white font-semibold mb-3">その他</p>
-              <ul className="space-y-2">
-                {[
-                  ['オンライン契約の流れ', '/16767435923382'],
-                  ['お見合い検索システム', '/16764708414344'],
-                  ['婚活パーティー情報', '/16772438559724'],
-                  ['専属占い師サービス', '/17250964253681'],
-                  ['公式SNS', '/16764595712727'],
-                  ['お問い合わせ', '/16760950606960'],
-                  ['男性無料相談', '/m-contact'],
-                  ['女性無料相談', '/w-contact'],
-                ].map(([label, href]) => (
-                  <li key={href}><a href={href} className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-
-          </div>
-
-          {/* 法的リンク + コピーライト */}
-          <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <a href="/privacy" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プライバシーポリシー</a>
-              <a href="/terms" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>利用規約</a>
-              <a href="/tokusho" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特定商取引法</a>
-              <a href="/sitemap" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>サイトマップ</a>
-            </div>
-            <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
-          </div>
-
-        </div>
-      </footer>
       <QuickNav />
     </div>
   )

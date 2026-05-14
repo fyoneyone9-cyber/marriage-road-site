@@ -1,4 +1,5 @@
-'use client'
+﻿'use client'
+import Footer from '@/components/Footer'
 
 const PRIMARY = '#c9836f'
 const ACCENT = '#d4a96a'
@@ -38,22 +39,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer style={{ background: TEXT, color: '#fff', padding: '40px 16px', marginTop: '80px', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto' }}>
-        <div style={{ fontWeight: 700, fontSize: '18px', color: PRIMARY, marginBottom: '16px' }}>マレッジロードジャパン</div>
-        <div style={{ fontSize: '14px', color: '#ccc', lineHeight: '2' }}>
-          <div>〒243-0424 神奈川県海老名市社家6-5-2-301</div>
-          <div>TEL: 050-1807-3163</div>
-          <div>MAIL: info@marriage-road.jp</div>
-        </div>
-        <div style={{ marginTop: '24px', display: 'flex', gap: '16px', fontSize: '13px' }}>
-          <a href="/privacy" style={{ color: '#aaa', textDecoration: 'none' }}>プライバシーポリシー</a>
-          <a href="/terms" style={{ color: '#aaa', textDecoration: 'none' }}>利用規約</a>
-          <a href="/tokusho" style={{ color: '#aaa', textDecoration: 'none' }}>特定商取引法</a>
-        </div>
-        <div style={{ marginTop: '16px', fontSize: '12px', color: '#888' }}>© 2024 マレッジロードジャパン All rights reserved.</div>
-      </div>
-    </footer>
+    <Footer />
   )
 }
 

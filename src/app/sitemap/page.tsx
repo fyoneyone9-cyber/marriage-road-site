@@ -1,4 +1,5 @@
-'use client'
+﻿'use client'
+import Footer from '@/components/Footer'
 
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
@@ -174,9 +175,7 @@ export default function SitemapPage() {
       </div>
 
       {/* フッター */}
-      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.5)', padding: '24px 16px', textAlign: 'center', fontSize: '0.75rem', marginTop: '48px' }}>
-        <p>© 2024 Marriage Road Japan. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

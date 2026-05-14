@@ -1,6 +1,7 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight, CheckCircle } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
@@ -175,30 +176,7 @@ function SiteFooter() {
         </div>
       </section>
 
-      <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
-        <div className="mb-2">
-          <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
-          <span className="ml-2 opacity-60">Marriage Road Japan</span>
-        </div>
-        <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
-        <p className="mb-1">
-          <a href="tel:050-1807-3163" style={{ color: 'inherit', textDecoration: 'none' }}>050-1807-3163</a>
-          {' · '}
-          <a href="mailto:info@marriage-road.jp" style={{ color: 'inherit', textDecoration: 'none' }}>info@marriage-road.jp</a>
-        </p>
-        <p className="mb-3 opacity-70">IBJ正規加盟店（登録No.01226）· 海老名商工会議所 会員No.4954</p>
-        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
-          {[['特徴・強み','/feature'],['プラン','/plan'],['ご入会の流れ','/flow'],['カウンセラー紹介','/greeting'],['商工会議所','/chamber'],['よくある質問','/faq'],['実績データ','/data']].map(([l,h]) => (
-            <a key={h} href={h} style={{ color: 'inherit', textDecoration: 'none' }} className="hover:opacity-80">{l}</a>
-          ))}
-        </div>
-        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
-          {[['プライバシーポリシー','/privacy'],['利用規約','/terms'],['特定商取引法','/tokusho']].map(([l,h]) => (
-            <a key={h} href={h} style={{ color: 'inherit', textDecoration: 'none' }} className="hover:opacity-80">{l}</a>
-          ))}
-        </div>
-        <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
-      </footer>
+      <Footer />
     </>
   )
 }

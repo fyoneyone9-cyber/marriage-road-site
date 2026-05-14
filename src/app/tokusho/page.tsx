@@ -1,4 +1,4 @@
-import QuickNav from '@/components/QuickNav'
+﻿import QuickNav from '@/components/QuickNav'
 import Link from 'next/link'
 
 const PRIMARY = '#c9836f'
@@ -105,17 +105,7 @@ export default function TokushoPage() {
       </main>
 
       {/* フッター */}
-      <footer className="py-8 px-4 text-center text-xs mt-8" style={{ background: '#3d2c2c', color: 'rgba(255,255,255,0.6)' }}>
-        <p className="mb-2 font-semibold text-sm text-white">マレッジロードジャパン</p>
-        <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
-        <p className="mb-4 opacity-70">IBJ正規加盟店 · 登録番号No.01226</p>
-        <div className="flex justify-center gap-5 mb-4">
-          <Link href="/privacy" className="hover:opacity-80">プライバシーポリシー</Link>
-          <Link href="/terms" className="hover:opacity-80">利用規約</Link>
-          <Link href="/tokusho" className="hover:opacity-80">特定商取引法</Link>
-        </div>
-        <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
-      </footer>
+      <Footer />
       <QuickNav />
     </div>
   )

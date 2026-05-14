@@ -1,6 +1,7 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
@@ -112,33 +113,7 @@ function SiteHeader() {
 
 function SiteFooter() {
   return (
-    <footer style={{ background: '#2d1a1a', color: 'rgba(255,255,255,0.7)' }} className="py-10 px-4 text-center text-xs">
-      <div className="mb-2">
-        <span className="font-semibold text-sm text-white">マレッジロードジャパン</span>
-        <span className="ml-2 opacity-60">Marriage Road Japan</span>
-      </div>
-      <p className="mb-1">〒243-0424 神奈川県海老名市泉6-5-2-301</p>
-      <p className="mb-1">
-        <a href="tel:050-1807-3163" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>050-1807-3163</a>
-        {' · '}
-        <a href="mailto:info@marriage-road.jp" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>info@marriage-road.jp</a>
-      </p>
-      <p className="mb-4 opacity-70">日本結婚相談所連盟（IBJ）正規加盟店 · 登録番号No.01226</p>
-      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-3">
-        <a href="/feature" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特徴・強み</a>
-        <a href="/plan" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プラン</a>
-        <a href="/flow" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>ご入会の流れ</a>
-        <a href="/greeting" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>カウンセラー紹介</a>
-        <a href="/faq" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>よくある質問</a>
-        <a href="/data" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>実績データ</a>
-      </div>
-      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-4">
-        <a href="/privacy" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>プライバシーポリシー</a>
-        <a href="/terms" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>利用規約</a>
-        <a href="/tokusho" className="hover:opacity-80" style={{ color: 'inherit', textDecoration: 'none' }}>特定商取引法</a>
-      </div>
-      <p className="opacity-40">© 2024 Marriage Road Japan. All rights reserved.</p>
-    </footer>
+    <Footer />
   )
 }
 
