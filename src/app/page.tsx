@@ -679,7 +679,7 @@ export default function Home() {
           </div>
           <div className="rounded-2xl overflow-hidden mb-4" style={{ border: `1px solid ${BORDER}`, boxShadow: '0 4px 16px rgba(45,26,26,0.08)' }}>
             <iframe
-              src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%B5%B7%E8%80%81%E5%90%8D%E5%B8%82%E6%B3%896-5-2-301&output=embed"
+              src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%B5%B7%E8%80%81%E5%90%8D%E5%B8%82%E7%A4%BE%E5%AE%B66-5-2-301&output=embed"
               width="100%"
               height="280"
               style={{ border: 0, display: 'block' }}
