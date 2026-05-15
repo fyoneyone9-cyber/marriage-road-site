@@ -264,20 +264,6 @@ export default function Home() {
         </div>
       </header>
       
-      {/* ── ニュースバナー ── */}
-      <section style={{ background: '#fef2f2', borderBottom: '2px solid #fecaca', marginTop: '68px' }} className="py-4 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="font-bold text-sm mb-3 flex items-center gap-2" style={{ color: '#991b1b' }}>
-            <Sparkles size={16} /> 最新お得情報・注目イベント（5月16日版）
-          </h3>
-          <ul className="text-xs sm:text-sm list-none space-y-2">
-            <li>✅ <a href="https://www.tennenmusume.com/?aff_id=240156" className="font-bold underline" style={{ color: '#b91c1c' }}>【天然むすめ】最大＄100 OFF割引キャンペーン中！</a></li>
-            <li>✅ <a href="https://www.dxlive.com/preview/rururuiiii?aff_id=240156" className="font-bold underline" style={{ color: '#b91c1c' }}>【DXLIVE】「るいちゃん」スペシャルイベント開催</a></li>
-            <li>✅ <a href="https://clear-tv.com/Direct/9352999-352-240156/live_streaming.html" className="font-bold underline" style={{ color: '#b91c1c' }}>【DXLIVE】「みれいそら」AV鑑賞会</a></li>
-          </ul>
-        </div>
-      </section>
-
       {/* ── ヒーロー ── */}
       <section style={{ background: `linear-gradient(160deg, #fde8df 0%, #faf7f5 50%, #fdf5e8 100%)`, minHeight: "auto" }}
         className="flex items-center">
