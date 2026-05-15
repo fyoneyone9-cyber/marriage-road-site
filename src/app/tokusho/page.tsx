@@ -18,7 +18,7 @@ export const metadata = {
 const items = [
   { label: '販売業者', value: 'マレッジロードジャパン' },
   { label: '代表者氏名', value: '米山文貴' },
-  { label: '所在地', value: '〒243-0424 神奈川県海老名市泉6-5-2-301' },
+  { label: '所在地', value: '〒243-0424 神奈川県海老名市社家6-5-2-301' },
   { label: '電話番号', value: '050-1807-3163' },
   { label: 'メールアドレス', value: 'info@marriage-road.jp' },
   { label: '受付時間', value: '10:00〜23:00（年中無休）' },

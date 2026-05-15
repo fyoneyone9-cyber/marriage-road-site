@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { Heart, Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
 
 const PRIMARY = '#b76e79'
@@ -101,7 +101,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex items-start gap-2 opacity-70">
               <MapPin size={14} className="mt-0.5 flex-shrink-0" style={{ color: ACCENT }} />
-              <span>〒243-0424 神奈川県海老名市泉6-5-2-301</span>
+              <span>〒243-0424 神奈川県海老名市社家6-5-2-301</span>
             </div>
             <a
               href="tel:050-1807-3163"

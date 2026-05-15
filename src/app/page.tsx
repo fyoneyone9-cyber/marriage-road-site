@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import {
   Heart, Users, Clock, Star, ChevronDown, ChevronUp,
@@ -313,7 +313,7 @@ export default function Home() {
 
           <p className="text-xs mb-8" style={{ color: MUTED }}>
             <MapPin size={12} className="inline mr-1" />
-            〒243-0424 神奈川県海老名市泉6-5-2-301 · IBJ正規加盟店 No.01226
+            〒243-0424 神奈川県海老名市社家6-5-2-301 · IBJ正規加盟店 No.01226
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -689,7 +689,7 @@ export default function Home() {
             />
           </div>
           <div className="text-center text-sm" style={{ color: MUTED }}>
-            <p className="font-medium mb-1" style={{ color: TEXT }}>〒243-0424 神奈川県海老名市泉6-5-2-301</p>
+            <p className="font-medium mb-1" style={{ color: TEXT }}>〒243-0424 神奈川県海老名市社家6-5-2-301</p>
             <p className="text-xs">JR相模線・小田急小田原線・相鉄本線「海老名駅」徒歩約15分 ／ JR相模線「社家駅」徒歩1分</p>
             <p className="text-xs mt-1">駐車場あり ／ ZOOM全国対応</p>
           </div>

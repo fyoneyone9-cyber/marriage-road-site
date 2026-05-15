@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Inter, Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
 
@@ -103,7 +103,7 @@ const localBusinessSchema = {
     postalCode: '243-0424',
     addressRegion: '神奈川県',
     addressLocality: '海老名市',
-    streetAddress: '泉6-5-2-301',
+    streetAddress: '社家6-5-2-301',
     addressCountry: 'JP',
   },
   geo: {
