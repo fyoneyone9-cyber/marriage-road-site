@@ -726,12 +726,10 @@ export default function Home() {
               APIキーはNextraLabsメンバーサイトから取得できます
             </p>
             <a
-              href="https://nextralab.jp/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/saas"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
               style={{ background: PRIMARY, textDecoration: 'none' }}>
-              NextraLabsでAPIキーを取得する →
+              AIアシスタントを使ってみる →
             </a>
           </div>
         </div>
