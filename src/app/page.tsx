@@ -670,6 +670,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── AIツールAPI PRセクション ── */}
+      <section className="py-12 md:py-16 px-4" style={{ background: '#fdf5f0' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+              style={{ background: 'rgba(183,110,121,0.12)', border: '1px solid rgba(183,110,121,0.3)', color: '#b76e79' }}>
+              🤝 NextraLabs × マレッジロードジャパン 共同提供
+            </div>
+            <h2 className="text-2xl font-bold mb-2" style={{ color: TEXT }}>
+              結婚相談所向け AIツールAPI
+            </h2>
+            <p className="text-sm" style={{ color: MUTED }}>
+              結婚相談所の業務を AI でサポートする専門ツールを API として提供
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-8">
+            {[
+              {
+                icon: '✍️',
+                title: 'プロフィール添削AI',
+                desc: '会員のプロフィール文を入力するだけで、婚活市場で刺さる魅力的な文章に添削・改善アドバイスを自動生成します。',
+              },
+              {
+                icon: '💌',
+                title: 'マッチング提案文AI',
+                desc: 'お見合い申込時の提案文を自動作成。会員情報を入力するだけで、自然で誠実なメッセージ文を瞬時に生成します。',
+              },
+              {
+                icon: '📧',
+                title: 'フォローメールAI',
+                desc: 'お見合い後のフォローメールテンプレートを自動生成。次の交際ステップへ自然につながる温かい文面を提案します。',
+              },
+            ].map(({ icon, title, desc }, i) => (
+              <div key={i} className="rounded-xl p-6 text-center"
+                style={{ background: 'white', border: '2px solid #e8d5d0', boxShadow: '0 4px 16px rgba(183,110,121,0.08)' }}>
+                <div className="text-4xl mb-3">{icon}</div>
+                <h3 className="text-base font-bold mb-2" style={{ color: TEXT }}>{title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: MUTED }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl p-6 md:p-8 text-center"
+            style={{ background: `linear-gradient(135deg, rgba(183,110,121,0.1) 0%, rgba(201,169,110,0.1) 100%)`, border: '2px solid #e8d5d0' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-4"
+              style={{ background: PRIMARY, color: 'white' }}>
+              🎁 NextraLabsメンバー限定
+            </div>
+            <p className="text-sm font-semibold mb-1" style={{ color: TEXT }}>
+              月10回無料 / プレミアムプランで無制限
+            </p>
+            <p className="text-xs mb-6" style={{ color: MUTED }}>
+              APIキーはNextraLabsメンバーサイトから取得できます
+            </p>
+            <a
+              href="https://nextralab.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: PRIMARY, textDecoration: 'none' }}>
+              NextraLabsでAPIキーを取得する →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── アクセス・Googleマップ ── */}
       <section className="py-12 md:py-16 px-4" style={{ background: BASE }}>
         <div className="max-w-3xl mx-auto">
