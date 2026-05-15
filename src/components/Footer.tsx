@@ -66,6 +66,10 @@ const LEGAL_LINKS = [
   ['サイトマップ',         '/sitemap'],
 ]
 
+const RELATED_LINKS: [string, string][] = [
+  ['NextraLabs（AIツール）', 'https://nextralab.jp'],
+]
+
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden" style={{ background: '#1a0f0f', color: 'rgba(255,255,255,0.75)' }}>
@@ -167,8 +171,29 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* ── 関連サービス ── */}
+        <div className="pt-6 pb-2">
+          <p className="text-xs font-semibold mb-3 tracking-widest uppercase" style={{ color: ACCENT }}>
+            関連サービス
+          </p>
+          <div className="flex flex-wrap gap-4">
+            {RELATED_LINKS.map(([label, href]) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs opacity-60 hover:opacity-100 transition-opacity"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                {label} ↗
+              </a>
+            ))}
+          </div>
+        </div>
+
         {/* ── ボトム ── */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6">
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL_LINKS.map(([label, href]) => (
               <a
