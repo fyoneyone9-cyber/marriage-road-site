@@ -310,18 +310,19 @@ export default function Home() {
           </div>
 
           {/* 商工会議所バッジ */}
-          <div className="mt-6 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <a href="/chamber" style={{ textDecoration: 'none' }}>
-              <div className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl transition-all hover:opacity-90"
-                style={{ background: 'rgba(255,255,255,0.95)', border: `2px solid ${BORDER}`, boxShadow: '0 4px 16px rgba(45,26,26,0.12)' }}>
+              <div className="inline-flex items-center gap-5 px-8 py-5 rounded-2xl transition-all hover:opacity-90 hover:scale-105"
+                style={{ background: 'rgba(255,255,255,0.98)', border: `3px solid ${ACCENT}`, boxShadow: '0 8px 28px rgba(183,110,121,0.22)' }}>
                 <img
                   src="/chamber-badge.jpg"
                   alt="海老名商工会議所 会員之証"
-                  style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '8px' }}
+                  style={{ width: '88px', height: '88px', objectFit: 'cover', borderRadius: '10px' }}
                 />
                 <div className="text-left">
-                  <div className="text-sm font-bold mb-0.5" style={{ color: TEXT }}>海老名商工会議所 公認</div>
-                  <div className="text-xs font-medium" style={{ color: MUTED }}>会員No. 4954　EBINA CHAMBER OF COMMERCE &amp; INDUSTRY</div>
+                  <div className="text-base font-bold mb-1" style={{ color: TEXT }}>海老名商工会議所 公認</div>
+                  <div className="text-sm font-semibold" style={{ color: ACCENT }}>会員No. 4954</div>
+                  <div className="text-xs font-medium mt-0.5" style={{ color: MUTED }}>EBINA CHAMBER OF COMMERCE &amp; INDUSTRY</div>
                 </div>
               </div>
             </a>
