@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
-
-const BASE_URL = 'https://marriage-road-site.vercel.app'
-
+const BASE = 'https://marriage-road.jp'
 export const metadata: Metadata = {
   title: 'よくある質問（FAQ） | マレッジロードジャパン【海老名・厚木の結婚相談所】',
-  description: '結婚相談所マレッジロードジャパンへのよくある質問。料金・入会条件・活動期間・オンライン対応・IBJとは何か・他の婚活との違いなど、ご不明点を解決します。',
+  description: '海老名の結婚相談所マレッジロードジャパンへのよくある質問。費用・成婚率・活動期間・オンライン対応・IBJとは何か・他の結婚相談所との違いなど、ご入会前の疑問にお答えします。',
+  keywords: ['結婚相談所 よくある質問', '婚活 FAQ', '結婚相談所 費用', '結婚相談所 成婚率', '海老名 婚活 疑問', 'IBJ 結婚相談所 違い'],
   openGraph: {
-    title: 'よくある質問（FAQ） | マレッジロードジャパン【海老名・厚木の結婚相談所】',
-    description: '結婚相談所マレッジロードジャパンへのよくある質問。料金・入会条件・活動期間・オンライン対応・IBJとは何か・他の婚活との違いなど。',
-    url: `${BASE_URL}/faq`,
+    title: 'よくある質問（FAQ） | マレッジロードジャパン',
+    description: '費用・成婚率・活動期間・オンライン対応・IBJとは何かなど、ご入会前の疑問にお答えします。',
+    url: `${BASE}/faq`,
     siteName: 'マレッジロードジャパン',
     locale: 'ja_JP',
     type: 'website',
@@ -16,69 +15,68 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'よくある質問（FAQ） | マレッジロードジャパン',
-    description: '料金・入会条件・活動期間・オンライン対応など、よくある質問をまとめました。',
+    description: '費用・成婚率・活動期間・オンライン対応など婚活の疑問をまとめました。',
   },
-  alternates: { canonical: `${BASE_URL}/faq` },
+  alternates: { canonical: `${BASE}/faq` },
 }
-
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'まずプランの費用について直接お話を聞きたいのですが？',
+      name: 'まず料金の相談について直接話を聞きたいのですが',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ホームページ記載の電話番号かメールフォームまでお気軽にお問い合わせください。',
+        text: 'ホームページ記載の電話番号またはメールフォームからお気軽にお問い合わせください。',
       },
     },
     {
       '@type': 'Question',
-      name: '無料相談で強引な勧誘はされませんか？',
+      name: '結婚相談所で強引な勧誘はありませんか？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'いたしません。勧誘行為は一切行っておりませんのでご安心ください。',
+        text: 'ございません。勧誘行為は一切行っておりませんのでご安心ください。',
       },
     },
     {
       '@type': 'Question',
-      name: '無料相談の場所はどこでも大丈夫ですか？',
+      name: 'お見合いの場所はどこで行いますか？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'カフェ・図書館などどこでも大丈夫です。オンラインなら全国対応。対面は神奈川県内のみとなります。',
+        text: 'カフェ・ホテルラウンジなどどこでも可能です。オンラインなら全国対応。対面は神奈川県周辺となります。',
       },
     },
     {
       '@type': 'Question',
-      name: '忙しくて時間が取れなくても大丈夫ですか？',
+      name: '仕事で忙しくて時間がなくても大丈夫ですか？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '対応いたします。可能な限りお時間を合わせますのでお気軽にご相談ください。',
+        text: '対応しております。可能な限りお客様のスケジュールに合わせてサポートします。',
       },
     },
     {
       '@type': 'Question',
-      name: '入会審査はありますか？',
+      name: '無料相談はありますか？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ございます。まずオンラインもしくは対面で無料説明会を実施し、ご意志確認後に本入会となります。',
+        text: 'ございます。まずオンライン相談または対面で無料相談をした後に本登録となります。',
       },
     },
     {
       '@type': 'Question',
-      name: '離婚歴がありますが、入会できますか？',
+      name: '過去に失恋してもできますか？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'もちろんです。離婚されて入会している方も多数所属しております。お気軽にご相談ください。',
+        text: 'もちろんです。同じ経験をして乗り越えた会員様もいらっしゃいます。お気軽にご相談ください。',
       },
     },
     {
       '@type': 'Question',
-      name: '支払方法について教えてください。',
+      name: '支払い方法について教えてください。',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '銀行振り込み・メルペイ・d払いのいずれかをご選択いただけます。',
+        text: '銀行振込・クレジットカード・口座振替のいずれかをお選びいただけます。',
       },
     },
     {
@@ -86,21 +84,19 @@ const faqSchema = {
       name: '人見知りなのでパーティーやイベント参加が不安です。',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'もちろんサポートします。イベント参加自体、無理なく進めても問題ございません。あなたのペースに合わせてサポートします。',
+        text: 'IBJのサポートします。イベント参加は、慣れないうちは無理せず進められます。あなたのペースに合わせてサポートします。',
       },
     },
   ],
 }
-
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'ホーム', item: BASE_URL },
-    { '@type': 'ListItem', position: 2, name: 'よくある質問', item: `${BASE_URL}/faq` },
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: BASE },
+    { '@type': 'ListItem', position: 2, name: 'よくある質問', item: `${BASE}/faq` },
   ],
 }
-
 export default function FaqLayout({ children }: { children: React.ReactNode }) {
   return (
     <>

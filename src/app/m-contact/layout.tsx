@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '男性向け無料相談フォーム | マレッジロードジャパン【海老名・厚木の結婚相談所】',
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '男性向け無料相談フォーム | マレッジロードジャパン【海老名・厚木の結婚相談所】',
     description: '男性向け無料相談フォーム。結婚相談所マレッジロードジャパンへのお問い合わせ・無料相談予約はこちら。受付時間10:00〜23:00（年中無休）。ZOOM対応で全国からご相談可能。',
-    url: 'https://marriage-road-site.vercel.app/m-contact',
+    url: 'https://marriage-road.jp/m-contact',
     siteName: 'マレッジロードジャパン',
     locale: 'ja_JP',
     type: 'website',
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     title: '男性向け無料相談フォーム | マレッジロードジャパン【海老名・厚木の結婚相談所】',
     description: '男性向け無料相談フォーム。結婚相談所マレッジロードジャパンへのお問い合わせ・無料相談予約はこちら。受付時間10:00〜23:00（年中無休）。ZOOM対応で全国からご相談可能。',
   },
-  alternates: { canonical: 'https://marriage-road-site.vercel.app/m-contact' },
+  alternates: { canonical: 'https://marriage-road.jp/m-contact' },
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const breadcrumb = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://marriage-road-site.vercel.app"},{"@type":"ListItem","position":2,"name":"男性向け無料相談","item":"https://marriage-road-site.vercel.app/m-contact"}]}
+  const breadcrumb = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://marriage-road.jp"},{"@type":"ListItem","position":2,"name":"男性向け無料相談","item":"https://marriage-road.jp/m-contact"}]}
 
   return (
     <>
