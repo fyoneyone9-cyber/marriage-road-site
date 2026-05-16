@@ -801,6 +801,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ブログ記事導線 */}
+      <section style={{ background: '#fdf6f8', borderTop: '1px solid #f0d6de', padding: '48px 16px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '640px', margin: '0 auto' }}>
+          <p style={{ fontSize: '11px', fontWeight: 700, color: '#b76e79', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '12px' }}>Marriage Road Blog</p>
+          <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#3d2b2b', marginBottom: '10px' }}>婚活・結婚相談所コラム</h2>
+          <p style={{ fontSize: '13px', color: '#8a6a6a', marginBottom: '24px', lineHeight: 1.7 }}>婚活のコツ・成婚事例・よくある質問など、役立つ情報を随時発信中</p>
+          <a href="/blog"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 32px', background: '#b76e79', color: 'white', fontWeight: 700, borderRadius: '999px', fontSize: '14px', textDecoration: 'none' }}>
+            コラムを読む →
+          </a>
+        </div>
+      </section>
+
       {/* ── フッター ── */}
       <Footer />
 
