@@ -40,7 +40,7 @@ export async function getPostData(slug: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
   const matterResult = matter(fs.readFileSync(fullPath, 'utf8'))
   const contentHtml = (
-    await remark().use(html).process(matterResult.content)
+    await remark().use(html, { sanitize: false }).process(matterResult.content)
   ).toString()
   return {
     slug,
