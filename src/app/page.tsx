@@ -282,10 +282,20 @@ export default function Home() {
             オンライン全国対応 · ZOOM無料相談は毎週4枠実施
           </p>
 
-          <p className="text-xs mb-8" style={{ color: MUTED }}>
+          <p className="text-xs mb-5" style={{ color: MUTED }}>
             <MapPin size={12} className="inline mr-1" />
             〒243-0424 神奈川県海老名市社家6-5-2-301 · IBJ正規加盟店 No.01226
           </p>
+
+          <div className="mb-8 flex justify-center">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
+              style={{ background: 'rgba(201,169,110,0.18)', border: '2px solid rgba(201,169,110,0.55)', color: '#8a6a15', boxShadow: '0 8px 20px rgba(201,169,110,0.15)' }}
+            >
+              <span>🏛️</span>
+              海老名商工会議所 会員 No.4954
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
