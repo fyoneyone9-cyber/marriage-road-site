@@ -89,11 +89,19 @@ export default function Footer() {
               <span className="text-white font-bold text-lg tracking-wide">マレッジロードジャパン</span>
             </div>
             <p className="text-xs opacity-50 mb-4">Marriage Road Japan</p>
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium"
-              style={{ background: `${PRIMARY}22`, border: `1px solid ${PRIMARY}55`, color: PRIMARY }}
-            >
-              IBJ正規加盟店 登録番号 No.01226
+            <div className="flex flex-col gap-2">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium"
+                style={{ background: `${PRIMARY}22`, border: `1px solid ${PRIMARY}55`, color: PRIMARY }}
+              >
+                IBJ正規加盟店 登録番号 No.01226
+              </div>
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium"
+                style={{ background: `${ACCENT}22`, border: `1px solid ${ACCENT}55`, color: ACCENT }}
+              >
+                海老名商工会議所 会員 No.4954
+              </div>
             </div>
           </div>
 
