@@ -237,6 +237,23 @@ export default function InterviewPage() {
         </div>
       </section>
 
+      {/* Vol.2 導線 */}
+      <section className="py-8 px-4">
+        <div className="max-w-2xl mx-auto">
+          <a href="/interview-vol2" className="flex items-center justify-between gap-4 rounded-2xl px-6 py-5 transition-all hover:opacity-90"
+            style={{ background: SURFACE, border: `1px solid ${PRIMARY}30` }}>
+            <div>
+              <p className="text-xs font-medium mb-1" style={{ color: PRIMARY }}>続編が公開されました</p>
+              <p className="font-medium" style={{ color: TEXT }}>
+                Vol.2「カウンセラーが語る本当の婚活」を読む →
+              </p>
+              <p className="text-xs mt-1" style={{ color: MUTED }}>婚活疲れ・地域密着の強み・成婚する人の共通点</p>
+            </div>
+            <Heart size={20} style={{ color: PRIMARY, flexShrink: 0 }} />
+          </a>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto text-center rounded-2xl p-10"
