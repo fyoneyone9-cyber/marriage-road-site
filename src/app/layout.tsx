@@ -199,6 +199,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5929585030139547"
+          crossOrigin="anonymous"
+        />
       </head>
       <body
         className={`${inter.variable} ${notoSansJP.variable} font-sans bg-[#fff8f5] text-[#3d2c2c] antialiased`}
