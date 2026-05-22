@@ -244,13 +244,24 @@ export default function WContactPage() {
 
           {/* TimeRex 予約バナー */}
           <a href="https://timerex.net/s/f.yoneyone9_d61f/e6c35fdf" target="_blank" rel="noopener noreferrer"
-            className="flex items-center justify-between gap-4 rounded-xl p-5 mb-5 transition-all hover:opacity-90"
+            className="flex items-center justify-between gap-4 rounded-xl p-5 mb-3 transition-all hover:opacity-90"
             style={{ background: PRIMARY, textDecoration: 'none', boxShadow: '0 4px 16px rgba(183,110,121,0.35)' }}>
             <div>
               <p className="text-white font-bold text-sm mb-0.5">📅 無料説明会をオンライン予約</p>
               <p className="text-white/80 text-xs">日程を選ぶだけ。Zoom・対面どちらも対応。</p>
             </div>
             <span className="text-white text-lg flex-shrink-0">→</span>
+          </a>
+
+          {/* LINE相談ボタン */}
+          <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 rounded-xl p-4 mb-5 transition-all hover:opacity-90"
+            style={{ background: '#06C755', textDecoration: 'none', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}>
+            <span className="text-2xl">💬</span>
+            <div>
+              <p className="text-white font-bold text-sm">LINEで気軽に相談する</p>
+              <p className="text-white/80 text-xs">公式LINEに登録してトーク</p>
+            </div>
           </a>
 
           {/* 送信完了画面 */}

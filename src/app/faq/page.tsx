@@ -293,6 +293,11 @@ export default function FaqPage() {
               style={{ background: PRIMARY, textDecoration: 'none' }}>
               📞 050-1807-3163
             </a>
+            <a href="https://lin.ee/UxgdZ7F" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: '#06C755', textDecoration: 'none' }}>
+              💬 LINEで相談する
+            </a>
             <a href="/m-contact" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:opacity-80"
               style={{ border: `2px solid ${PRIMARY}`, color: PRIMARY, background: 'white', textDecoration: 'none' }}>
               メールで問い合わせ
