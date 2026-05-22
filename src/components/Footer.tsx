@@ -179,6 +179,63 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* ── IBJ 信頼性バッジ ── */}
+        <div
+          className="py-8"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <p className="text-xs font-semibold mb-5 tracking-widest uppercase text-center" style={{ color: ACCENT }}>
+            IBJ 認証・信頼性情報
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* JPX プライム上場 */}
+            <div
+              className="flex items-start gap-4 p-4 rounded-xl"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              <div
+                className="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center text-xs font-bold text-center leading-tight"
+                style={{ background: '#c00', color: '#fff', fontSize: '10px', padding: '4px' }}
+              >
+                JPX<br/>PRIME<br/>TOKYO
+              </div>
+              <p className="text-xs opacity-60 leading-relaxed">
+                株式会社IBJは、東京証券取引所プライム市場に上場しております。（証券コード：6071）
+              </p>
+            </div>
+            {/* プライバシーマーク */}
+            <div
+              className="flex items-start gap-4 p-4 rounded-xl"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              <div
+                className="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center text-xs font-bold text-center leading-tight"
+                style={{ background: '#003087', color: '#fff', fontSize: '10px', padding: '4px' }}
+              >
+                P<br/>プライバシー<br/>マーク<br/>10740062
+              </div>
+              <p className="text-xs opacity-60 leading-relaxed">
+                株式会社IBJは大切な個人情報を保護することを目的にプライバシーマークを取得しています。
+              </p>
+            </div>
+            {/* CMS マーク */}
+            <div
+              className="flex items-start gap-4 p-4 rounded-xl"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              <div
+                className="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center text-xs font-bold text-center leading-tight"
+                style={{ background: `${PRIMARY}`, color: '#fff', fontSize: '10px', padding: '4px' }}
+              >
+                CMS<br/>マル適<br/>マーク<br/>0015003(5)
+              </div>
+              <p className="text-xs opacity-60 leading-relaxed">
+                総合認証は会員数・経済産業省ガイドライン準拠・財務状態・教育体制・情報保護の審査をクリアした認証です。
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* ── 関連サービス ── */}
         <div className="pt-6 pb-2">
           <p className="text-xs font-semibold mb-3 tracking-widest uppercase" style={{ color: ACCENT }}>
