@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/faq`,       lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE}/chamber`,   lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/case`,      lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE}/results`,   lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE}/ibj`,       lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/blog`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${BASE}/interview`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
