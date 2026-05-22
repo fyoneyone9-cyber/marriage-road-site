@@ -68,6 +68,7 @@ const LEGAL_LINKS = [
 
 const RELATED_LINKS: [string, string][] = [
   ['NextraLabs（AIツール）', 'https://nextralab.jp'],
+  ['マレッジロードジャパン（Vercel）', 'https://marriage-road-site.vercel.app'],
 ]
 
 export default function Footer() {
