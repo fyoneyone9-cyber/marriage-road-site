@@ -38,6 +38,26 @@ export default function BlogPage() {
           </p>
         </div>
 
+        {/* インタビュー記事リンク */}
+        <div style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <Link href="/interview" style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#fff', border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '1rem 1.25rem', textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+            <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 10, background: '#fff2ee', border: `1px solid ${BORDER}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>🎙️</div>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontSize: '0.65rem', color: PRIMARY, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 2px' }}>Special Interview Vol.1</p>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, color: TEXT, margin: 0 }}>代表・米山文貴が語る「婚活と向き合う理由」</p>
+            </div>
+            <span style={{ color: PRIMARY, fontSize: '0.8rem', fontWeight: 700, flexShrink: 0 }}>読む →</span>
+          </Link>
+          <Link href="/interview-vol2" style={{ display: 'flex', alignItems: 'center', gap: '1rem', background: '#fff', border: `1px solid ${BORDER}`, borderRadius: '16px', padding: '1rem 1.25rem', textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
+            <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 10, background: '#fff2ee', border: `1px solid ${BORDER}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>🎙️</div>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontSize: '0.65rem', color: PRIMARY, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 2px' }}>Special Interview Vol.2</p>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, color: TEXT, margin: 0 }}>成婚率を上げるための「本音の婚活論」</p>
+            </div>
+            <span style={{ color: PRIMARY, fontSize: '0.8rem', fontWeight: 700, flexShrink: 0 }}>読む →</span>
+          </Link>
+        </div>
+
         {/* 記事一覧 */}
         {posts.length === 0 ? (
           <p style={{ textAlign: 'center', color: MUTED }}>記事がまだありません。</p>
