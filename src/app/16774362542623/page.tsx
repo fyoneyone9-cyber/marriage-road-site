@@ -1,5 +1,12 @@
 'use client'
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
+
+
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
 const BASE    = '#faf7f5'

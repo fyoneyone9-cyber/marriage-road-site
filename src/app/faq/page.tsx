@@ -1,3 +1,26 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'よくある質問(FAQ)|マレッジロードジャパン',
+  description: '結婚相談所マレッジロードジャパンのよくある質問。料金・入会方法・お見合い・ZOOM対応・IBJ加盟など婚活の疑問を詳しく解説。',
+  alternates: { canonical: 'https://marriage-road.jp/faq' },
+  openGraph: {
+    title: 'よくある質問(FAQ)|マレッジロードジャパン',
+    description: '結婚相談所マレッジロードジャパンのよくある質問。料金・入会方法・お見合い・ZOOM対応・IBJ加盟など婚活の疑問を詳しく解説。',
+    url: 'https://marriage-road.jp/faq',
+    siteName: 'マレッジロードジャパン',
+    locale: 'ja_JP',
+    type: 'website',
+    images: [{ url: 'https://marriage-road.jp/ibj-banner.jpg', width: 900, height: 400, alt: 'マレッジロードジャパン' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'よくある質問(FAQ)|マレッジロードジャパン',
+    description: '結婚相談所マレッジロードジャパンのよくある質問。料金・入会方法・お見合い・ZOOM対応・IBJ加盟など婚活の疑問を詳しく解説。',
+    images: ['https://marriage-road.jp/ibj-banner.jpg'],
+  },
+}
+
 ﻿'use client'
 import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react'
@@ -262,10 +285,24 @@ function QuickNav() {
   )
 }
 
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '結婚相談所の料金はいくらですか？', acceptedAnswer: { '@type': 'Answer', text: 'ライトプランは入会金28,000円・月額8,000円、スタンダードプランは入会金28,000円・月額9,800円、プレミアムプランは入会金28,000円・月額18,000円です。全プランZOOM全国対応。' } },
+    { '@type': 'Question', name: 'IBJとはどんな組織ですか？', acceptedAnswer: { '@type': 'Answer', text: 'IBJ（日本結婚相談所連盟）は全国82,000人以上の会員を擁する日本最大の結婚相談所連盟です。マレッジロードジャパンはIBJ加盟店（No.01226）として全国のネットワークを活用できます。' } },
+    { '@type': 'Question', name: '遠方でも婚活できますか？', acceptedAnswer: { '@type': 'Answer', text: 'はい、ZOOM全国対応のため日本全国どこからでも婚活可能です。お見合い・カウンセリングは全てオンラインで対応しています。' } },
+    { '@type': 'Question', name: '上級心理カウンセラーとはどんな資格ですか？', acceptedAnswer: { '@type': 'Answer', text: '上級心理カウンセラーは心理学に基づいたカウンセリング技術を持つ専門資格です。婚活中の不安や悩みを専門的にサポートします。' } },
+    { '@type': 'Question', name: '成婚実績を教えてください。', acceptedAnswer: { '@type': 'Answer', text: 'マレッジロードジャパンはIBJ加盟店として全国のカップル成立をサポートしています。具体的な実績は成婚実績ページをご覧ください。' } },
+    { '@type': 'Question', name: '男性と女性の料金は同じですか？', acceptedAnswer: { '@type': 'Answer', text: 'はい、男女同一料金です。ライトプラン月額8,000円・スタンダードプラン月額9,800円・プレミアムプラン月額18,000円（全て入会金28,000円）。' } },
+    { '@type': 'Question', name: '解約はいつでもできますか？', acceptedAnswer: { '@type': 'Answer', text: 'はい、いつでも退会・解約可能です。成婚退会の場合は成婚料が必要です。詳細は料金プランページをご確認ください。' } },
+  ],
+}
 export default function FaqPage() {
   return (
     <div style={{ background: BASE, minHeight: '100vh', fontFamily: "'Inter', 'Noto Sans JP', sans-serif", color: TEXT }}>
-      <SiteHeader />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />`n      <SiteHeader />
 
       {/* ページタイトル */}
       <section style={{ background: `linear-gradient(135deg, ${SURFACE} 0%, #fde8df 100%)`, paddingTop: '80px' }} className="py-16 px-4 text-center">
