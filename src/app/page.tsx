@@ -340,6 +340,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── LP誘導バナー ── */}
+      <section className="py-5 px-4" style={{ background: 'linear-gradient(90deg, #fde8df, #fdf5e8)' }}>
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-6 py-4"
+          style={{ background: 'white', border: `2px solid ${PRIMARY}`, boxShadow: `0 4px 20px rgba(183,110,121,0.15)` }}>
+          <div>
+            <p className="text-sm font-bold" style={{ color: TEXT }}>🎉 初めての方・比較検討中の方へ</p>
+            <p className="text-xs mt-0.5" style={{ color: MUTED }}>特徴・料金・成婚事例をまとめたランディングページをご用意しました</p>
+          </div>
+          <a
+            href="/lp"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-white font-bold text-sm transition-all hover:opacity-90 hover:scale-105"
+            style={{ background: PRIMARY, textDecoration: 'none', boxShadow: `0 4px 16px rgba(183,110,121,0.4)` }}
+          >
+            詳しく見る →
+          </a>
+        </div>
+      </section>
+
       {/* ── ページ導線カード ── */}
       <section className="py-8 px-4" style={{ background: '#fff8f5', borderBottom: '1px solid #e8d5d0' }}>
         <div className="max-w-5xl mx-auto">
