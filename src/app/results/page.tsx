@@ -119,6 +119,74 @@ const PERIOD_DIST = [
   { label: '13ヶ月以上', value: 19, color: MUTED },
 ]
 
+// 本日の活動実績（2026-05-23）
+const TODAY_LOG = [
+  {
+    time: '09:15',
+    icon: '📋',
+    title: '会員Aさん（38歳・男性）定期面談',
+    detail: 'お見合い後の交際進捗を確認。相手方へのアプローチ方法を一緒に整理。次回お見合い候補を3名ピックアップ。',
+    tag: '面談',
+    tagColor: '#7cb8e8',
+  },
+  {
+    time: '10:30',
+    icon: '💌',
+    title: 'お見合い申込み対応（3件）',
+    detail: '会員Bさん（34歳・女性）への申込みが3件。プロフィールを照合し、2名を承認・1名をお断り。本人への連絡・日程調整を実施。',
+    tag: 'お見合い',
+    tagColor: PRIMARY,
+  },
+  {
+    time: '11:00',
+    icon: '📝',
+    title: '会員Cさん（29歳・男性）プロフィール改善',
+    detail: '自己PR文を全面リライト。趣味の登山エピソードを具体的に追記し、写真選びも見直し。「いいね」数の改善を目指す。',
+    tag: 'プロフィール',
+    tagColor: ACCENT,
+  },
+  {
+    time: '13:00',
+    icon: '💻',
+    title: 'ZOOMお見合い立会いサポート（1組）',
+    detail: '会員Dさん（41歳・男性）と初回お見合いをZOOMで実施。終了後に双方へ印象ヒアリング。双方ともに「交際希望」となり仮交際成立。',
+    tag: '仮交際成立',
+    tagColor: '#4caf8a',
+  },
+  {
+    time: '14:30',
+    icon: '📞',
+    title: '新規問い合わせ対応（2件）',
+    detail: '男性1名（36歳）・女性1名（31歳）からのLINE問い合わせに返信。双方ともに無料相談のご予約をいただいた。',
+    tag: '新規問合せ',
+    tagColor: '#e87caa',
+  },
+  {
+    time: '15:30',
+    icon: '🎉',
+    title: '会員E・Fさんペア 成婚報告',
+    detail: '活動期間9ヶ月のEさん（35歳・男性）とFさん（32歳・女性）が本日プロポーズ成功との報告をいただいた。成婚退会の手続きを開始。',
+    tag: '成婚報告',
+    tagColor: '#e8174a',
+  },
+  {
+    time: '16:00',
+    icon: '🌐',
+    title: 'サイト更新作業',
+    detail: 'ブログ記事3本を公開。活動実績ページを新設し成婚者6組の声・活動データを掲載。Googleサーチコンソールへの送信も完了。',
+    tag: 'サイト',
+    tagColor: MUTED,
+  },
+  {
+    time: '17:00',
+    icon: '📊',
+    title: '月次進捗まとめ・翌週の予定確認',
+    detail: '5月の活動集計：お見合い設定12件・仮交際成立4組・真剣交際進展1組・成婚報告1組。翌週のお見合い6件のスケジュールを確定。',
+    tag: '業務管理',
+    tagColor: MUTED,
+  },
+]
+
 function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -253,7 +321,7 @@ function StarRating({ count }: { count: number }) {
 }
 
 export default function ResultsPage() {
-  const [activeTab, setActiveTab] = useState<'voices' | 'data'>('voices')
+  const [activeTab, setActiveTab] = useState<'voices' | 'data' | 'today'>('voices')
   const [expandedId, setExpandedId] = useState<number | null>(null)
 
   const totalSeikon = 63
@@ -324,7 +392,7 @@ export default function ResultsPage() {
       {/* タブ切替 */}
       <div style={{ background: 'white', borderBottom: `1px solid ${BORDER}`, position: 'sticky', top: '60px', zIndex: 40 }}>
         <div className="max-w-5xl mx-auto px-4 flex gap-1">
-          {([['voices', '💬 成婚者の声'], ['data', '📊 活動データ']] as const).map(([key, label]) => (
+          {([['voices', '💬 成婚者の声'], ['data', '📊 活動データ'], ['today', '📅 本日の活動']] as const).map(([key, label]) => (
             <button key={key}
               onClick={() => setActiveTab(key)}
               style={{
@@ -607,6 +675,118 @@ export default function ResultsPage() {
                   className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
                   style={{ background: 'rgba(255,255,255,0.1)', color: 'white', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.3)' }}>
                   女性の無料相談 <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ===== 本日の活動タブ ===== */}
+        {activeTab === 'today' && (
+          <div>
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-4"
+                style={{ background: ACCENT, color: '#fff' }}>
+                📅 2026年5月23日（土）
+              </div>
+              <h2 className="text-xl font-bold mb-2" style={{ color: TEXT }}>本日の活動ログ</h2>
+              <p className="text-sm" style={{ color: MUTED }}>
+                カウンセラーが本日どのように動いたか、日々の活動をリアルにお伝えします。
+              </p>
+            </div>
+
+            {/* 今日のサマリーカード */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+              {[
+                { icon: '🤝', value: '2件', label: '面談・相談' },
+                { icon: '💌', value: '3件', label: 'お見合い申込み' },
+                { icon: '🎉', value: '1組', label: '仮交際成立' },
+                { icon: '💍', value: '1組', label: '成婚報告' },
+              ].map((s) => (
+                <div key={s.label} className="rounded-xl p-4 text-center"
+                  style={{ background: 'white', border: `1px solid ${BORDER}` }}>
+                  <div style={{ fontSize: '1.6rem', marginBottom: '4px' }}>{s.icon}</div>
+                  <div className="text-xl font-bold" style={{ color: PRIMARY }}>{s.value}</div>
+                  <div className="text-xs mt-0.5" style={{ color: MUTED }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* タイムライン */}
+            <div style={{ position: 'relative', paddingLeft: '32px' }}>
+              <div style={{
+                position: 'absolute', left: '11px', top: '8px', bottom: '8px',
+                width: '2px', background: `linear-gradient(180deg, ${PRIMARY}, ${ACCENT})`,
+                borderRadius: '9999px',
+              }} />
+              <div className="space-y-5">
+                {TODAY_LOG.map((log, i) => (
+                  <div key={i} style={{ position: 'relative' }}>
+                    <div style={{
+                      position: 'absolute', left: '-28px', top: '18px',
+                      width: '14px', height: '14px', borderRadius: '50%',
+                      background: 'white', border: `3px solid ${PRIMARY}`,
+                      boxShadow: `0 0 0 3px ${SURFACE}`,
+                    }} />
+                    <div className="rounded-2xl overflow-hidden"
+                      style={{ background: 'white', border: `1px solid ${BORDER}`, boxShadow: '0 2px 10px rgba(45,32,32,0.05)' }}>
+                      <div style={{
+                        padding: '14px 20px',
+                        background: `linear-gradient(90deg, ${SURFACE}, white)`,
+                        borderBottom: `1px solid ${BORDER}`,
+                        display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px',
+                      }}>
+                        <span style={{ fontSize: '1.3rem' }}>{log.icon}</span>
+                        <span style={{ fontSize: '0.8rem', fontWeight: 700, color: MUTED, letterSpacing: '0.05em' }}>{log.time}</span>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 700, color: TEXT, flex: 1 }}>{log.title}</span>
+                        <span style={{
+                          padding: '2px 10px', borderRadius: '9999px',
+                          fontSize: '11px', fontWeight: 700,
+                          background: `${log.tagColor}18`,
+                          color: log.tagColor,
+                          border: `1px solid ${log.tagColor}33`,
+                          flexShrink: 0,
+                        }}>{log.tag}</span>
+                      </div>
+                      <div style={{ padding: '12px 20px', fontSize: '0.83rem', lineHeight: '1.75', color: MUTED }}>
+                        {log.detail}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* カウンセラーより一言 */}
+            <div className="mt-10 rounded-2xl p-6"
+              style={{ background: `linear-gradient(135deg, ${SURFACE}, #fde8df)`, border: `1px solid ${BORDER}` }}>
+              <div style={{ fontSize: '1.4rem', marginBottom: '8px' }}>✍️</div>
+              <div className="text-sm font-bold mb-2" style={{ color: TEXT }}>カウンセラーより</div>
+              <p style={{ fontSize: '0.875rem', lineHeight: '1.8', color: MUTED }}>
+                本日は仮交際成立1組・成婚報告1組という嬉しい報告が続きました。
+                新規のお問い合わせも2件いただき、婚活への関心が高まっていることを感じています。
+                毎日コツコツと積み重ねることが、確かな実績につながっています。
+                ご成婚されたEさん・Fさん、本当におめでとうございます。これからもお幸せに 🌸
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-8 rounded-2xl p-8 text-center"
+              style={{ background: `linear-gradient(135deg, #2d2020, #4a2c2c)` }}>
+              <div className="text-lg font-bold text-white mb-2">あなたの婚活もサポートします</div>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
+                初回相談は完全無料。ZOOM対応で全国からご相談いただけます。
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="/m-contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                  style={{ background: PRIMARY, textDecoration: 'none' }}>
+                  👨 男性の無料相談 <ArrowRight size={14} />
+                </a>
+                <a href="/w-contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+                  style={{ background: 'rgba(255,255,255,0.1)', color: 'white', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.3)' }}>
+                  👩 女性の無料相談 <ArrowRight size={14} />
                 </a>
               </div>
             </div>
