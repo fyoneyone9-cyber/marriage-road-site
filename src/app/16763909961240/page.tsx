@@ -4,7 +4,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
 const BASE    = '#faf7f5'
@@ -28,7 +27,6 @@ export default function CertPage() {
           <p style={{ fontSize: '0.875rem', color: MUTED }}>相談所 NO：01226</p>
         </div>
 
-        {/* 認定証カード */}
         <div style={{
           background: 'white',
           border: `2px solid ${ACCENT}`,
@@ -53,7 +51,6 @@ export default function CertPage() {
           <div style={{ fontSize: '0.8rem', color: MUTED, marginTop: '0.25rem' }}>代表者：米山 文貴</div>
         </div>
 
-        {/* 説明 */}
         <div style={{ background: SURFACE, border: `1px solid ${BORDER}`, borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2rem' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.75rem', color: TEXT }}>IBJ正規加盟店とは</h2>
           <p style={{ fontSize: '0.875rem', color: MUTED, lineHeight: 1.8, marginBottom: '0.75rem' }}>
@@ -67,11 +64,10 @@ export default function CertPage() {
           </p>
         </div>
 
-        {/* 信頼性ポイント */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem', marginBottom: '2rem' }}>
           {[
             { icon: '🔐', title: '審査通過済み', desc: 'IBJの厳格な審査基準をクリア' },
-            { icon: '📋', title: '登録番号発行', desc: '正規加盟店証明 No.01226' },
+            { icon: '📋', title: '登録番号発行', desc: '正規加盟店証明No.01226' },
             { icon: '🤝', title: '全国ネットワーク', desc: '3,000以上の相談所と連携' },
             { icon: '⭐', title: '東証上場企業', desc: 'IBJは東証プライム上場' },
           ].map((item, i) => (
@@ -83,7 +79,6 @@ export default function CertPage() {
           ))}
         </div>
 
-        {/* CTA */}
         <div style={{ background: `linear-gradient(160deg, #fde8df 0%, #fdf5e8 100%)`, borderRadius: '1rem', padding: '2rem', textAlign: 'center' }}>
           <h3 style={{ fontWeight: 700, fontSize: '1.125rem', marginBottom: '0.5rem', color: TEXT }}>まずは無料相談から</h3>
           <p style={{ fontSize: '0.8rem', color: MUTED, marginBottom: '1.25rem' }}>
