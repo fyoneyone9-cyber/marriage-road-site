@@ -1,3 +1,56 @@
+﻿const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://marriage-road.jp/#localbusiness',
+  name: 'マレッジロードジャパン',
+  alternateName: '結婚相談所 マレッジロードジャパン',
+  description: 'IBJ加盟の結婚相談所。上級心理カウンセラーによる専門的サポート。神奈川県海老名市社家。ZOOM全国対応。',
+  url: 'https://marriage-road.jp',
+  telephone: '050-1807-3163',
+  email: 'f.yoneyone9@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '社家6-5-2-301',
+    addressLocality: '海老名市',
+    addressRegion: '神奈川県',
+    postalCode: '243-0424',
+    addressCountry: 'JP',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 35.4489,
+    longitude: 139.3884,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],
+      opens: '10:00',
+      closes: '23:00',
+    },
+  ],
+  priceRange: '¥¥',
+  currenciesAccepted: 'JPY',
+  paymentAccepted: '銀行振込、クレジットカード',
+  areaServed: [
+    { '@type': 'City', name: '海老名市' },
+    { '@type': 'City', name: '厚木市' },
+    { '@type': 'City', name: '大和市' },
+    { '@type': 'City', name: '座間市' },
+    { '@type': 'City', name: '相模原市' },
+    { '@type': 'City', name: '横浜市' },
+    { '@type': 'AdministrativeArea', name: '神奈川県' },
+    { '@type': 'Country', name: '日本' },
+  ],
+  sameAs: [
+    'https://marriage-road.jp',
+  ],
+  memberOf: {
+    '@type': 'Organization',
+    name: '日本結婚相談所連盟（IBJ）',
+    url: 'https://www.ibjapan.com',
+  },
+}
 'use client'
 import type { Metadata } from 'next'
 
@@ -121,6 +174,7 @@ function QuickNav() {
 export default function AccessPage() {
   return (
     <div style={{ background: BASE, color: TEXT, fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
       <div style={{ maxWidth: '48rem', margin: '0 auto', padding: '3rem 1rem' }}>
 
         <a href="/" style={{ color: PRIMARY, textDecoration: 'none', fontSize: '0.875rem' }}>← トップに戻る</a>
