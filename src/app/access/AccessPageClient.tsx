@@ -1,7 +1,32 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://marriage-road.jp/#localbusiness',
+  name: 'マレッジロードジャパン',
+  description: '神奈川県海老名市の結婚相談所',
+  url: 'https://marriage-road.jp',
+  telephone: '050-1807-3163',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '社家6-5-2-301',
+    addressLocality: '海老名市',
+    addressRegion: '神奈川県',
+    postalCode: '243-0424',
+    addressCountry: 'JP',
+  },
+  sameAs: [
+    'https://marriage-road.jp',
+  ],
+  memberOf: {
+    '@type': 'Organization',
+    name: '日本結婚相談所連盟 IBJ',
+    url: 'https://www.ibjapan.com',
+  },
+}
 const PRIMARY = '#b76e79'
 const ACCENT  = '#c9a96e'
 const BASE    = '#faf7f5'
