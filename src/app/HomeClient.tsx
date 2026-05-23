@@ -1,6 +1,6 @@
-'use client'
+﻿'use client'
 
- useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Heart, Users, Clock, Star, ChevronDown, ChevronUp,
   Mail, Phone, Youtube, CheckCircle, ArrowRight, Menu, X,

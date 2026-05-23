@@ -1,6 +1,6 @@
-'use client'
+﻿'use client'
 
-ooter from '@/components/Footer'
+import Footer from '@/components/Footer'
 import { useState } from 'react'
 
 const PRIMARY = '#b76e79'

@@ -1,6 +1,6 @@
-'use client'
+﻿'use client'
 
- useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import Footer from '@/components/Footer'
 
